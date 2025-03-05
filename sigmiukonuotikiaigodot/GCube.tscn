@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsflv0gye3udl"]
+[gd_scene load_steps=9 format=3 uid="uid://cshx1n2ts8ipf"]
 
 [ext_resource type="Texture2D" uid="uid://dwkl8i3w32sm3" path="res://f72d0cc6-0345-4ea6-84f9-02d3d1775044_scaled.jpg" id="2_bk5mh"]
 [ext_resource type="Texture2D" uid="uid://cya8rebiy0mgh" path="res://128c01e3d408cb602be8286d81679bcf.jpg" id="3_hsu41"]
-[ext_resource type="Script" uid="uid://cim6q2153qgc0" path="res://character_body_2d_2.gd" id="4_oghsp"]
+[ext_resource type="Script" path="res://character_body_2d_2.gd" id="4_oghsp"]
 [ext_resource type="Texture2D" uid="uid://b4ac1akwmjayq" path="res://2d7605c90868f61713538af027b8c771.jpg" id="5_qnqhu"]
 [ext_resource type="Texture2D" uid="uid://cn0mdleiuu03h" path="res://download.jpg" id="6_o5h1u"]
 
