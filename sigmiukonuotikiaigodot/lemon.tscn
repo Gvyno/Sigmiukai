@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2lwlpwessutr"]
+
+[ext_resource type="Script" uid="uid://mt1ifk3dh7fo" path="res://lemon.gd" id="1_0f6ds"]
+[ext_resource type="Texture2D" uid="uid://dxvj0m8nftspq" path="res://ConceptArt/TheHolyLemon(NoBackground).png" id="2_vvuai"]
+[ext_resource type="PackedScene" uid="uid://dyrb68h77nrve" path="res://interaction_logic/interactable.tscn" id="3_uhyse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(48, 35)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qi2p4"]
+radius = 29.0689
+
+[node name="PickUp" type="RigidBody2D"]
+position = Vector2(-1, 3)
+script = ExtResource("1_0f6ds")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(-8, -1)
+scale = Vector2(0.06875, 0.0657408)
+texture = ExtResource("2_vvuai")
+
+[node name="Interactable" parent="." instance=ExtResource("3_uhyse")]
+position = Vector2(0, -1)
+rotation = 0.00160059
+interact_name = "Pick up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+light_mask = 0
+visibility_layer = 2
+rotation = -0.474833
+shape = SubResource("CircleShape2D_qi2p4")

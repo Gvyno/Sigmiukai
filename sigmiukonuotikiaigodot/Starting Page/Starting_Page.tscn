@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5ic2ksi62htr"]
+[gd_scene load_steps=9 format=3 uid="uid://b5ic2ksi62htr"]
 
+[ext_resource type="Script" uid="uid://d4b54clnm6sc8" path="res://Starting Page/starting_page.gd" id="1_ahfb2"]
 [ext_resource type="Texture2D" uid="uid://bpmktpk4sufv8" path="res://Starting Page/FreeAssetBackground.webp" id="1_ddp1b"]
 [ext_resource type="FontFile" uid="uid://dqi4uqyjhr444" path="res://Starting Page/Šifras_Pavadinimui.ttf" id="2_nse6w"]
 
@@ -43,6 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ahfb2")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -131,3 +133,7 @@ theme_override_font_sizes/font_size = 135
 text = "Tea Tale"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_bsettings_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_3_pressed"]

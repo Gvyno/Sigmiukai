@@ -1,28 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsflv0gye3udl"]
+[gd_scene load_steps=9 format=3 uid="uid://dsflv0gye3udl"]
 
 [ext_resource type="Texture2D" uid="uid://dwkl8i3w32sm3" path="res://f72d0cc6-0345-4ea6-84f9-02d3d1775044_scaled.jpg" id="2_bk5mh"]
 [ext_resource type="Texture2D" uid="uid://cya8rebiy0mgh" path="res://128c01e3d408cb602be8286d81679bcf.jpg" id="3_hsu41"]
-[ext_resource type="Script" uid="uid://cim6q2153qgc0" path="res://character_body_2d_2.gd" id="4_oghsp"]
-[ext_resource type="Texture2D" uid="uid://b4ac1akwmjayq" path="res://2d7605c90868f61713538af027b8c771.jpg" id="5_qnqhu"]
+[ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://player.tscn" id="4_cq3iy"]
+[ext_resource type="PackedScene" uid="uid://16g8700g2w2k" path="res://enemy.tscn" id="5_bk5mh"]
+[ext_resource type="PackedScene" uid="uid://b2lwlpwessutr" path="res://lemon.tscn" id="6_hsu41"]
 [ext_resource type="Texture2D" uid="uid://cn0mdleiuu03h" path="res://download.jpg" id="6_o5h1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trxdx"]
 size = Vector2(1220.5, 254.563)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pcy0"]
-size = Vector2(42.5, 44)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bk5mh"]
-bg_color = Color(0.14902, 0, 0.0117647, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5h1u"]
-bg_color = Color(0.729412, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsu41"]
-bg_color = Color(0.0313726, 0.27451, 0.447059, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oghsp"]
-bg_color = Color(0, 0.431373, 0.968627, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpyjk"]
 size = Vector2(113, 33)
@@ -44,10 +30,10 @@ offset_bottom = 806.0
 texture = ExtResource("2_bk5mh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -389.0
-offset_top = -82.0
-offset_right = 1490.0
-offset_bottom = 900.0
+offset_left = -320.0
+offset_top = -138.0
+offset_right = 1559.0
+offset_bottom = 844.0
 texture = ExtResource("6_o5h1u")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="."]
@@ -73,41 +59,6 @@ texture = ExtResource("3_hsu41")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(601.75, 114.719)
 shape = SubResource("RectangleShape2D_trxdx")
-
-[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
-script = ExtResource("4_oghsp")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
-position = Vector2(65, 381)
-scale = Vector2(0.0895833, 0.0700935)
-texture = ExtResource("5_qnqhu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-position = Vector2(65, 381)
-shape = SubResource("RectangleShape2D_3pcy0")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D2"]
-position = Vector2(78, 373)
-zoom = Vector2(2, 2)
-
-[node name="HealthBar" type="ProgressBar" parent="CharacterBody2D2"]
-offset_left = -185.0
-offset_top = 235.0
-offset_right = -15.0
-offset_bottom = 258.0
-theme_override_styles/background = SubResource("StyleBoxFlat_bk5mh")
-theme_override_styles/fill = SubResource("StyleBoxFlat_o5h1u")
-max_value = 10.0
-value = 5.0
-
-[node name="ManaBar" type="ProgressBar" parent="CharacterBody2D2"]
-offset_left = -185.0
-offset_top = 261.0
-offset_right = -15.0
-offset_bottom = 288.0
-theme_override_styles/background = SubResource("StyleBoxFlat_hsu41")
-theme_override_styles/fill = SubResource("StyleBoxFlat_oghsp")
-value = 50.0
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(-22, 460)
@@ -180,3 +131,12 @@ texture = ExtResource("3_hsu41")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
 position = Vector2(2334, 400)
 shape = SubResource("RectangleShape2D_trxdx")
+
+[node name="CharacterBody2D3" parent="." instance=ExtResource("4_cq3iy")]
+position = Vector2(283, 46)
+
+[node name="PickUp" parent="." instance=ExtResource("6_hsu41")]
+position = Vector2(628, 423)
+
+[node name="Enemy" parent="." instance=ExtResource("5_bk5mh")]
+position = Vector2(519, 313)
