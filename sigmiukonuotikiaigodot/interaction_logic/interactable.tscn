@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyrb68h77nrve"]
+
+[ext_resource type="Script" uid="uid://giec6hshkpr1" path="res://interaction_logic/interactable.gd" id="1_xujnk"]
+
+[node name="Interactable" type="Area2D"]
+position = Vector2(3, -5)
+rotation = -1.16903
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_xujnk")
