@@ -29,20 +29,24 @@ func _show_text_box():
 	text_box.finished_displaying.connect(_on_text_box_finished_displaying)
 	get_tree().root.add_child(text_box)
 	text_box.global_position = text_box_position
+	
 	text_box.display_text(dialogue_lines[current_line_index])
 	can_advance_line = false
+
 
 
 func _on_text_box_finished_displaying():
 	can_advance_line = true
 
 
+
 func _unhandled_input(event):
 	if(
-		event.is_action_pressed("ui_shift") &&
+		event.is_action_pressed("interact") &&
 		is_dialogue_active &&
 		can_advance_line
 	):
+
 		text_box.queue_free()
 		
 		current_line_index += 1
@@ -52,7 +56,6 @@ func _unhandled_input(event):
 			return
 		
 		_show_text_box()
-
 
 func end_dialogue():
 	if text_box:

@@ -1,9 +1,10 @@
 extends Area2D
 
 const lines: Array[String] = [
-	"Yo guy",
-	"I'm a random block",
-	"Bye now",
+	"Hey kid",
+	"I have some candy in my van",
+	"Do you want some :) ....?",
+	"Show me your feet"
 ]
 
 func _ready():

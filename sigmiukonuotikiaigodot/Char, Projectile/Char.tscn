@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://c1law8bt55up7"]
+[gd_scene load_steps=23 format=3 uid="uid://c1law8bt55up7"]
 
 [ext_resource type="Texture2D" uid="uid://dk0wnhuwdvjrd" path="res://icon.svg" id="1_jkwb4"]
+[ext_resource type="Texture2D" uid="uid://b4ac1akwmjayq" path="res://2d7605c90868f61713538af027b8c771.jpg" id="1_lnqjt"]
 [ext_resource type="Script" uid="uid://dyfg265kuo7f3" path="res://Char, Projectile/Char.gd" id="2_stl8g"]
 [ext_resource type="Script" uid="uid://c16kupmxlwoyr" path="res://Char, Projectile/area_2d.gd" id="2_yklb6"]
 [ext_resource type="Texture2D" uid="uid://dw70sv5rfdobr" path="res://Interaction Animations (Placeholder)/Idle.png" id="3_83lm4"]
@@ -222,9 +223,10 @@ _data = {
 position = Vector2(435, 136)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(31, 69)
-scale = Vector2(0.484375, 0.46875)
-texture = ExtResource("1_jkwb4")
+position = Vector2(31.4375, 68.1328)
+scale = Vector2(0.127344, 0.089929)
+texture = ExtResource("1_lnqjt")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(31, 69)
