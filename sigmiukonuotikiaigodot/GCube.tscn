@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsflv0gye3udl"]
+[gd_scene load_steps=10 format=3 uid="uid://dsflv0gye3udl"]
 
 [ext_resource type="Texture2D" uid="uid://dwkl8i3w32sm3" path="res://f72d0cc6-0345-4ea6-84f9-02d3d1775044_scaled.jpg" id="2_bk5mh"]
 [ext_resource type="Texture2D" uid="uid://cya8rebiy0mgh" path="res://128c01e3d408cb602be8286d81679bcf.jpg" id="3_hsu41"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://16g8700g2w2k" path="res://enemy.tscn" id="5_bk5mh"]
 [ext_resource type="PackedScene" uid="uid://b2lwlpwessutr" path="res://lemon.tscn" id="6_hsu41"]
 [ext_resource type="Texture2D" uid="uid://cn0mdleiuu03h" path="res://download.jpg" id="6_o5h1u"]
+[ext_resource type="PackedScene" uid="uid://dx8nhhs07mie" path="res://UI/ui.tscn" id="7_hsu41"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trxdx"]
 size = Vector2(1220.5, 254.563)
@@ -134,6 +135,8 @@ shape = SubResource("RectangleShape2D_trxdx")
 
 [node name="CharacterBody2D3" parent="." instance=ExtResource("4_cq3iy")]
 position = Vector2(283, 46)
+
+[node name="UI" parent="CharacterBody2D3" instance=ExtResource("7_hsu41")]
 
 [node name="PickUp" parent="." instance=ExtResource("6_hsu41")]
 position = Vector2(628, 423)

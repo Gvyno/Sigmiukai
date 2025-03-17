@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b5ic2ksi62htr"]
 
-[ext_resource type="Script" uid="uid://d4b54clnm6sc8" path="res://Starting Page/starting_page.gd" id="1_ahfb2"]
+[ext_resource type="Script" path="res://Starting Page/starting_page.gd" id="1_ahfb2"]
 [ext_resource type="Texture2D" uid="uid://bpmktpk4sufv8" path="res://Starting Page/FreeAssetBackground.webp" id="1_ddp1b"]
 [ext_resource type="FontFile" uid="uid://dqi4uqyjhr444" path="res://Starting Page/Šifras_Pavadinimui.ttf" id="2_nse6w"]
 

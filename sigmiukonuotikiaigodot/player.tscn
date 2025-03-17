@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmwclbobv1o3h"]
+[gd_scene load_steps=5 format=3 uid="uid://cmwclbobv1o3h"]
 
 [ext_resource type="Script" uid="uid://cim6q2153qgc0" path="res://character_body_2d_2.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://b4ac1akwmjayq" path="res://2d7605c90868f61713538af027b8c771.jpg" id="2_i3pqv"]
@@ -6,18 +6,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pcy0"]
 size = Vector2(42.5, 44)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bk5mh"]
-bg_color = Color(0.14902, 0, 0.0117647, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5h1u"]
-bg_color = Color(0.729412, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsu41"]
-bg_color = Color(0.0313726, 0.27451, 0.447059, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oghsp"]
-bg_color = Color(0, 0.431373, 0.968627, 1)
 
 [node name="CharacterBody2D2" type="CharacterBody2D"]
 position = Vector2(22, 18)
@@ -35,25 +23,6 @@ shape = SubResource("RectangleShape2D_3pcy0")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(76, 379)
 zoom = Vector2(2, 2)
-
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -185.0
-offset_top = 235.0
-offset_right = -15.0
-offset_bottom = 258.0
-theme_override_styles/background = SubResource("StyleBoxFlat_bk5mh")
-theme_override_styles/fill = SubResource("StyleBoxFlat_o5h1u")
-max_value = 10.0
-value = 5.0
-
-[node name="ManaBar" type="ProgressBar" parent="."]
-offset_left = -185.0
-offset_top = 261.0
-offset_right = -15.0
-offset_bottom = 288.0
-theme_override_styles/background = SubResource("StyleBoxFlat_hsu41")
-theme_override_styles/fill = SubResource("StyleBoxFlat_oghsp")
-value = 50.0
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_i3pqv")]
 position = Vector2(68, 381)

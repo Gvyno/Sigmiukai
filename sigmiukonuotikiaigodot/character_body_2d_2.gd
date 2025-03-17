@@ -5,10 +5,6 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 #Declare
-@onready var health_bar = $HealthBar
-@onready var mana_bar =$ManaBar
-var hp =100
-var mana =100
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -16,32 +12,20 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		var ui_node= get_node("UI")
+		ui_node._update_HealthBar(-10)
+		ui_node._update_ManaBar(-10)
 		velocity.y = JUMP_VELOCITY
-		#Concept Health/Mana
-		hp-=1
-		mana+=1
-		health_bar.value=hp
-		mana_bar.value=mana
-		#Concept Health/Mana
+		
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
-		#Concept Health/Mana
-		hp-=1
-		mana+=1
-		health_bar.value=hp
-		mana_bar.value=mana
-		#Concept Health/Mana
+
 	else:
-		#Concept Health/Mana
-		mana-=1
-		hp+=1
-		health_bar.value=hp
-		mana_bar.value=mana
-		#Concept Health/Mana
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 

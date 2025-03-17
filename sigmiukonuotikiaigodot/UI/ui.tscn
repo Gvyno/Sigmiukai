@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx8nhhs07mie"]
+
+[ext_resource type="Script" uid="uid://bro2vx07bq1g" path="res://UI/ui.gd" id="1_2fwl4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msqxa"]
+bg_color = Color(0.14902, 0, 0.0117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fwl4"]
+bg_color = Color(0.729412, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dajm1"]
+bg_color = Color(0.0313726, 0.27451, 0.447059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6gg6"]
+bg_color = Color(0, 0.431373, 0.968627, 1)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_2fwl4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = 6.775
+anchor_right = 2.7
+anchor_bottom = 7.175
+theme_override_styles/background = SubResource("StyleBoxFlat_msqxa")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2fwl4")
+value = 50.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ManaBar" type="ProgressBar" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = 7.3
+anchor_right = 2.7
+anchor_bottom = 7.7
+theme_override_styles/background = SubResource("StyleBoxFlat_dajm1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_e6gg6")
+value = 50.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true

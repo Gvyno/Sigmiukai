@@ -9,4 +9,7 @@ func _ready() -> void:
 func _on_interact():
 	queue_free()
 	print("Player interacted with the object")
+	var ui_node= get_node("../CharacterBody2D3/UI")
+	ui_node._update_HealthBar(-10)
+	ui_node._update_ManaBar(-10)
    
