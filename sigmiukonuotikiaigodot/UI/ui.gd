@@ -17,12 +17,18 @@ func _ready() -> void:
 #	pass
 	
 func _update_HealthBar(Damage):
+	if((hp-Damage)>100):
+		hp=100
+		pass
 	hp=hp-Damage
 	health_bar.value=hp
 	print(health_bar.value)
 	pass
 	
 func _update_ManaBar(Magic):
+	if((mana-Magic)>100):
+		mana=100
+		pass
 	mana=mana-Magic
 	mana_bar.value=mana
 	pass
