@@ -26,4 +26,4 @@ func _on_exit_3_pressed() -> void:
 
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Intro":  
-		get_tree().change_scene_to_file("res://World.tscn")
+		get_tree().change_scene_to_file("res://Worlds/Sigmiukas Residence.tscn")

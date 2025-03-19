@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://dktpk1t4gyjpv"]
 
-[ext_resource type="Texture2D" uid="uid://d1ncdk4qgd41p" path="res://Intro Cutscene/Intro Background.png" id="1_152on"]
-[ext_resource type="Texture2D" uid="uid://c578tc1g5cys7" path="res://Intro Cutscene/Sigmiukas.png" id="2_wla0y"]
-[ext_resource type="Texture2D" uid="uid://js3fm577vrfb" path="res://Intro Cutscene/Intro Sigmiukas Residence.png" id="3_6wdec"]
-[ext_resource type="Texture2D" uid="uid://bjlu5d2kf1il7" path="res://Intro Cutscene/Lemon Tea.png" id="4_jnakv"]
-[ext_resource type="Texture2D" uid="uid://cfy5ugakxll0l" path="res://Intro Cutscene/Empty Jar.png" id="5_1nd2e"]
-[ext_resource type="Texture2D" uid="uid://by2oh2kcroh6f" path="res://Intro Cutscene/Stepping out.png" id="6_giroq"]
+[ext_resource type="Texture2D" uid="uid://d1ncdk4qgd41p" path="res://Intro Cutscene/Assets/Intro Background.png" id="1_152on"]
+[ext_resource type="Texture2D" uid="uid://c578tc1g5cys7" path="res://Intro Cutscene/Assets/Sigmiukas.png" id="2_wla0y"]
+[ext_resource type="Texture2D" uid="uid://js3fm577vrfb" path="res://Intro Cutscene/Assets/Intro Sigmiukas Residence.png" id="3_6wdec"]
+[ext_resource type="Texture2D" uid="uid://bjlu5d2kf1il7" path="res://Intro Cutscene/Assets/Lemon Tea.png" id="4_jnakv"]
+[ext_resource type="Texture2D" uid="uid://cfy5ugakxll0l" path="res://Intro Cutscene/Assets/Empty Jar.png" id="5_1nd2e"]
+[ext_resource type="Texture2D" uid="uid://by2oh2kcroh6f" path="res://Intro Cutscene/Assets/Stepping out.png" id="6_giroq"]
 
 [sub_resource type="Animation" id="Animation_wg7d4"]
 resource_name = "Intro"

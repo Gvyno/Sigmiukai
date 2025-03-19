@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://16g8700g2w2k"]
 
 [ext_resource type="Script" uid="uid://dp2sle36hvs2l" path="res://enemy.gd" id="1_qi2p4"]
-[ext_resource type="Texture2D" uid="uid://dkfpgsin5cyl7" path="res://ConceptArt/TheVeryHungryBatman.png" id="2_qi2p4"]
+[ext_resource type="Texture2D" uid="uid://dkfpgsin5cyl7" path="res://Concept Art/TheVeryHungryBatman.png" id="2_qi2p4"]
 [ext_resource type="PackedScene" uid="uid://dyrb68h77nrve" path="res://interaction_logic/interactable.tscn" id="3_iifgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]

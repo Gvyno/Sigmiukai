@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bn76312bfau2n" path="res://Dialogue/text_box.gd" id="1_5tto5"]
 [ext_resource type="Texture2D" uid="uid://cpggxd8liodwt" path="res://Dialogue/Assets/new border.png" id="2_m2iqb"]
-[ext_resource type="FontFile" uid="uid://dqi4uqyjhr444" path="res://Starting Page/Šifras_Pavadinimui.ttf" id="3_ejigk"]
+[ext_resource type="FontFile" uid="uid://dqi4uqyjhr444" path="res://Starting Page/Assets/Šifras_Pavadinimui.ttf" id="3_ejigk"]
 
 [node name="TextBox" type="MarginContainer"]
 offset_right = 17.0
