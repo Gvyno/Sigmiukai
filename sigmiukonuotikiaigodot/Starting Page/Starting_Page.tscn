@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5ic2ksi62htr"]
+[gd_scene load_steps=10 format=3 uid="uid://b5ic2ksi62htr"]
 
 [ext_resource type="Script" uid="uid://d4b54clnm6sc8" path="res://Starting Page/starting_page.gd" id="1_ahfb2"]
-[ext_resource type="Texture2D" uid="uid://bpmktpk4sufv8" path="res://Starting Page/FreeAssetBackground.webp" id="1_ddp1b"]
-[ext_resource type="FontFile" uid="uid://dqi4uqyjhr444" path="res://Starting Page/Šifras_Pavadinimui.ttf" id="2_nse6w"]
+[ext_resource type="Texture2D" uid="uid://bpmktpk4sufv8" path="res://Starting Page/Assets/FreeAssetBackground.webp" id="1_ddp1b"]
+[ext_resource type="FontFile" uid="uid://dqi4uqyjhr444" path="res://Starting Page/Assets/Šifras_Pavadinimui.ttf" id="2_nse6w"]
+[ext_resource type="PackedScene" uid="uid://dktpk1t4gyjpv" path="res://Intro Cutscene/Intro.tscn" id="4_iifhl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nse6w"]
 texture = ExtResource("1_ddp1b")
@@ -133,6 +134,8 @@ theme_override_font_sizes/font_size = 135
 text = "Tea Tale"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CutScene" parent="." instance=ExtResource("4_iifhl")]
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_bsettings_2_pressed"]

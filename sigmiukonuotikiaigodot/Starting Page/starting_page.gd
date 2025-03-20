@@ -1,24 +1,29 @@
 extends Control
 
+@onready var cutscene = $CutScene  
+@onready var animation_player = cutscene.get_node("AnimationPlayer")
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	animation_player.animation_finished.connect(_on_animation_finished)
+	cutscene.visible = false  
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-
-
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://GCube.tscn")
+	cutscene.visible = true  
+	animation_player.play("Intro")  
 
+	$VBoxContainer/Button.hide()
+	$VBoxContainer/Button2.hide()
+	$VBoxContainer/Button3.hide()
 
 func _on_bsettings_2_pressed() -> void:
-	pass # Replace with function body.
-
+	pass
 
 func _on_exit_3_pressed() -> void:
 	get_tree().quit()
+
+func _on_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Intro":  
+		get_tree().change_scene_to_file("res://Worlds/Sigmiukas Residence.tscn")
