@@ -183,6 +183,7 @@ func _physics_process(delta: float) -> void:
 		hp+=1
 		health_bar.value=hp
 		mana_bar.value=mana
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 		if is_on_floor():
 			$SpriteIdle.visible = true
