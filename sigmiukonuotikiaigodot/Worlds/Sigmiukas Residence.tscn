@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dsflv0gye3udl"]
+[gd_scene load_steps=35 format=4 uid="uid://dsflv0gye3udl"]
 
 [ext_resource type="Texture2D" uid="uid://cn0mdleiuu03h" path="res://Backgrounds/Outside (Placeholder).jpg" id="1_p1v5b"]
 [ext_resource type="Texture2D" uid="uid://dwkl8i3w32sm3" path="res://Backgrounds/Cave (Placeholder).jpg" id="2_wygdx"]
@@ -16,6 +16,12 @@
 [ext_resource type="Script" uid="uid://cvd8isdvjidxe" path="res://Worlds/Sigmiukas Residence Scripts/sign_4_area.gd" id="14_h5lgk"]
 [ext_resource type="Script" uid="uid://c0qvp376ok3ar" path="res://Worlds/Sigmiukas Residence Scripts/sign_5_area.gd" id="15_kspjl"]
 [ext_resource type="Script" uid="uid://be7bkvkixy2bb" path="res://Worlds/Sigmiukas Residence Scripts/sign_6_area.gd" id="16_3pnre"]
+[ext_resource type="Texture2D" uid="uid://dub0f8mtm6vy7" path="res://food/chms.png" id="17_iyaap"]
+[ext_resource type="Script" uid="uid://2u7adcjt75lq" path="res://Worlds/Sigmiukas Residence Scripts/chems.gd" id="18_wektq"]
+[ext_resource type="Texture2D" uid="uid://dswnwum7wh3no" path="res://food/bred.png" id="19_6aqo0"]
+[ext_resource type="Texture2D" uid="uid://di5vpm7squsw" path="res://food/Dogy foody.png" id="20_mtjgx"]
+[ext_resource type="Script" uid="uid://b3j3ca228c8cb" path="res://Worlds/Sigmiukas Residence Scripts/bred.gd" id="20_st1e4"]
+[ext_resource type="Script" uid="uid://dagqy72alyccv" path="res://Worlds/Sigmiukas Residence Scripts/dogyfood.gd" id="22_w3dpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trxdx"]
 size = Vector2(28.3125, 457.32)
@@ -276,6 +282,7 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("11_h2yiy")
 theme_override_font_sizes/font_size = 18
 text = "Press E to read the signs"
+metadata/_edit_use_anchors_ = true
 
 [node name="Sign 2" type="StaticBody2D" parent="."]
 position = Vector2(-478, 401)
@@ -332,6 +339,96 @@ script = ExtResource("16_3pnre")
 position = Vector2(37, 39)
 shape = SubResource("CircleShape2D_iyaap")
 
+[node name="Chems" type="StaticBody2D" parent="."]
+position = Vector2(-1525, 390)
+
+[node name="FoodImg" type="Sprite2D" parent="Chems"]
+position = Vector2(2776, 40)
+texture = ExtResource("17_iyaap")
+
+[node name="Chems" type="Area2D" parent="Chems"]
+position = Vector2(2750, -13)
+script = ExtResource("18_wektq")
+
+[node name="Chems Collision" type="CollisionShape2D" parent="Chems/Chems"]
+position = Vector2(26, 53)
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CircleShape2D_h2yiy")
+
+[node name="PressELabelEatChems" type="Label" parent="Chems/Chems"]
+offset_left = -40.0
+offset_top = 5.0
+offset_right = 138.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("11_h2yiy")
+theme_override_font_sizes/font_size = 18
+text = "FOOD FOR HEALTH!!!!!!!!!!!!1!!!!!!!!!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Bred" type="StaticBody2D" parent="."]
+position = Vector2(-1368, 393)
+
+[node name="FoodImg" type="Sprite2D" parent="Bred"]
+position = Vector2(2776, 40)
+texture = ExtResource("19_6aqo0")
+
+[node name="Bred2" type="Area2D" parent="Bred"]
+position = Vector2(2750, -13)
+script = ExtResource("20_st1e4")
+
+[node name="Bred Collision" type="CollisionShape2D" parent="Bred/Bred2"]
+position = Vector2(26, 53)
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CircleShape2D_h2yiy")
+
+[node name="PressELabelEatBred" type="Label" parent="Bred/Bred2"]
+offset_left = -40.0
+offset_top = 5.0
+offset_right = 138.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("11_h2yiy")
+theme_override_font_sizes/font_size = 18
+text = "FOOD FOR HEALTH!!!!!!!!!!!!1!!!!!!!!!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Dogy" type="StaticBody2D" parent="."]
+position = Vector2(-1091, 391)
+
+[node name="FoodImg" type="Sprite2D" parent="Dogy"]
+position = Vector2(2776, 40)
+texture = ExtResource("20_mtjgx")
+
+[node name="Dogy" type="Area2D" parent="Dogy"]
+position = Vector2(2750, -13)
+script = ExtResource("22_w3dpc")
+
+[node name="Dogy Collision" type="CollisionShape2D" parent="Dogy/Dogy"]
+position = Vector2(26, 53)
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CircleShape2D_h2yiy")
+
+[node name="PressELabelEatDogy" type="Label" parent="Dogy/Dogy"]
+offset_left = -40.0
+offset_top = 5.0
+offset_right = 138.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("11_h2yiy")
+theme_override_font_sizes/font_size = 18
+text = "FOOD FOR HEALTH!!!!!!!!!!!!1!!!!!!!!!"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="body_entered" from="Amogus guy/Area2D" to="Amogus guy/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Amogus guy/Area2D" to="Amogus guy/Area2D" method="_on_body_exited"]
 [connection signal="body_entered" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_entered"]
@@ -346,3 +443,9 @@ shape = SubResource("CircleShape2D_iyaap")
 [connection signal="body_exited" from="Sign 5/Sign 5 Area" to="Sign 5/Sign 5 Area" method="_on_body_exited"]
 [connection signal="body_entered" from="Sign 6/Sign 6 Area" to="Sign 6/Sign 6 Area" method="_on_body_entered"]
 [connection signal="body_exited" from="Sign 6/Sign 6 Area" to="Sign 6/Sign 6 Area" method="_on_body_exited"]
+[connection signal="body_entered" from="Chems/Chems" to="Chems/Chems" method="_on_body_entered"]
+[connection signal="body_exited" from="Chems/Chems" to="Chems/Chems" method="_on_body_exited"]
+[connection signal="body_entered" from="Bred/Bred2" to="Bred/Bred2" method="_on_body_entered"]
+[connection signal="body_exited" from="Bred/Bred2" to="Bred/Bred2" method="_on_body_exited"]
+[connection signal="body_entered" from="Dogy/Dogy" to="Dogy/Dogy" method="_on_body_entered"]
+[connection signal="body_exited" from="Dogy/Dogy" to="Dogy/Dogy" method="_on_body_exited"]
