@@ -32,7 +32,9 @@ var double_jump_timer = 0.0
 @export var DoubleJumpEnabled: bool = true  
 @export var DashEnabled: bool = true  
 @export var projectile_scene: PackedScene = preload("res://Projectile.tscn")  
-
+#regen timer
+func _on_timer_timeout():
+		mana=mana+10
 func _physics_process(delta: float) -> void:
 	# **Freeze movement while casting**
 	if is_casting:
