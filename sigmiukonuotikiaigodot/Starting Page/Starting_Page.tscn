@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://b5ic2ksi62htr"]
 
 [ext_resource type="Script" uid="uid://d4b54clnm6sc8" path="res://Starting Page/starting_page.gd" id="1_ahfb2"]
-[ext_resource type="Texture2D" uid="uid://bpmktpk4sufv8" path="res://Starting Page/Assets/FreeAssetBackground.webp" id="1_ddp1b"]
+[ext_resource type="Texture2D" uid="uid://dathlhlpifort" path="res://Starting Page/Assets/Background Picture.png" id="2_iifhl"]
 [ext_resource type="FontFile" uid="uid://dqi4uqyjhr444" path="res://Starting Page/Assets/Šifras_Pavadinimui.ttf" id="2_nse6w"]
 [ext_resource type="PackedScene" uid="uid://dktpk1t4gyjpv" path="res://Intro Cutscene/Intro.tscn" id="4_iifhl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nse6w"]
-texture = ExtResource("1_ddp1b")
+texture = ExtResource("2_iifhl")
 modulate_color = Color(0.473976, 0.473976, 0.473976, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nse6w"]
@@ -47,7 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ahfb2")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,7 +114,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ahfb2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_65pb8")
 text = "Exit"
 
-[node name="Label" type="Label" parent="."]
+[node name="Game Name Panel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

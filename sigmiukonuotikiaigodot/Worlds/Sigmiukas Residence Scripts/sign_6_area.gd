@@ -1,12 +1,14 @@
 extends Area2D
 
 const lines: Array[String] = [
-	"I have nothing more to teach you...",
-	"I hope that what you have learned",
-	"Will come in handy in the future",
-	"Now go forth and explore",
-	"There is a lemon waiting for you",
-	"Far far away..."
+	"If you get damaged",
+	"And you want to restore your health",
+	"You can consume dropped items",
+	"Different items restore...",
+	" ...different ammounts of health",
+	"I am giving you some of them for free",
+	"But in the future...",
+	"you'll need to explore to find them"
 ]
 
 func _ready():

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpmktpk4sufv8"
-path="res://.godot/imported/FreeAssetBackground.webp-7dacac9af90a632c2453a81d0d8ec567.ctex"
+uid="uid://dathlhlpifort"
+path="res://.godot/imported/Background Picture.png-73886b7d7bedf7fd55d0c0c2bdf260a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Starting Page/Assets/FreeAssetBackground.webp"
-dest_files=["res://.godot/imported/FreeAssetBackground.webp-7dacac9af90a632c2453a81d0d8ec567.ctex"]
+source_file="res://Starting Page/Assets/Background Picture.png"
+dest_files=["res://.godot/imported/Background Picture.png-73886b7d7bedf7fd55d0c0c2bdf260a3.ctex"]
 
 [params]
 

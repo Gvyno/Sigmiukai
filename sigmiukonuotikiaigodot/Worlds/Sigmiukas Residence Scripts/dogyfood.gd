@@ -1,24 +1,15 @@
 extends Area2D
 #@onready var chms: Sprite2D = $"../../Chems/Chms"
 @onready var food_img: Sprite2D = $"../FoodImg"
-const lines: Array[String] = [
-]
+
+const lines: Array[String] = []
 
 var player_in_range := false
+var consumed = false
 
 func _ready():
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
-	$PressELabelEatDogy.hide()  
-
-func _process(delta):
-	#if player_in_range and Input.is_action_just_pressed("interact"): 
-	pass
-		
-		
-		
-
-var consumed = false
 
 func _on_body_entered(body):
 	if body.is_in_group("player") and not consumed:
@@ -33,6 +24,5 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.is_in_group("player"):  
 		player_in_range = false
-		$PressELabelEatDogy.hide()
 		if DialogueManager.is_dialogue_active:
 			DialogueManager.end_dialogue()
