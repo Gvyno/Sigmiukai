@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cn0mdleiuu03h" path="res://Backgrounds/Outside (Placeholder).jpg" id="1_p1v5b"]
 [ext_resource type="Texture2D" uid="uid://dwkl8i3w32sm3" path="res://Backgrounds/Cave (Placeholder).jpg" id="2_wygdx"]
 [ext_resource type="Texture2D" uid="uid://r8syu5whj5wk" path="res://Tile Sets/Tile Set 1.1.png" id="3_k5g50"]
-[ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player.tscn" id="4_fv4w7"]
+[ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://player.tscn" id="4_fv4w7"]
 [ext_resource type="PackedScene" uid="uid://b2lwlpwessutr" path="res://lemon.tscn" id="5_fvag4"]
 [ext_resource type="PackedScene" uid="uid://16g8700g2w2k" path="res://enemy.tscn" id="6_kva58"]
 [ext_resource type="Texture2D" uid="uid://b4ac1akwmjayq" path="res://2d7605c90868f61713538af027b8c771.jpg" id="7_bah7m"]

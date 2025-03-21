@@ -12,8 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://gnljp364uwro" path="res://Sprites/doublejump.png" id="10_efikj"]
 [ext_resource type="Texture2D" uid="uid://qga45nbcknv8" path="res://Sprites/attackwalking.png" id="11_itxgx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pcy0"]
-size = Vector2(30, 44)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvl01"]
+radius = 12.0
+height = 44.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bk5mh"]
 bg_color = Color(0.14902, 0, 0.0117647, 1)
@@ -326,7 +327,7 @@ _data = {
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_3pcy0")
+shape = SubResource("CapsuleShape2D_nvl01")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -20)
@@ -352,9 +353,9 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_oghsp")
 value = 50.0
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_i3pqv")]
+visible = false
 
 [node name="SpriteIdle" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(-7.62939e-06, -1.00003)
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("3_3tkgg")
