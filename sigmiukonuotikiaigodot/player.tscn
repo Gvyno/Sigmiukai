@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cmwclbobv1o3h"]
+[gd_scene load_steps=28 format=3 uid="uid://cmwclbobv1o3h"]
 
 [ext_resource type="Script" uid="uid://cim6q2153qgc0" path="res://Player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://its46vtcx75m" path="res://Sprites/idle.png" id="3_3tkgg"]
@@ -11,22 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://bq3dr2mhna43a" path="res://Sprites/dash.png" id="9_rv870"]
 [ext_resource type="Texture2D" uid="uid://gnljp364uwro" path="res://Sprites/doublejump.png" id="10_efikj"]
 [ext_resource type="Texture2D" uid="uid://qga45nbcknv8" path="res://Sprites/attackwalking.png" id="11_itxgx"]
+[ext_resource type="PackedScene" uid="uid://ddoxp44fjesk0" path="res://Bars/Health_bar.tscn" id="12_ivps1"]
+[ext_resource type="PackedScene" uid="uid://dh5638o8nsc3t" path="res://Bars/Mana_bar.tscn" id="13_urp6f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvl01"]
 radius = 12.0
 height = 44.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bk5mh"]
-bg_color = Color(0.14902, 0, 0.0117647, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5h1u"]
-bg_color = Color(0.729412, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsu41"]
-bg_color = Color(0.0313726, 0.27451, 0.447059, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oghsp"]
-bg_color = Color(0, 0.431373, 0.968627, 1)
 
 [sub_resource type="Animation" id="Animation_jatw7"]
 resource_name = "Attack"
@@ -333,25 +323,6 @@ shape = SubResource("CapsuleShape2D_nvl01")
 offset = Vector2(0, -20)
 zoom = Vector2(2, 2)
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -250.0
-offset_top = -148.0
-offset_right = -80.0
-offset_bottom = -125.0
-theme_override_styles/background = SubResource("StyleBoxFlat_bk5mh")
-theme_override_styles/fill = SubResource("StyleBoxFlat_o5h1u")
-max_value = 10.0
-value = 5.0
-
-[node name="ManaBar" type="ProgressBar" parent="."]
-offset_left = -250.0
-offset_top = -122.0
-offset_right = -80.0
-offset_bottom = -95.0
-theme_override_styles/background = SubResource("StyleBoxFlat_hsu41")
-theme_override_styles/fill = SubResource("StyleBoxFlat_oghsp")
-value = 50.0
-
 [node name="InteractingComponent" parent="." instance=ExtResource("3_i3pqv")]
 visible = false
 
@@ -426,3 +397,15 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_sg6sq")
 }
+
+[node name="HealthBar" parent="." instance=ExtResource("12_ivps1")]
+offset_left = -47.0
+offset_top = 26.0
+offset_right = 49.0
+offset_bottom = 36.0
+
+[node name="ManaBar" parent="." instance=ExtResource("13_urp6f")]
+offset_left = -47.0
+offset_top = 38.0
+offset_right = 49.0
+offset_bottom = 48.0

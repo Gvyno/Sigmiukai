@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 @onready var animation = $AnimationPlayer
 
-@onready var health_bar = $HealthBar
-@onready var mana_bar =$ManaBar
-var hp =100
+var max_health=100
+var min_health=0
+var health =100
+var max_mana=50
+var min_mana=0
 var mana =100
 
 const SPEED = 200.0
@@ -99,10 +101,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump
 	if Input.is_action_just_pressed("ui_accept"):
 		
-		hp-=1
-		mana+=1
-		health_bar.value=hp
-		mana_bar.value=mana
+
 		
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
@@ -117,11 +116,14 @@ func _physics_process(delta: float) -> void:
 
 	# Handle dashing
 	if DashEnabled and can_dash and Input.is_action_just_pressed("ui_shift") and not is_dashing:
+		mana=mana-10
 		start_dash()
 		return
 
 	# Handle casting input
 	if Input.is_action_just_pressed("ui_right_mouse"):
+		mana=mana-20
+		health=health-5
 		is_casting = true
 		cast_timer = 0.9  
 		has_fired_projectile = false  
@@ -163,11 +165,6 @@ func _physics_process(delta: float) -> void:
 	# Allow movement in air
 	if direction:
 		
-		hp-=1
-		mana+=1
-		health_bar.value=hp
-		mana_bar.value=mana
-		
 		if is_on_floor():
 			$SpriteWalk.visible = true
 			hide_other_sprites("Walk")
@@ -178,11 +175,6 @@ func _physics_process(delta: float) -> void:
 
 		flip_sprites(direction < 0)
 	else:
-		
-		mana-=1
-		hp+=1
-		health_bar.value=hp
-		mana_bar.value=mana
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 		if is_on_floor():
