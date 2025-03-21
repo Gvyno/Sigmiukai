@@ -9,6 +9,8 @@ func _ready():
 	parent=get_parent()
 	max_health=parent.max_health
 	min_health=parent.min_health
+	max_value=parent.max_health
+	min_value=parent.min_health
  # Replace with function body.
 
 

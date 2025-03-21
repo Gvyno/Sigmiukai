@@ -34,7 +34,10 @@ var double_jump_timer = 0.0
 @export var projectile_scene: PackedScene = preload("res://Projectile.tscn")  
 #regen timer
 func _on_timer_timeout():
-		mana=mana+10
+		if ((mana+10)>=max_mana):
+			mana=max_mana
+		else:
+			mana=mana+10
 func _physics_process(delta: float) -> void:
 	# **Freeze movement while casting**
 	if is_casting:

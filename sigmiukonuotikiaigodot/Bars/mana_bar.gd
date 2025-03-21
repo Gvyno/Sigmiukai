@@ -9,6 +9,8 @@ func _ready():
 	parent=get_parent()
 	max_mana=parent.max_mana
 	min_mana=parent.min_mana
+	max_value=parent.max_mana
+	min_value=parent.min_mana
  # Replace with function body.
 
 
@@ -21,3 +23,4 @@ func _process(delta):
 			self.visible = true
 	else:
 		self.visible=true
+		
