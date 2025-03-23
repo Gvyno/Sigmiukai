@@ -85,6 +85,7 @@ func _physics_process(delta: float) -> void:
 			is_attacking = false
 			$SpriteAttack.visible = false
 			$SpriteSlash.visible = false  
+			
 		else:
 			if attack_timer <= 0.3 and slash_timer > 0:
 				slash_timer = 0
@@ -138,14 +139,28 @@ func _physics_process(delta: float) -> void:
 		slash_timer = 0.3  
 		$SpriteAttack.visible = false
 		$SpriteAttackWalking.visible = false
+		
+		print("Player is attacking!")  # Debugging print
+		is_attacking = true
+		attack_timer = 0.6
+		slash_timer = 0.3  
+		$Attack_Hitbox.monitoring = true  
+		$Attack_Hitbox.set_deferred("monitoring", true)  
+		animation.play("Attack")
+
+		await get_tree().create_timer(0.2).timeout  
+		#$Attack_Hitbox.monitoring = false  
+		print("Player attack finished.")  # Debugging print
 
 		if abs(velocity.x) > 0:  
 			hide_other_sprites("AttackWalking")
 			$SpriteAttackWalking.visible = true
+			$Attack_Hitbox.monitoring = true 
 			animation.play("AttackWalking")
 		else:
 			hide_other_sprites("Attack")
 			$SpriteAttack.visible = true
+			$Attack_Hitbox.monitoring = true 
 			animation.play("Attack")
 
 		flip_toward_mouse()

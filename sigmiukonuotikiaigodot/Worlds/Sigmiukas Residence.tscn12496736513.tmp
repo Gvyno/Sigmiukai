@@ -5,12 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://r8syu5whj5wk" path="res://Tile Sets/Tile Set 1.1.png" id="3_k5g50"]
 [ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://player.tscn" id="4_fv4w7"]
 [ext_resource type="PackedScene" uid="uid://b2lwlpwessutr" path="res://lemon.tscn" id="5_fvag4"]
+[ext_resource type="PackedScene" uid="uid://16g8700g2w2k" path="res://enemy.tscn" id="6_kva58"]
 [ext_resource type="Texture2D" uid="uid://b4ac1akwmjayq" path="res://2d7605c90868f61713538af027b8c771.jpg" id="7_bah7m"]
 [ext_resource type="Script" uid="uid://c16kupmxlwoyr" path="res://area_2d.gd" id="8_fv4w7"]
 [ext_resource type="Texture2D" uid="uid://brmnwva7oqbeq" path="res://Tile Sets/Tile Set 1.png" id="9_k5g50"]
-[ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Emeny_rat/emeny_rat.tscn" id="10_jmoy8"]
-[ext_resource type="PackedScene" uid="uid://cnhqrrd8wh6t5" path="res://Boss_DarkForest/boss_darkforest.tscn" id="11_g3fis"]
-[ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemy_dummy/enemy_dummy.tscn" id="11_h2yiy"]
+[ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://emeny_rat.tscn" id="10_jmoy8"]
+[ext_resource type="PackedScene" uid="uid://ceadicy3mx0l7" path="res://mini_rat_enemy.tscn" id="11_h2yiy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trxdx"]
 size = Vector2(28.3125, 324.641)
@@ -201,11 +201,12 @@ tile_set = SubResource("TileSet_h2yiy")
 
 [node name="CharacterBody2D3" parent="." instance=ExtResource("4_fv4w7")]
 position = Vector2(-1373, 423)
-collision_layer = 9
-collision_mask = 9
 
 [node name="PickUp" parent="." instance=ExtResource("5_fvag4")]
 position = Vector2(628, 423)
+
+[node name="Enemy" parent="." instance=ExtResource("6_kva58")]
+position = Vector2(519, 342)
 
 [node name="Amogus guy" type="StaticBody2D" parent="."]
 position = Vector2(942, 350)
@@ -228,15 +229,10 @@ position = Vector2(29, 54)
 shape = SubResource("RectangleShape2D_kva58")
 
 [node name="emeny_rat" parent="." instance=ExtResource("10_jmoy8")]
-position = Vector2(-1117, 434)
-collision_layer = 9
-collision_mask = 9
+position = Vector2(-1113, 433)
 
-[node name="enemy_dummy" parent="." instance=ExtResource("11_h2yiy")]
-position = Vector2(-1252, 420)
-
-[node name="boss_darkforest" parent="." instance=ExtResource("11_g3fis")]
-position = Vector2(-254, 396)
+[node name="emeny_rat2" parent="." instance=ExtResource("11_h2yiy")]
+position = Vector2(-1161, 439)
 
 [connection signal="body_entered" from="Amogus guy/Area2D" to="Amogus guy/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Amogus guy/Area2D" to="Amogus guy/Area2D" method="_on_body_exited"]

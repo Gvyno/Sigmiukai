@@ -1,0 +1,98 @@
+[gd_scene load_steps=13 format=3 uid="uid://ceadicy3mx0l7"]
+
+[ext_resource type="Script" uid="uid://dv6mispfiqemx" path="res://Emeny_rat/emeny_rat.gd" id="1_nn78d"]
+[ext_resource type="Texture2D" uid="uid://dbt4emu5sfogt" path="res://Emeny_rat/64x64 rat idle.png" id="2_xhdbk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm882"]
+atlas = ExtResource("2_xhdbk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih0ev"]
+atlas = ExtResource("2_xhdbk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7i08"]
+atlas = ExtResource("2_xhdbk")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqcda"]
+atlas = ExtResource("2_xhdbk")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uruom"]
+atlas = ExtResource("2_xhdbk")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h372j"]
+atlas = ExtResource("2_xhdbk")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxccr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm882")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih0ev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7i08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqcda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uruom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h372j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o688d"]
+radius = 50.01
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8ayk"]
+size = Vector2(33, 13.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm882"]
+size = Vector2(33, 4.5)
+
+[node name="emeny_rat" type="CharacterBody2D"]
+script = ExtResource("1_nn78d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(5.96046e-08, 0)
+scale = Vector2(0.861015, 0.949565)
+sprite_frames = SubResource("SpriteFrames_uxccr")
+animation = &"idle"
+frame_progress = 0.992879
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(-4, -2)
+shape = SubResource("CircleShape2D_o688d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 1.875)
+shape = SubResource("RectangleShape2D_p8ayk")
+
+[node name="head_area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="head_area"]
+position = Vector2(-5, -7)
+shape = SubResource("RectangleShape2D_cm882")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="head_area" to="." method="_on_head_area_body_entered"]

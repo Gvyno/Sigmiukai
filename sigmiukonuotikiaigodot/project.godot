@@ -21,6 +21,7 @@ DialogueManager="*res://Dialogue/DialogueManager.gd"
 [global_group]
 
 player=""
+attack_hitbox=""
 
 [input]
 
