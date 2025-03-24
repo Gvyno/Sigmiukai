@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dub0f8mtm6vy7"
-path="res://.godot/imported/chms.png-0035304f73b6f1e731c052634aea8fa5.ctex"
+uid="uid://bb1rxd0m0ygim"
+path="res://.godot/imported/walk.png-a41e8c5e380b27dc1b780488af7c65b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Food/chms.png"
-dest_files=["res://.godot/imported/chms.png-0035304f73b6f1e731c052634aea8fa5.ctex"]
+source_file="res://Player/Player Sprites/walk.png"
+dest_files=["res://.godot/imported/walk.png-a41e8c5e380b27dc1b780488af7c65b4.ctex"]
 
 [params]
 

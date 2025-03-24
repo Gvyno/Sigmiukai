@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://cq3g4nwev8kfw"]
+[gd_scene load_steps=6 format=4 uid="uid://cq3g4nwev8kfw"]
 
 [ext_resource type="Texture2D" uid="uid://dd0q0fn1wh16e" path="res://Tile Sets/Tile Set Dark Forest.png" id="1_66nir"]
-[ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player.tscn" id="2_ebum2"]
+[ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="2_ebum2"]
+[ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="3_b7d7x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebum2"]
 texture = ExtResource("1_66nir")
@@ -85,3 +86,15 @@ tile_set = SubResource("TileSet_b7d7x")
 
 [node name="Sigmiukas" parent="." instance=ExtResource("2_ebum2")]
 position = Vector2(-3258, 1370)
+
+[node name="rat_enemy" parent="." instance=ExtResource("3_b7d7x")]
+position = Vector2(-1760, 1427)
+
+[node name="rat_enemy2" parent="." instance=ExtResource("3_b7d7x")]
+position = Vector2(-1485, 1431)
+
+[node name="rat_enemy3" parent="." instance=ExtResource("3_b7d7x")]
+position = Vector2(-1302, 1430)
+
+[node name="rat_enemy4" parent="." instance=ExtResource("3_b7d7x")]
+position = Vector2(-1125, 1432)

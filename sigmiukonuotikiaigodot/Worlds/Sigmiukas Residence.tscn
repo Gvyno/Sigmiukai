@@ -1,10 +1,9 @@
-[gd_scene load_steps=32 format=4 uid="uid://dsflv0gye3udl"]
+[gd_scene load_steps=33 format=4 uid="uid://dsflv0gye3udl"]
 
 [ext_resource type="Texture2D" uid="uid://cn0mdleiuu03h" path="res://Backgrounds/Outside (Placeholder).jpg" id="1_p1v5b"]
 [ext_resource type="Texture2D" uid="uid://dwkl8i3w32sm3" path="res://Backgrounds/Cave (Placeholder).jpg" id="2_wygdx"]
 [ext_resource type="Texture2D" uid="uid://r8syu5whj5wk" path="res://Tile Sets/Tile Set 1.1.png" id="3_k5g50"]
-[ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player.tscn" id="4_fv4w7"]
-[ext_resource type="PackedScene" uid="uid://16g8700g2w2k" path="res://enemy.tscn" id="6_kva58"]
+[ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="4_fv4w7"]
 [ext_resource type="Texture2D" uid="uid://brmnwva7oqbeq" path="res://Tile Sets/Tile Set 1.png" id="9_k5g50"]
 [ext_resource type="Script" uid="uid://d34gcqnqw7tee" path="res://Worlds/Sigmiukas Residence Scripts/sign_1_area.gd" id="10_jmoy8"]
 [ext_resource type="FontFile" uid="uid://dqi4uqyjhr444" path="res://Starting Page/Assets/Šifras_Pavadinimui.ttf" id="11_h2yiy"]
@@ -13,12 +12,14 @@
 [ext_resource type="Script" uid="uid://cvd8isdvjidxe" path="res://Worlds/Sigmiukas Residence Scripts/sign_4_area.gd" id="14_h5lgk"]
 [ext_resource type="Script" uid="uid://c0qvp376ok3ar" path="res://Worlds/Sigmiukas Residence Scripts/sign_5_area.gd" id="15_kspjl"]
 [ext_resource type="Script" uid="uid://dd423bkli0ovo" path="res://Worlds/Sigmiukas Residence Scripts/sign_6_area.gd" id="16_3pnre"]
-[ext_resource type="Texture2D" uid="uid://dub0f8mtm6vy7" path="res://food/chms.png" id="17_iyaap"]
+[ext_resource type="Texture2D" uid="uid://dub0f8mtm6vy7" path="res://Food/chms.png" id="17_iyaap"]
 [ext_resource type="Script" uid="uid://be7bkvkixy2bb" path="res://Worlds/Sigmiukas Residence Scripts/sign_7_area.gd" id="17_w3dpc"]
 [ext_resource type="Script" uid="uid://2u7adcjt75lq" path="res://Worlds/Sigmiukas Residence Scripts/chems.gd" id="18_wektq"]
-[ext_resource type="Texture2D" uid="uid://dswnwum7wh3no" path="res://food/bred.png" id="19_6aqo0"]
-[ext_resource type="Texture2D" uid="uid://di5vpm7squsw" path="res://food/Dogy foody.png" id="20_mtjgx"]
+[ext_resource type="Texture2D" uid="uid://dswnwum7wh3no" path="res://Food/bred.png" id="19_6aqo0"]
+[ext_resource type="Texture2D" uid="uid://di5vpm7squsw" path="res://Food/Dogy foody.png" id="20_mtjgx"]
 [ext_resource type="Script" uid="uid://b3j3ca228c8cb" path="res://Worlds/Sigmiukas Residence Scripts/bred.gd" id="20_st1e4"]
+[ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="21_mtjgx"]
+[ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="21_st1e4"]
 [ext_resource type="Script" uid="uid://dagqy72alyccv" path="res://Worlds/Sigmiukas Residence Scripts/dogyfood.gd" id="22_w3dpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trxdx"]
@@ -227,9 +228,6 @@ tile_set = SubResource("TileSet_h2yiy")
 [node name="Sigmiukas" parent="." instance=ExtResource("4_fv4w7")]
 position = Vector2(-1373, 423)
 
-[node name="Enemy" parent="." instance=ExtResource("6_kva58")]
-position = Vector2(397, 481)
-
 [node name="Sign 1" type="StaticBody2D" parent="."]
 position = Vector2(-1214, 392)
 
@@ -368,6 +366,34 @@ script = ExtResource("22_w3dpc")
 position = Vector2(7.62939e-06, -0.999996)
 scale = Vector2(0.2, 0.2)
 shape = SubResource("CircleShape2D_h2yiy")
+
+[node name="enemy_dummy" parent="." instance=ExtResource("21_mtjgx")]
+position = Vector2(1251, 420)
+
+[node name="rat_enemy" parent="." instance=ExtResource("21_st1e4")]
+position = Vector2(3387, 527)
+
+[node name="rat_enemy2" parent="." instance=ExtResource("21_st1e4")]
+position = Vector2(4626, 79)
+
+[node name="rat_enemy3" parent="." instance=ExtResource("21_st1e4")]
+position = Vector2(9615, 976)
+
+[node name="rat_enemy4" parent="." instance=ExtResource("21_st1e4")]
+position = Vector2(9454, 848)
+
+[node name="rat_enemy5" parent="." instance=ExtResource("21_st1e4")]
+position = Vector2(9801, 1013)
+scale = Vector2(0.5, 0.5)
+
+[node name="rat_enemy6" parent="." instance=ExtResource("21_st1e4")]
+position = Vector2(9996, 1008)
+
+[node name="rat_enemy7" parent="." instance=ExtResource("21_st1e4")]
+position = Vector2(10254, 974)
+
+[node name="rat_enemy8" parent="." instance=ExtResource("21_st1e4")]
+position = Vector2(10373, 850)
 
 [connection signal="body_entered" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_entered"]
 [connection signal="body_exited" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_exited"]

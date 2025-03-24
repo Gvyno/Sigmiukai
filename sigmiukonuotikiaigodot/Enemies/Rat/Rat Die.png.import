@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dub0f8mtm6vy7"
-path="res://.godot/imported/chms.png-0035304f73b6f1e731c052634aea8fa5.ctex"
+uid="uid://dpgqw1ltitcgf"
+path="res://.godot/imported/Rat Die.png-2d3917a34f87fe7629070457135dab23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Food/chms.png"
-dest_files=["res://.godot/imported/chms.png-0035304f73b6f1e731c052634aea8fa5.ctex"]
+source_file="res://Enemies/Rat/Rat Die.png"
+dest_files=["res://.godot/imported/Rat Die.png-2d3917a34f87fe7629070457135dab23.ctex"]
 
 [params]
 
