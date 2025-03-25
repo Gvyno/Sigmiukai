@@ -14,7 +14,8 @@ const JUMP_VELOCITY = -400.0
 const DASH_SPEED = 800.0  
 const DASH_DURATION = 0.2  
 const DASH_COOLDOWN = 0.5  
-
+signal health_changed(new_health)
+signal mana_changed(new_mana)
 var is_casting = false
 var has_fired_projectile = false  
 var is_attacking = false
@@ -32,12 +33,18 @@ var double_jump_timer = 0.0
 @export var DoubleJumpEnabled: bool = true  
 @export var DashEnabled: bool = true  
 @export var projectile_scene: PackedScene = preload("res://Player/Projectile.tscn")  
+
+
 #regen timer
 func _on_timer_timeout():
+		print(health)
+		print(mana)
 		if ((mana+10)>=max_mana):
 			mana=max_mana
 		else:
 			mana=mana+10
+		emit_signal("mana_changed", mana)
+
 func _physics_process(delta: float) -> void:
 	# **Freeze movement while casting**
 	if is_casting:
@@ -123,6 +130,7 @@ func _physics_process(delta: float) -> void:
 	# Handle dashing
 	if DashEnabled and can_dash and Input.is_action_just_pressed("ui_shift") and not is_dashing:
 		mana=mana-10
+		emit_signal("mana_changed", mana)
 		start_dash()
 		return
 
@@ -130,6 +138,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_right_mouse"):
 		mana=mana-20
 		health=health-5
+		emit_signal("health_changed", health)
 		is_casting = true
 		cast_timer = 0.9  
 		has_fired_projectile = false  
@@ -137,6 +146,7 @@ func _physics_process(delta: float) -> void:
 		hide_other_sprites("Cast")
 		animation.play("Cast")
 		flip_toward_mouse()
+		
 		return
 
 	# Handle attacking
@@ -256,3 +266,27 @@ func hide_other_sprites(exception: String):
 		var node = get_node_or_null("Sprite" + sprite)
 		if node and sprite != exception:
 			node.visible = false
+
+
+func _on_dogy_update_health() -> void:
+	emit_signal("health_changed", health)
+
+
+func _on_dogy_update_mana() -> void:
+	emit_signal("mana_changed", mana)
+
+func _on_bred_2_update_health() -> void:
+	emit_signal("health_changed", health)
+
+
+func _on_bred_2_update_mana() -> void:
+	emit_signal("mana_changed", mana)
+
+
+
+func _on_chems_update_health() -> void:
+	emit_signal("health_changed", health)
+
+
+func _on_chems_update_mana() -> void:
+	emit_signal("mana_changed", mana)

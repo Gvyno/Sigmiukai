@@ -1,4 +1,5 @@
 extends ProgressBar
+@onready var sigmiukas: CharacterBody2D = $Sigmiukas
 
 var parent
 var max_mana
@@ -6,21 +7,27 @@ var min_mana
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	parent=get_parent()
-	max_mana=parent.max_mana
-	min_mana=parent.min_mana
-	max_value=parent.max_mana
-	min_value=parent.min_mana
+	if sigmiukas:
+		max_mana=sigmiukas.max_mana
+		min_mana=sigmiukas.min_mana
+		max_value=sigmiukas.max_mana
+		min_value=sigmiukas.min_mana
  # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.value= parent.mana
-	if parent.mana != max_mana:
-		self.visible = true
-		if parent.mana == min_mana:
+	if sigmiukas:
+		self.value= sigmiukas.mana
+		if sigmiukas.mana != max_mana:
 			self.visible = true
-	else:
-		self.visible=true
+			if sigmiukas.mana == min_mana:
+				self.visible = true
+		else:
+			self.visible=true
 		
+
+
+func _on_character_body_2d_2_mana_changed(new_mana: Variant) -> void:
+	self.value=new_mana
+	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cmwclbobv1o3h"]
+[gd_scene load_steps=29 format=3 uid="uid://cmwclbobv1o3h"]
 
 [ext_resource type="Script" uid="uid://cim6q2153qgc0" path="res://Player/Player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://its46vtcx75m" path="res://Player/Player Sprites/idle.png" id="3_3tkgg"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://qga45nbcknv8" path="res://Player/Player Sprites/attackwalking.png" id="11_itxgx"]
 [ext_resource type="PackedScene" uid="uid://ddoxp44fjesk0" path="res://Bars/Health_bar.tscn" id="12_ivps1"]
 [ext_resource type="PackedScene" uid="uid://dh5638o8nsc3t" path="res://Bars/Mana_bar.tscn" id="13_urp6f"]
+[ext_resource type="PackedScene" uid="uid://dev0n1koku2p2" path="res://UI/UI.tscn" id="14_gu6f8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvl01"]
 radius = 12.0
@@ -399,18 +400,45 @@ libraries = {
 }
 
 [node name="HealthBar" parent="." instance=ExtResource("12_ivps1")]
+visible = false
 offset_left = -47.0
 offset_top = 26.0
 offset_right = 49.0
 offset_bottom = 36.0
+metadata/_edit_use_anchors_ = true
 
 [node name="ManaBar" parent="." instance=ExtResource("13_urp6f")]
+visible = false
 offset_left = -47.0
 offset_top = 38.0
 offset_right = 49.0
 offset_bottom = 48.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="Ui" parent="." instance=ExtResource("14_gu6f8")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -287.0
+offset_top = -182.0
+offset_right = 288.0
+offset_bottom = 144.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ColorRect" parent="Ui" index="0"]
+offset_left = 62.0
+offset_top = 278.0
+offset_right = 512.0
+offset_bottom = 318.0
+
+[connection signal="health_changed" from="." to="HealthBar" method="_on_character_body_2d_2_health_changed"]
+[connection signal="health_changed" from="." to="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer/HealthBar" method="_on_character_body_2d_2_health_changed"]
+[connection signal="mana_changed" from="." to="ManaBar" method="_on_character_body_2d_2_mana_changed"]
+[connection signal="mana_changed" from="." to="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer2/ManaBar" method="_on_character_body_2d_2_mana_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Ui"]

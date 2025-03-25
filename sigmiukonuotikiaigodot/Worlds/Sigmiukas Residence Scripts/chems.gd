@@ -1,7 +1,8 @@
 extends Area2D
 #@onready var chms: Sprite2D = $"../../Chems/Chms"
 @onready var food_img: Sprite2D = $"../FoodImg"
-
+signal update_health()
+signal update_mana()
 const lines: Array[String] = []
 
 var player_in_range := false
@@ -19,6 +20,7 @@ func _on_body_entered(body):
 		else:
 			body.health += 10
 		food_img.visible = false
+	emit_signal("update_health")
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):  

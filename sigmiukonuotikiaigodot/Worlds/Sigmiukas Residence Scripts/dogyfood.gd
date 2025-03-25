@@ -3,7 +3,8 @@ extends Area2D
 @onready var food_img: Sprite2D = $"../FoodImg"
 
 const lines: Array[String] = []
-
+signal update_health()
+signal update_mana()
 var player_in_range := false
 var consumed = false
 
@@ -19,6 +20,8 @@ func _on_body_entered(body):
 		else:
 			body.health += 10
 		food_img.visible = false
+	emit_signal("update_health")
+
 #		Dogy_collision.disabled = true
 
 func _on_body_exited(body):

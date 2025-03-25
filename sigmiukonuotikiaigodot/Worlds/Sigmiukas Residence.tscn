@@ -12,11 +12,11 @@
 [ext_resource type="Script" uid="uid://cvd8isdvjidxe" path="res://Worlds/Sigmiukas Residence Scripts/sign_4_area.gd" id="14_h5lgk"]
 [ext_resource type="Script" uid="uid://c0qvp376ok3ar" path="res://Worlds/Sigmiukas Residence Scripts/sign_5_area.gd" id="15_kspjl"]
 [ext_resource type="Script" uid="uid://dd423bkli0ovo" path="res://Worlds/Sigmiukas Residence Scripts/sign_6_area.gd" id="16_3pnre"]
-[ext_resource type="Texture2D" uid="uid://dub0f8mtm6vy7" path="res://Food/chms.png" id="17_iyaap"]
+[ext_resource type="Texture2D" uid="uid://dub0f8mtm6vy7" path="res://food/chms.png" id="17_iyaap"]
 [ext_resource type="Script" uid="uid://be7bkvkixy2bb" path="res://Worlds/Sigmiukas Residence Scripts/sign_7_area.gd" id="17_w3dpc"]
 [ext_resource type="Script" uid="uid://2u7adcjt75lq" path="res://Worlds/Sigmiukas Residence Scripts/chems.gd" id="18_wektq"]
-[ext_resource type="Texture2D" uid="uid://dswnwum7wh3no" path="res://Food/bred.png" id="19_6aqo0"]
-[ext_resource type="Texture2D" uid="uid://di5vpm7squsw" path="res://Food/Dogy foody.png" id="20_mtjgx"]
+[ext_resource type="Texture2D" uid="uid://dswnwum7wh3no" path="res://food/bred.png" id="19_6aqo0"]
+[ext_resource type="Texture2D" uid="uid://di5vpm7squsw" path="res://food/Dogy foody.png" id="20_mtjgx"]
 [ext_resource type="Script" uid="uid://b3j3ca228c8cb" path="res://Worlds/Sigmiukas Residence Scripts/bred.gd" id="20_st1e4"]
 [ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="21_mtjgx"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="21_st1e4"]
@@ -352,7 +352,7 @@ scale = Vector2(0.2, 0.2)
 shape = SubResource("CircleShape2D_h2yiy")
 
 [node name="Item Dog Food" type="StaticBody2D" parent="."]
-position = Vector2(-1091, 391)
+position = Vector2(-1092, 393)
 
 [node name="FoodImg" type="Sprite2D" parent="Item Dog Food"]
 position = Vector2(2822, 40)
@@ -411,7 +411,13 @@ position = Vector2(10373, 850)
 [connection signal="body_exited" from="Sign 7/Sign 7 Area" to="Sign 7/Sign 7 Area" method="_on_body_exited"]
 [connection signal="body_entered" from="Item Chems/Chems" to="Item Chems/Chems" method="_on_body_entered"]
 [connection signal="body_exited" from="Item Chems/Chems" to="Item Chems/Chems" method="_on_body_exited"]
+[connection signal="update_health" from="Item Chems/Chems" to="Sigmiukas" method="_on_chems_update_health"]
+[connection signal="update_mana" from="Item Chems/Chems" to="Sigmiukas" method="_on_chems_update_mana"]
 [connection signal="body_entered" from="Item Bread/Bred2" to="Item Bread/Bred2" method="_on_body_entered"]
 [connection signal="body_exited" from="Item Bread/Bred2" to="Item Bread/Bred2" method="_on_body_exited"]
+[connection signal="update_health" from="Item Bread/Bred2" to="Sigmiukas" method="_on_bred_2_update_health"]
+[connection signal="update_mana" from="Item Bread/Bred2" to="Sigmiukas" method="_on_bred_2_update_mana"]
 [connection signal="body_entered" from="Item Dog Food/Dogy" to="Item Dog Food/Dogy" method="_on_body_entered"]
 [connection signal="body_exited" from="Item Dog Food/Dogy" to="Item Dog Food/Dogy" method="_on_body_exited"]
+[connection signal="update_health" from="Item Dog Food/Dogy" to="Sigmiukas" method="_on_dogy_update_health"]
+[connection signal="update_mana" from="Item Dog Food/Dogy" to="Sigmiukas" method="_on_dogy_update_mana"]
