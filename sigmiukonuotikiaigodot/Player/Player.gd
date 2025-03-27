@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 @onready var animation = $AnimationPlayer
 
+
+signal health_changed(new_health,new_min_health,new_max_health)
+signal mana_changed(new_mana,new_min_mana,new_max_mana)
 var max_health=100
 var min_health=0
 var health =100
@@ -14,8 +17,7 @@ const JUMP_VELOCITY = -400.0
 const DASH_SPEED = 800.0  
 const DASH_DURATION = 0.2  
 const DASH_COOLDOWN = 0.5  
-signal health_changed(new_health)
-signal mana_changed(new_mana)
+
 var is_casting = false
 var has_fired_projectile = false  
 var is_attacking = false
@@ -37,13 +39,13 @@ var double_jump_timer = 0.0
 
 #regen timer
 func _on_timer_timeout():
-		print(health)
-		print(mana)
 		if ((mana+10)>=max_mana):
 			mana=max_mana
 		else:
 			mana=mana+10
-		emit_signal("mana_changed", mana)
+		emit_signal("mana_changed", mana,min_mana,max_mana)
+		print("hp="+str(health))
+		print("mana="+str(mana))
 
 func _physics_process(delta: float) -> void:
 	# **Freeze movement while casting**
@@ -111,11 +113,8 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 			return  
 
-	# Handle jump
+	# Handle jump 
 	if Input.is_action_just_pressed("ui_accept"):
-		
-
-		
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		elif can_double_jump:
@@ -129,23 +128,26 @@ func _physics_process(delta: float) -> void:
 
 	# Handle dashing
 	if DashEnabled and can_dash and Input.is_action_just_pressed("ui_shift") and not is_dashing:
-		mana=mana-10
-		emit_signal("mana_changed", mana)
-		start_dash()
+		if(mana-10>=min_mana):
+			mana=mana-10
+			emit_signal("mana_changed", mana,min_mana,max_mana)
+			start_dash()
 		return
 
 	# Handle casting input
 	if Input.is_action_just_pressed("ui_right_mouse"):
-		mana=mana-20
-		health=health-5
-		emit_signal("health_changed", health)
-		is_casting = true
-		cast_timer = 0.9  
-		has_fired_projectile = false  
-		$SpriteCast.visible = true
-		hide_other_sprites("Cast")
-		animation.play("Cast")
-		flip_toward_mouse()
+		if(mana-20>=min_mana):
+			mana=mana-20
+			health=health-5
+			emit_signal("health_changed", health,min_health,max_health)
+			emit_signal("mana_changed",mana,min_mana,max_mana)
+			is_casting = true
+			cast_timer = 0.9  
+			has_fired_projectile = false  
+			$SpriteCast.visible = true
+			hide_other_sprites("Cast")
+			animation.play("Cast")
+			flip_toward_mouse()
 		
 		return
 
@@ -269,24 +271,26 @@ func hide_other_sprites(exception: String):
 
 
 func _on_dogy_update_health() -> void:
-	emit_signal("health_changed", health)
+	emit_signal("health_changed", health,min_health,max_health)
 
 
 func _on_dogy_update_mana() -> void:
-	emit_signal("mana_changed", mana)
+	emit_signal("mana_changed", mana,min_mana,max_mana)
 
 func _on_bred_2_update_health() -> void:
-	emit_signal("health_changed", health)
+	emit_signal("health_changed", health,min_health,max_health)
+
 
 
 func _on_bred_2_update_mana() -> void:
-	emit_signal("mana_changed", mana)
+	emit_signal("mana_changed", mana,min_mana,max_mana)
 
 
 
 func _on_chems_update_health() -> void:
-	emit_signal("health_changed", health)
+	emit_signal("health_changed", health,min_health,max_health)
+
 
 
 func _on_chems_update_mana() -> void:
-	emit_signal("mana_changed", mana)
+	emit_signal("mana_changed", mana,min_mana,max_mana)

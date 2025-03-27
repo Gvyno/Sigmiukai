@@ -28,6 +28,10 @@ func _process(delta):
 		
 
 
-func _on_character_body_2d_2_mana_changed(new_mana: Variant) -> void:
+func _on_character_body_2d_2_mana_changed(new_mana,new_min_mana,new_max_mana: Variant) -> void:
 	self.value=new_mana
+	self.max_mana=new_max_mana
+	self.min_mana=new_min_mana
+	self.min_value=new_min_mana
+	self.max_value=new_max_mana
 	pass # Replace with function body.

@@ -28,6 +28,10 @@ func _process(delta):
 			self.visible=true
 
 
-func _on_character_body_2d_2_health_changed(new_health: Variant) -> void:
+func _on_character_body_2d_2_health_changed(new_health,new_min_health,new_max_health: Variant) -> void:
 	self.value=new_health
+	self.max_health=new_max_health
+	self.min_health=new_min_health
+	self.min_value=new_min_health
+	self.max_value=new_max_health
 	pass # Replace with function body.
