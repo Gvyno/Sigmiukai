@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://cq3g4nwev8kfw"]
+[gd_scene load_steps=9 format=4 uid="uid://cq3g4nwev8kfw"]
 
 [ext_resource type="Texture2D" uid="uid://dd0q0fn1wh16e" path="res://Tile Sets/Tile Set Dark Forest.png" id="1_66nir"]
 [ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="2_ebum2"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="3_b7d7x"]
+[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="4_xr5go"]
+[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="5_m076m"]
+[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="6_gbln1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebum2"]
 texture = ExtResource("1_66nir")
@@ -98,3 +101,24 @@ position = Vector2(-1302, 1430)
 
 [node name="rat_enemy4" parent="." instance=ExtResource("3_b7d7x")]
 position = Vector2(-1125, 1432)
+
+[node name="BredItem" parent="." instance=ExtResource("4_xr5go")]
+position = Vector2(-3151, 1390)
+
+[node name="ChemsItem" parent="." instance=ExtResource("5_m076m")]
+position = Vector2(-3462, 1394)
+
+[node name="DogFoodItem" parent="." instance=ExtResource("6_gbln1")]
+position = Vector2(-3376, 1327)
+
+[node name="BredItem2" parent="." instance=ExtResource("4_xr5go")]
+position = Vector2(-3345, 1388)
+
+[connection signal="update_health" from="BredItem" to="Sigmiukas" method="_on_bred_item_update_health"]
+[connection signal="update_mana" from="BredItem" to="Sigmiukas" method="_on_bred_item_update_mana"]
+[connection signal="update_health" from="ChemsItem" to="Sigmiukas" method="_on_chems_item_update_health"]
+[connection signal="update_mana" from="ChemsItem" to="Sigmiukas" method="_on_chems_item_update_mana"]
+[connection signal="update_health" from="DogFoodItem" to="Sigmiukas" method="_on_dog_food_item_update_health"]
+[connection signal="update_mana" from="DogFoodItem" to="Sigmiukas" method="_on_dog_food_item_update_mana"]
+[connection signal="update_health" from="BredItem2" to="Sigmiukas" method="_on_bred_item_update_health"]
+[connection signal="update_mana" from="BredItem2" to="Sigmiukas" method="_on_bred_item_update_mana"]
