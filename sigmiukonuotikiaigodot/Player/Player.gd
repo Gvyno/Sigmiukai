@@ -294,3 +294,31 @@ func _on_chems_update_health() -> void:
 
 func _on_chems_update_mana() -> void:
 	emit_signal("mana_changed", mana,min_mana,max_mana)
+
+
+func _on_food_item_update_health() -> void:
+	emit_signal("health_changed", health, min_health,max_health)
+
+
+func _on_bred_item_update_health() -> void:
+	emit_signal("health_changed", health, min_health,max_health)
+
+
+func _on_bred_item_update_mana() -> void:
+	emit_signal("mana_changed", mana,min_mana,max_mana)
+
+func _on_chems_item_update_health() -> void:
+	emit_signal("health_changed", health, min_health,max_health)
+
+
+
+func _on_chems_item_update_mana() -> void:
+	emit_signal("mana_changed", mana,min_mana,max_mana)
+
+func _on_dog_food_item_update_health() -> void:
+	emit_signal("health_changed", health, min_health,max_health)
+
+
+
+func _on_dog_food_item_update_mana() -> void:
+	emit_signal("mana_changed", mana,min_mana,max_mana)

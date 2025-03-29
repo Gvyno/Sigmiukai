@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dsflv0gye3udl"]
+[gd_scene load_steps=39 format=4 uid="uid://dsflv0gye3udl"]
 
 [ext_resource type="Texture2D" uid="uid://cn0mdleiuu03h" path="res://Backgrounds/Outside (Placeholder).jpg" id="1_p1v5b"]
 [ext_resource type="Texture2D" uid="uid://dwkl8i3w32sm3" path="res://Backgrounds/Cave (Placeholder).jpg" id="2_wygdx"]
@@ -12,15 +12,21 @@
 [ext_resource type="Script" uid="uid://cvd8isdvjidxe" path="res://Worlds/Sigmiukas Residence Scripts/sign_4_area.gd" id="14_h5lgk"]
 [ext_resource type="Script" uid="uid://c0qvp376ok3ar" path="res://Worlds/Sigmiukas Residence Scripts/sign_5_area.gd" id="15_kspjl"]
 [ext_resource type="Script" uid="uid://dd423bkli0ovo" path="res://Worlds/Sigmiukas Residence Scripts/sign_6_area.gd" id="16_3pnre"]
-[ext_resource type="Texture2D" uid="uid://dub0f8mtm6vy7" path="res://Food/chms.png" id="17_iyaap"]
+[ext_resource type="Texture2D" uid="uid://dub0f8mtm6vy7" path="res://food/chms.png" id="17_iyaap"]
 [ext_resource type="Script" uid="uid://be7bkvkixy2bb" path="res://Worlds/Sigmiukas Residence Scripts/sign_7_area.gd" id="17_w3dpc"]
 [ext_resource type="Script" uid="uid://2u7adcjt75lq" path="res://Worlds/Sigmiukas Residence Scripts/chems.gd" id="18_wektq"]
-[ext_resource type="Texture2D" uid="uid://dswnwum7wh3no" path="res://Food/bred.png" id="19_6aqo0"]
-[ext_resource type="Texture2D" uid="uid://di5vpm7squsw" path="res://Food/Dogy foody.png" id="20_mtjgx"]
+[ext_resource type="Texture2D" uid="uid://dswnwum7wh3no" path="res://food/bred.png" id="19_6aqo0"]
+[ext_resource type="Texture2D" uid="uid://di5vpm7squsw" path="res://food/Dogy foody.png" id="20_mtjgx"]
 [ext_resource type="Script" uid="uid://b3j3ca228c8cb" path="res://Worlds/Sigmiukas Residence Scripts/bred.gd" id="20_st1e4"]
 [ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="21_mtjgx"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="21_st1e4"]
 [ext_resource type="Script" uid="uid://dagqy72alyccv" path="res://Worlds/Sigmiukas Residence Scripts/dogyfood.gd" id="22_w3dpc"]
+[ext_resource type="Texture2D" uid="uid://b0xndgq67q3bd" path="res://Concept Art/TheStrongestDragon.png" id="22_xyse1"]
+[ext_resource type="Texture2D" uid="uid://dkfpgsin5cyl7" path="res://Concept Art/TheVeryHungryBatman.png" id="23_ftg0w"]
+[ext_resource type="Texture2D" uid="uid://dxvj0m8nftspq" path="res://Concept Art/TheHolyLemon(NoBackground).png" id="24_crylc"]
+[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="25_ftg0w"]
+[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="26_qw5ue"]
+[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="27_lhemu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trxdx"]
 size = Vector2(28.3125, 457.32)
@@ -395,6 +401,33 @@ position = Vector2(10254, 974)
 [node name="rat_enemy8" parent="." instance=ExtResource("21_st1e4")]
 position = Vector2(10373, 850)
 
+[node name="TheStrongestDragon" type="Sprite2D" parent="."]
+position = Vector2(469, 463)
+scale = Vector2(0.03125, 0.03125)
+texture = ExtResource("22_xyse1")
+
+[node name="TheVeryHungryBatman" type="Sprite2D" parent="."]
+position = Vector2(422, 395)
+rotation = -3.10494
+scale = Vector2(0.0266062, 0.0277778)
+texture = ExtResource("23_ftg0w")
+
+[node name="TheHolyLemon(noBackground)" type="Sprite2D" parent="."]
+position = Vector2(375.38, 497.042)
+rotation = 6.28319
+scale = Vector2(0.061629, 0.061629)
+texture = ExtResource("24_crylc")
+
+[node name="BredItem" parent="." instance=ExtResource("25_ftg0w")]
+position = Vector2(-1335, 430)
+
+[node name="ChemsItem" parent="." instance=ExtResource("26_qw5ue")]
+
+[node name="DogFoodItem" parent="." instance=ExtResource("27_lhemu")]
+
+[node name="BredItem2" parent="." instance=ExtResource("25_ftg0w")]
+position = Vector2(-1477, 433)
+
 [connection signal="body_entered" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_entered"]
 [connection signal="body_exited" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_exited"]
 [connection signal="body_entered" from="Sign 2/Sign 2 Area" to="Sign 2/Sign 2 Area" method="_on_body_entered"]
@@ -421,3 +454,11 @@ position = Vector2(10373, 850)
 [connection signal="body_exited" from="Item Dog Food/Dogy" to="Item Dog Food/Dogy" method="_on_body_exited"]
 [connection signal="update_health" from="Item Dog Food/Dogy" to="Sigmiukas" method="_on_dogy_update_health"]
 [connection signal="update_mana" from="Item Dog Food/Dogy" to="Sigmiukas" method="_on_dogy_update_mana"]
+[connection signal="update_health" from="BredItem" to="Sigmiukas" method="_on_bred_item_update_health"]
+[connection signal="update_mana" from="BredItem" to="Sigmiukas" method="_on_bred_item_update_mana"]
+[connection signal="update_health" from="ChemsItem" to="Sigmiukas" method="_on_chems_item_update_health"]
+[connection signal="update_mana" from="ChemsItem" to="Sigmiukas" method="_on_chems_item_update_mana"]
+[connection signal="update_health" from="DogFoodItem" to="Sigmiukas" method="_on_dog_food_item_update_health"]
+[connection signal="update_mana" from="DogFoodItem" to="Sigmiukas" method="_on_dog_food_item_update_mana"]
+[connection signal="update_health" from="BredItem2" to="Sigmiukas" method="_on_bred_item_update_health"]
+[connection signal="update_mana" from="BredItem2" to="Sigmiukas" method="_on_bred_item_update_mana"]
