@@ -13,6 +13,7 @@ func _ready():
 	connect("body_exited", _on_body_exited)
 
 func _on_body_entered(body):
+	emit_signal("update_health")
 	if body.is_in_group("player") and not consumed:
 		consumed = true
 		if body.health + 10 >= body.max_health:
@@ -24,7 +25,9 @@ func _on_body_entered(body):
 	emit_signal("update_health")
 
 func _on_body_exited(body):
+	emit_signal("update_health")
 	if body.is_in_group("player"):  
 		player_in_range = false
 		if DialogueManager.is_dialogue_active:
 			DialogueManager.end_dialogue()
+	emit_signal("update_health")

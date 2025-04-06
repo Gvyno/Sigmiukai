@@ -16,9 +16,9 @@
 [ext_resource type="Script" uid="uid://be7bkvkixy2bb" path="res://Worlds/Sigmiukas Residence Scripts/sign_7_area.gd" id="17_w3dpc"]
 [ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="21_mtjgx"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="21_st1e4"]
-[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://Food/BredItem.tscn" id="23_xyse1"]
-[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://Food/ChemsItem.tscn" id="26_qw5ue"]
-[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://Food/DogFoodItem.tscn" id="27_lhemu"]
+[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="23_xyse1"]
+[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="26_qw5ue"]
+[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="27_lhemu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trxdx"]
 size = Vector2(28.3125, 457.32)
@@ -454,7 +454,7 @@ position = Vector2(11588, 687)
 position = Vector2(1636, 433)
 
 [node name="BredItem4" parent="." instance=ExtResource("23_xyse1")]
-position = Vector2(1538, 434)
+position = Vector2(1538, 435)
 
 [node name="DogFoodItem2" parent="." instance=ExtResource("27_lhemu")]
 position = Vector2(1731, 434)

@@ -10,7 +10,7 @@ var min_health=0
 var health =100
 var max_mana=50
 var min_mana=0
-var mana =100
+var mana =50
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
@@ -47,10 +47,13 @@ func _on_timer_timeout():
 		else:
 			mana=mana+10
 		emit_signal("mana_changed", mana,min_mana,max_mana)
-		print("hp="+str(health))
-		print("mana="+str(mana))
+		#print("hp="+str(health))
+		#print("mana="+str(mana))
 
 func _physics_process(delta: float) -> void:
+	emit_signal("health_changed", health, min_health,max_health)
+	emit_signal("mana_changed", mana,min_mana,max_mana)
+
 	# **Freeze movement while casting**
 	if is_casting:
 		velocity = Vector2.ZERO  # Completely stop movement
@@ -323,6 +326,7 @@ func hide_effect_sprites():
 		if node:
 			node.visible = false
 
+'''
 func _on_dogy_update_health() -> void:
 	emit_signal("health_changed", health,min_health,max_health)
 
@@ -375,3 +379,4 @@ func _on_dog_food_item_update_health() -> void:
 
 func _on_dog_food_item_update_mana() -> void:
 	emit_signal("mana_changed", mana,min_mana,max_mana)
+'''

@@ -480,10 +480,10 @@ offset_bottom = 144.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="ManaLabel" parent="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer2/ManaBar" index="1"]
+[node name="Label" parent="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer2/ManaBar" index="0"]
 layout_mode = 0
-offset_left = 49.5
-offset_right = 176.5
+offset_left = 0.0
+offset_right = 127.0
 
 [connection signal="health_changed" from="." to="HealthBar" method="_on_character_body_2d_2_health_changed"]
 [connection signal="health_changed" from="." to="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer/HealthBar" method="_on_character_body_2d_2_health_changed"]

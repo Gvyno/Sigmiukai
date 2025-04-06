@@ -38,20 +38,11 @@ layout_mode = 2
 
 [node name="HealthLabel" type="Label" parent="VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer/HealthBar"]
 layout_mode = 0
-offset_left = 60.0
 offset_top = 1.0
-offset_right = 191.0
+offset_right = 131.0
 offset_bottom = 24.0
 scale = Vector2(0.9, 0.9)
-text = "100/100"
-
-[node name="Health" type="Label" parent="VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer/HealthBar"]
-layout_mode = 0
-offset_top = 1.0
-offset_right = 62.0
-offset_bottom = 24.0
-scale = Vector2(0.9, 0.9)
-text = "HEALTH:"
+text = "HEALTH: 100/100"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer4/VBoxContainer"]
 layout_mode = 2
@@ -61,20 +52,13 @@ custom_minimum_size = Vector2(300, 20)
 layout_mode = 2
 max_value = 50.0
 
-[node name="Mana" type="Label" parent="VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer2/ManaBar"]
-layout_mode = 0
-offset_left = -1.0
-offset_right = 52.0
-offset_bottom = 23.0
-scale = Vector2(0.9, 0.9)
-text = "MANA:"
-
 [node name="ManaLabel" type="Label" parent="VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer2/ManaBar"]
-offset_left = 51.0
-offset_right = 182.0
-offset_bottom = 23.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 126.0
+offset_bottom = 22.0
 scale = Vector2(0.9, 0.9)
-text = "50/50"
+text = "MANA:   50/50"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
