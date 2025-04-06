@@ -30,6 +30,9 @@ var dash_timer = 0.0
 var dash_cooldown_timer = 0.0  
 var dash_direction = 1  
 
+enum AttackDirection { FORWARD, UP, DOWN }
+var attack_direction = AttackDirection.FORWARD
+
 var can_double_jump = false
 var double_jump_timer = 0.0  
 @export var DoubleJumpEnabled: bool = true  
@@ -123,7 +126,7 @@ func _physics_process(delta: float) -> void:
 			$SpriteDoubleJump.visible = true
 			hide_other_sprites("DoubleJump")
 			animation.play("DoubleJump")
-			flip_toward_mouse()
+			flip_toward_facing()
 			double_jump_timer = 0.2  
 
 	# Handle dashing
@@ -135,38 +138,59 @@ func _physics_process(delta: float) -> void:
 		return
 
 	# Handle casting input
+	# Handle casting input (right mouse button)
 	if Input.is_action_just_pressed("ui_right_mouse"):
-		if(mana-20>=min_mana):
-			mana=mana-20
-			health=health-5
-			emit_signal("health_changed", health,min_health,max_health)
-			emit_signal("mana_changed",mana,min_mana,max_mana)
+		if mana - 20 >= min_mana:
+			mana -= 20
+			health -= 5
+			emit_signal("health_changed", health, min_health, max_health)
+			emit_signal("mana_changed", mana, min_mana, max_mana)
+
 			is_casting = true
 			cast_timer = 0.9  
-			has_fired_projectile = false  
+			has_fired_projectile = false
 			$SpriteCast.visible = true
 			hide_other_sprites("Cast")
 			animation.play("Cast")
-			flip_toward_mouse()
-		
-		return
+			
+			# Get the direction to the mouse
+			var mouse_pos = get_global_mouse_position()
+			var direction_to_mouse = (mouse_pos - global_position).normalized()
+
+			# Flip the sprite based on the mouse position
+			flip_sprites(direction_to_mouse.x < 0)
+
+			# Update the facing direction of the attack
+			flip_toward_facing()  # Update the attack to face the mouse direction
+			return
+
 
 	# Handle attacking
 	if Input.is_action_just_pressed("ui_left_mouse"):
 		is_attacking = true
 		attack_timer = 0.6
 		slash_timer = 0.3  
-		$SpriteAttack.visible = false
-		$SpriteAttackWalking.visible = false
-		
-		is_attacking = true
-		attack_timer = 0.6
-		slash_timer = 0.3  
-		animation.play("Attack")
 
-		await get_tree().create_timer(0.2).timeout  
+		# Determine attack direction using mouse position
+		var mouse_pos = get_global_mouse_position()
+		var to_mouse = (mouse_pos - global_position).normalized()
 
-		if abs(velocity.x) > 0:  
+		if abs(to_mouse.y) > abs(to_mouse.x):
+			if to_mouse.y < -0.5:
+				attack_direction = AttackDirection.UP
+			else:
+				attack_direction = AttackDirection.DOWN
+		else:
+			attack_direction = AttackDirection.FORWARD
+
+		# Flip player sprite based on horizontal direction
+		if to_mouse.x < 0:
+			flip_sprites(true)
+		else:
+			flip_sprites(false)
+
+		# Choose animation and sprite based on movement
+		if abs(velocity.x) > 0:
 			hide_other_sprites("AttackWalking")
 			$SpriteAttackWalking.visible = true
 			animation.play("AttackWalking")
@@ -175,8 +199,9 @@ func _physics_process(delta: float) -> void:
 			$SpriteAttack.visible = true
 			animation.play("Attack")
 
-		flip_toward_mouse()
+		flip_toward_facing()  # Not toward mouse anymore
 		return
+
 
 	# Handle double jump sprite visibility
 	if double_jump_timer > 0:
@@ -225,17 +250,42 @@ func start_dash():
 	animation.play("Dash")
 
 func trigger_slash():
-	$SpriteSlash.visible = true
+	hide_effect_sprites()
 	$SecondaryAnimationPlayer.stop()
-	$SecondaryAnimationPlayer.play("Slash")
-	
-	var offset_x = 35
-	if $SpriteAttack.flip_h or $SpriteAttackWalking.flip_h:
-		$SpriteSlash.global_position = global_position + Vector2(-offset_x, 0)
-		$SpriteSlash.flip_h = true
-	else:
-		$SpriteSlash.global_position = global_position + Vector2(offset_x, 0)
-		$SpriteSlash.flip_h = false
+
+	var facing_left = $SpriteIdle.flip_h
+
+	match attack_direction:
+		AttackDirection.FORWARD:
+			$SpriteSlash.visible = true
+			$SecondaryAnimationPlayer.play("Slash")
+			var offset_x = 35
+			if facing_left:
+				$SpriteSlash.global_position = global_position + Vector2(-offset_x, 0)
+				$SpriteSlash.flip_h = true
+			else:
+				$SpriteSlash.global_position = global_position + Vector2(offset_x, 0)
+				$SpriteSlash.flip_h = false
+
+		AttackDirection.UP:
+			$SpriteSlashUD.visible = true
+			$SecondaryAnimationPlayer.play("SlashUD")
+			$SpriteSlashUD.global_position = global_position + Vector2(0, -35)
+			$SpriteSlashUD.flip_h = false
+			$SpriteSlashUD.flip_v = facing_left 
+
+		AttackDirection.DOWN:
+			$SpriteSlashUD.visible = true
+			$SecondaryAnimationPlayer.play("SlashUD")
+			$SpriteSlashUD.global_position = global_position + Vector2(0, 35)
+
+			if facing_left:
+				$SpriteSlashUD.flip_h = true
+				$SpriteSlashUD.flip_v = false
+			else:
+				$SpriteSlashUD.flip_h = true
+				$SpriteSlashUD.flip_v = true
+
 
 func fire_projectile():
 	var projectile = projectile_scene.instantiate()
@@ -248,10 +298,8 @@ func fire_projectile():
 	projectile.global_position = global_position + (direction_vector * 30)
 	projectile.direction = direction_vector
 
-func flip_toward_mouse():
-	var mouse_position = get_global_mouse_position()
-	var facing_right = mouse_position.x > global_position.x
-	flip_sprites(not facing_right)
+func flip_toward_facing():
+	flip_sprites($SpriteIdle.flip_h)  # Just use current facing direction
 
 func flip_sprites(flip: bool):
 	for sprite in ["Idle", "Walk", "Jump", "Cast", "Attack", "Dash", "DoubleJump", "AttackWalking"]:
@@ -264,11 +312,16 @@ func flip_sprites(flip: bool):
 		slash_node.position.x = -20 if flip else 20
 
 func hide_other_sprites(exception: String):
-	for sprite in ["Idle", "Walk", "Jump", "Cast", "Attack", "Slash", "Dash", "DoubleJump", "AttackWalking"]:
+	for sprite in ["Idle", "Walk", "Jump", "Cast", "Attack", "Slash", "Dash", "DoubleJump", "AttackWalking", "SlashUD"]:
 		var node = get_node_or_null("Sprite" + sprite)
 		if node and sprite != exception:
 			node.visible = false
 
+func hide_effect_sprites():
+	for sprite in ["Slash", "SlashUD"]:
+		var node = get_node_or_null("Sprite" + sprite)
+		if node:
+			node.visible = false
 
 func _on_dogy_update_health() -> void:
 	emit_signal("health_changed", health,min_health,max_health)

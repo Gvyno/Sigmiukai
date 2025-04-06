@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dswnwum7wh3no"
-path="res://.godot/imported/bred.png-f510ab28c2dbeb1f796cbd97c3a5e1c1.ctex"
+uid="uid://c217w48x6l5wv"
+path="res://.godot/imported/death.png-aa683058d7e349c095d1341e3562ec79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://food/bred.png"
-dest_files=["res://.godot/imported/bred.png-f510ab28c2dbeb1f796cbd97c3a5e1c1.ctex"]
+source_file="res://Player/Player Sprites/death.png"
+dest_files=["res://.godot/imported/death.png-aa683058d7e349c095d1341e3562ec79.ctex"]
 
 [params]
 
