@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dub0f8mtm6vy7"
-path="res://.godot/imported/chms.png-0035304f73b6f1e731c052634aea8fa5.ctex"
+uid="uid://dsb62d6malgeh"
+path="res://.godot/imported/Tile Set 1.2.png-72d4204efce258c3910ad6256aeaf05b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Food/chms.png"
-dest_files=["res://.godot/imported/chms.png-0035304f73b6f1e731c052634aea8fa5.ctex"]
+source_file="res://Tile Sets/Tile Set 1.2.png"
+dest_files=["res://.godot/imported/Tile Set 1.2.png-72d4204efce258c3910ad6256aeaf05b.ctex"]
 
 [params]
 
