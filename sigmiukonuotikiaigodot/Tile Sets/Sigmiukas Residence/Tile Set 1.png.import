@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd0q0fn1wh16e"
-path="res://.godot/imported/Tile Set Dark Forest.png-9fe66ae385a4234f03b3838e63bfc523.ctex"
+uid="uid://brmnwva7oqbeq"
+path="res://.godot/imported/Tile Set 1.png-66edc524480757c9a7eda12c8f4eac0d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile Sets/Tile Set Dark Forest.png"
-dest_files=["res://.godot/imported/Tile Set Dark Forest.png-9fe66ae385a4234f03b3838e63bfc523.ctex"]
+source_file="res://Tile Sets/Sigmiukas Residence/Tile Set 1.png"
+dest_files=["res://.godot/imported/Tile Set 1.png-66edc524480757c9a7eda12c8f4eac0d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brmnwva7oqbeq"
-path="res://.godot/imported/Tile Set 1.png-4e613c08c8b2c2add8f8bcc71445ee3b.ctex"
+uid="uid://dd0q0fn1wh16e"
+path="res://.godot/imported/Tile Set Dark Forest.png-f2c475af0b846008896bbc983e5665ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile Sets/Tile Set 1.png"
-dest_files=["res://.godot/imported/Tile Set 1.png-4e613c08c8b2c2add8f8bcc71445ee3b.ctex"]
+source_file="res://Tile Sets/Dark Forest/Tile Set Dark Forest.png"
+dest_files=["res://.godot/imported/Tile Set Dark Forest.png-f2c475af0b846008896bbc983e5665ec.ctex"]
 
 [params]
 

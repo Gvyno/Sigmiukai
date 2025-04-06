@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://cq3g4nwev8kfw"]
+[gd_scene load_steps=13 format=4 uid="uid://cq3g4nwev8kfw"]
 
-[ext_resource type="Texture2D" uid="uid://dd0q0fn1wh16e" path="res://Tile Sets/Tile Set Dark Forest.png" id="1_66nir"]
+[ext_resource type="Texture2D" uid="uid://dd0q0fn1wh16e" path="res://Tile Sets/Dark Forest/Tile Set Dark Forest.png" id="1_66nir"]
 [ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="2_ebum2"]
+[ext_resource type="Texture2D" uid="uid://jmpr3axm2vtn" path="res://Tile Sets/Dark Forest/Dark Forest TS1.png" id="2_gbln1"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="3_b7d7x"]
-[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="4_xr5go"]
-[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="5_m076m"]
-[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="6_gbln1"]
+[ext_resource type="Texture2D" uid="uid://c83qawaosb41w" path="res://Tile Sets/Dark Forest/Dark Forest TS2.png" id="3_p1duc"]
+[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://Food/BredItem.tscn" id="4_xr5go"]
+[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://Food/ChemsItem.tscn" id="5_m076m"]
+[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://Food/DogFoodItem.tscn" id="6_gbln1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebum2"]
 texture = ExtResource("1_66nir")
@@ -75,10 +77,130 @@ texture_region_size = Vector2i(32, 32)
 6:1/0 = 0
 7:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bl24v"]
+texture = ExtResource("2_gbln1")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+4:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uli8w"]
+texture = ExtResource("3_p1duc")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_b7d7x"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ebum2")
+sources/1 = SubResource("TileSetAtlasSource_bl24v")
+sources/2 = SubResource("TileSetAtlasSource_uli8w")
 
 [node name="Node2D" type="Node2D"]
 
