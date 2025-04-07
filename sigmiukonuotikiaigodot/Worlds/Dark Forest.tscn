@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://cq3g4nwev8kfw"]
+[gd_scene load_steps=14 format=4 uid="uid://cq3g4nwev8kfw"]
 
 [ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="2_ebum2"]
 [ext_resource type="Texture2D" uid="uid://jmpr3axm2vtn" path="res://Tile Sets/Dark Forest/Dark Forest TS1.png" id="2_gbln1"]
 [ext_resource type="Texture2D" uid="uid://c83qawaosb41w" path="res://Tile Sets/Dark Forest/Dark Forest TS2.png" id="3_p1duc"]
-[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://Food/BredItem.tscn" id="4_xr5go"]
-[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://Food/ChemsItem.tscn" id="5_m076m"]
-[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://Food/DogFoodItem.tscn" id="6_gbln1"]
+[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="4_xr5go"]
+[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="5_m076m"]
+[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="6_gbln1"]
+[ext_resource type="Texture2D" uid="uid://b0xndgq67q3bd" path="res://Concept Art/TheStrongestDragon.png" id="7_p1duc"]
+[ext_resource type="Texture2D" uid="uid://dkfpgsin5cyl7" path="res://Concept Art/TheVeryHungryBatman.png" id="8_bl24v"]
+[ext_resource type="Texture2D" uid="uid://dwbr8l2hit6yw" path="res://Concept Art/TheVeryScaryTree.png" id="9_uli8w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbln1"]
 size = Vector2(20, 457.32)
@@ -229,6 +232,22 @@ position = Vector2(596, 1175)
 
 [node name="ChemsItem3" parent="." instance=ExtResource("5_m076m")]
 position = Vector2(2803, 1459)
+
+[node name="TheStrongestDragon" type="Sprite2D" parent="."]
+position = Vector2(7781, -1366)
+scale = Vector2(-0.0353649, 0.0401836)
+texture = ExtResource("7_p1duc")
+
+[node name="TheVeryHungryBatman" type="Sprite2D" parent="."]
+position = Vector2(7740, -1419)
+scale = Vector2(0.0277778, 0.0277778)
+texture = ExtResource("8_bl24v")
+
+[node name="TheVeryScaryTree" type="Sprite2D" parent="."]
+position = Vector2(7834, -1352)
+rotation = -0.246187
+scale = Vector2(0.022685, 0.022685)
+texture = ExtResource("9_uli8w")
 
 [connection signal="update_health" from="BredItem" to="Sigmiukas" method="_on_bred_item_update_health"]
 [connection signal="update_mana" from="BredItem" to="Sigmiukas" method="_on_bred_item_update_mana"]

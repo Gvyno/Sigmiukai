@@ -145,7 +145,7 @@ texture_filter = 1
 position = Vector2(0, 1)
 scale = Vector2(1.51312, 1.65902)
 sprite_frames = SubResource("SpriteFrames_uxccr")
-animation = &"walk"
+animation = &"die"
 
 [node name="detection_area" type="Area2D" parent="."]
 gravity_space_override = 1

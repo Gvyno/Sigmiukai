@@ -83,6 +83,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, true, false, true, true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteSlashUD/Hitbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0942804, 0.200648, 0.499605, 0.549566),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, true, true]
+}
 
 [sub_resource type="Animation" id="Animation_itxgx"]
 resource_name = "AttackWalking"
@@ -137,6 +149,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, true, false, true, true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteSlashUD/Hitbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0999211, 0.201454, 0.50444, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, true, true]
+}
 
 [sub_resource type="Animation" id="Animation_r3kul"]
 resource_name = "Cast"
@@ -174,6 +198,23 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_b1ygp"]
+resource_name = "Death"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteDeath:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
 [sub_resource type="Animation" id="Animation_efikj"]
 resource_name = "DoubleJump"
 length = 0.4
@@ -208,6 +249,24 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_7emwf"]
+resource_name = "Hurt"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteHurt:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="Animation" id="Animation_3tkgg"]
@@ -374,6 +433,18 @@ tracks/11/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SpriteSlashUD/Hitbox/CollisionShape2D:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_oudfo"]
 resource_name = "Walk"
@@ -391,41 +462,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_7emwf"]
-resource_name = "Hurt"
-length = 0.5
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteHurt:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="Animation" id="Animation_b1ygp"]
-resource_name = "Death"
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteDeath:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oudfo"]
@@ -699,12 +735,15 @@ shape = SubResource("CapsuleShape2D_b1ygp")
 disabled = true
 
 [node name="SpriteSlashUD" type="Sprite2D" parent="."]
+position = Vector2(386, -158)
 rotation = -1.5708
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("8_jatw7")
 hframes = 3
 
 [node name="Hitbox" type="Area2D" parent="SpriteSlashUD"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("9_b1ygp")
 metadata/_custom_type_script = "uid://pjr6b0dw2pam"
 
@@ -712,6 +751,7 @@ metadata/_custom_type_script = "uid://pjr6b0dw2pam"
 position = Vector2(-5.55555, -2.0111e-05)
 scale = Vector2(10.1628, -9.70896)
 shape = SubResource("CircleShape2D_b1ygp")
+disabled = true
 
 [node name="SpriteDash" type="Sprite2D" parent="."]
 visible = false
@@ -745,7 +785,6 @@ visible = false
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("13_pisgm")
 hframes = 10
-frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
