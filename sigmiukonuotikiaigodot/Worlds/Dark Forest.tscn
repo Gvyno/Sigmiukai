@@ -198,7 +198,7 @@ sources/2 = SubResource("TileSetAtlasSource_uli8w")
 position = Vector2(-1826, 283)
 
 [node name="Collision" type="CollisionShape2D" parent="Invisable Border"]
-position = Vector2(-1966, 898)
+position = Vector2(-1932, 898)
 shape = SubResource("RectangleShape2D_gbln1")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

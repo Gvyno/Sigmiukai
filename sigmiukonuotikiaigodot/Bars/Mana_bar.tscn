@@ -4,9 +4,21 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56pru"]
 bg_color = Color(0.428388, 0.631578, 1, 1)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t68gg"]
 bg_color = Color(0.0330883, 0.387069, 0.877399, 1)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 
 [node name="ManaBar" type="ProgressBar"]
 offset_left = -69.0

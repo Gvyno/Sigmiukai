@@ -4,9 +4,21 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkdtd"]
 bg_color = Color(0.913336, 0.156382, 0.198923, 1)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rg21k"]
 bg_color = Color(0.45373, 0.861578, 0, 1)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 
 [node name="HealthBar" type="ProgressBar"]
 anchors_preset = 8
@@ -20,7 +32,7 @@ offset_right = 61.5
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.386339, 0.143575)
+scale = Vector2(0.386339, 0.139639)
 theme_override_styles/background = SubResource("StyleBoxFlat_pkdtd")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rg21k")
 value = 50.0
