@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cmwclbobv1o3h"]
+[gd_scene load_steps=40 format=3 uid="uid://cmwclbobv1o3h"]
 
 [ext_resource type="Script" uid="uid://cim6q2153qgc0" path="res://Player/Player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://its46vtcx75m" path="res://Player/Player Sprites/idle.png" id="3_3tkgg"]
@@ -405,27 +405,10 @@ tracks/0/path = NodePath("SpriteHurt:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.404547),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="Animation" id="Animation_b1ygp"]
-resource_name = "Death"
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteDeath:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+"values": [0, 2, 3, 4, 3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oudfo"]
@@ -434,7 +417,6 @@ _data = {
 &"AttackWalking": SubResource("Animation_itxgx"),
 &"Cast": SubResource("Animation_r3kul"),
 &"Dash": SubResource("Animation_rv870"),
-&"Death": SubResource("Animation_b1ygp"),
 &"DoubleJump": SubResource("Animation_efikj"),
 &"Float": SubResource("Animation_d6rpx"),
 &"Hurt": SubResource("Animation_7emwf"),
@@ -745,7 +727,6 @@ visible = false
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("13_pisgm")
 hframes = 10
-frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -780,36 +761,12 @@ autostart = true
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 141.0
-offset_top = -178.0
-offset_right = 316.0
-offset_bottom = 196.0
+offset_left = -287.0
+offset_top = -182.0
+offset_right = 288.0
+offset_bottom = 144.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="HBoxContainer4" parent="Ui" index="0"]
-offset_left = -601.0
-offset_top = 1.0
-offset_right = -301.0
-offset_bottom = 32.0
-
-[node name="Inventory" parent="Ui/HBoxContainer4/HBoxContainer3" index="0"]
-size_flags_horizontal = 8
-text = "Inventory"
-
-[node name="Respawn" parent="Ui/HBoxContainer4" index="1"]
-size_flags_horizontal = 8
-text = "Respawn"
-
-[node name="Button" parent="Ui/HBoxContainer4" index="2"]
-size_flags_horizontal = 8
-text = "Quit"
-
-[node name="VBoxContainer" parent="Ui" index="1"]
-offset_left = -424.0
-offset_top = 270.0
-offset_right = -299.0
-offset_bottom = 324.0
 
 [node name="ManaLabel" parent="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer2/ManaBar" index="1"]
 offset_left = 49.5
@@ -845,7 +802,6 @@ shape = SubResource("SeparationRayShape2D_b1ygp")
 [connection signal="area_entered" from="SpriteSlash/Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="SpriteSlash/Hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Ui/HBoxContainer4/Button" to="." method="_on_button_pressed"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="body_entered" from="head_area" to="." method="_on_head_area_body_entered"]
 

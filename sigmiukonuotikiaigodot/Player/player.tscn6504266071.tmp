@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cmwclbobv1o3h"]
+[gd_scene load_steps=34 format=3 uid="uid://cmwclbobv1o3h"]
 
 [ext_resource type="Script" uid="uid://cim6q2153qgc0" path="res://Player/Player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://its46vtcx75m" path="res://Player/Player Sprites/idle.png" id="3_3tkgg"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dvoch4cqvv8rd" path="res://Player/Player Sprites/cast.png" id="6_d6rpx"]
 [ext_resource type="Texture2D" uid="uid://bj5ngciahwjtj" path="res://Player/Player Sprites/attack.png" id="7_r3kul"]
 [ext_resource type="Texture2D" uid="uid://bjv3xhy8gys3k" path="res://Player/Player Sprites/slash.png" id="8_jatw7"]
-[ext_resource type="Script" uid="uid://c5vjwoogeksk1" path="res://Player/hitbox.gd" id="9_b1ygp"]
+[ext_resource type="Script" uid="uid://pjr6b0dw2pam" path="res://HitBox/Hitbox.gd" id="9_pisgm"]
 [ext_resource type="Texture2D" uid="uid://bq3dr2mhna43a" path="res://Player/Player Sprites/dash.png" id="9_rv870"]
 [ext_resource type="Texture2D" uid="uid://gnljp364uwro" path="res://Player/Player Sprites/doublejump.png" id="10_efikj"]
 [ext_resource type="Texture2D" uid="uid://qga45nbcknv8" path="res://Player/Player Sprites/attackwalking.png" id="11_itxgx"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://c217w48x6l5wv" path="res://Player/Player Sprites/death.png" id="13_pisgm"]
 [ext_resource type="PackedScene" uid="uid://dh5638o8nsc3t" path="res://Bars/Mana_bar.tscn" id="13_urp6f"]
 [ext_resource type="PackedScene" uid="uid://dev0n1koku2p2" path="res://UI/UI.tscn" id="14_gu6f8"]
-[ext_resource type="Script" uid="uid://dd7t7gd5cbl81" path="res://Player/hurt_box.gd" id="18_b1ygp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvl01"]
 radius = 12.0
@@ -26,9 +25,6 @@ height = 44.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b1ygp"]
 radius = 17.6945
 height = 35.3889
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_b1ygp"]
-radius = 13.012
 
 [sub_resource type="Animation" id="Animation_jatw7"]
 resource_name = "Attack"
@@ -47,42 +43,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteSlash/Hitbox/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0943939, 0.2, 0.5, 0.549201),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, false, true, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("SpriteSlash/Hitbox:monitoring")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0943939, 0.199821, 0.4, 0.550427),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, false, true, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/path = NodePath("SpriteSlash/Hitbox:monitorable")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0943939, 0.199821, 0.4, 0.550427),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, false, true, true]
-}
 
 [sub_resource type="Animation" id="Animation_itxgx"]
 resource_name = "AttackWalking"
@@ -100,42 +60,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteSlash/Hitbox/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0992573, 0.196606, 0.503922, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, false, true, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("SpriteSlash/Hitbox:monitoring")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0992573, 0.196606, 0.398938, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, false, true, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/path = NodePath("SpriteSlash/Hitbox:monitorable")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0992573, 0.196606, 0.398938, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, false, true, true]
 }
 
 [sub_resource type="Animation" id="Animation_r3kul"]
@@ -326,54 +250,6 @@ tracks/7/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("SpriteSlash/Hitbox/CollisionShape2D:disabled")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("SpriteSlash/Hitbox:monitoring")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("SpriteSlash/Hitbox:monitorable")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("SpriteHurt:frame")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_oudfo"]
 resource_name = "Walk"
@@ -393,58 +269,20 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_7emwf"]
-resource_name = "Hurt"
-length = 0.5
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteHurt:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="Animation" id="Animation_b1ygp"]
-resource_name = "Death"
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteDeath:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oudfo"]
 _data = {
 &"Attack": SubResource("Animation_jatw7"),
 &"AttackWalking": SubResource("Animation_itxgx"),
 &"Cast": SubResource("Animation_r3kul"),
 &"Dash": SubResource("Animation_rv870"),
-&"Death": SubResource("Animation_b1ygp"),
 &"DoubleJump": SubResource("Animation_efikj"),
 &"Float": SubResource("Animation_d6rpx"),
-&"Hurt": SubResource("Animation_7emwf"),
 &"Idle": SubResource("Animation_3tkgg"),
 &"RESET": SubResource("Animation_l6ohk"),
 &"Walk": SubResource("Animation_oudfo")
 }
 
 [sub_resource type="Animation" id="Animation_0pi4m"]
-resource_name = "RESET"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -470,42 +308,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteSlash/Hitbox:monitoring")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteSlash/Hitbox:monitorable")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SpriteSlash/Hitbox/CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_cgsek"]
 resource_name = "Slash"
@@ -523,42 +325,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("SpriteSlash/Hitbox:monitoring")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.221357),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("SpriteSlash/Hitbox:monitorable")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.221357),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/path = NodePath("SpriteSlash/Hitbox/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.221357, 0.225),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, true]
 }
 
 [sub_resource type="Animation" id="Animation_lfmf2"]
@@ -578,42 +344,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("SpriteSlash/Hitbox:monitoring")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.252534, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("SpriteSlash/Hitbox:monitorable")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.252534, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/path = NodePath("SpriteSlash/Hitbox/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.250083, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sg6sq"]
 _data = {
@@ -621,14 +351,6 @@ _data = {
 &"Slash": SubResource("Animation_cgsek"),
 &"SlashUD": SubResource("Animation_lfmf2")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1ygp"]
-size = Vector2(27, 47)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o28un"]
-size = Vector2(19.9686, 8.54993)
-
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_b1ygp"]
 
 [node name="CharacterBody2D2" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_onrkg")
@@ -641,7 +363,6 @@ offset = Vector2(0, -20)
 zoom = Vector2(2, 2)
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_i3pqv")]
-visible = false
 
 [node name="SpriteIdle" type="Sprite2D" parent="."]
 position = Vector2(-7.62939e-06, -1.00003)
@@ -687,31 +408,21 @@ hframes = 3
 
 [node name="Hitbox" type="Area2D" parent="SpriteSlash"]
 collision_layer = 4
-collision_mask = 0
-script = ExtResource("9_b1ygp")
+script = ExtResource("9_pisgm")
 metadata/_custom_type_script = "uid://pjr6b0dw2pam"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteSlash/Hitbox"]
-position = Vector2(6.00815e-05, 5.55558)
+position = Vector2(-77.7777, -16.6663)
 rotation = -0.0153984
-scale = Vector2(7.42168, 7.30277)
+scale = Vector2(6.27869, 6.1781)
 shape = SubResource("CapsuleShape2D_b1ygp")
-disabled = true
 
 [node name="SpriteSlashUD" type="Sprite2D" parent="."]
+visible = false
 rotation = -1.5708
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("8_jatw7")
 hframes = 3
-
-[node name="Hitbox" type="Area2D" parent="SpriteSlashUD"]
-script = ExtResource("9_b1ygp")
-metadata/_custom_type_script = "uid://pjr6b0dw2pam"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteSlashUD/Hitbox"]
-position = Vector2(-5.55555, -2.0111e-05)
-scale = Vector2(10.1628, -9.70896)
-shape = SubResource("CircleShape2D_b1ygp")
 
 [node name="SpriteDash" type="Sprite2D" parent="."]
 visible = false
@@ -745,7 +456,6 @@ visible = false
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("13_pisgm")
 hframes = 10
-frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -780,73 +490,23 @@ autostart = true
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 141.0
-offset_top = -178.0
-offset_right = 316.0
-offset_bottom = 196.0
+offset_left = -287.0
+offset_top = -182.0
+offset_right = 288.0
+offset_bottom = 144.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="HBoxContainer4" parent="Ui" index="0"]
-offset_left = -601.0
-offset_top = 1.0
-offset_right = -301.0
-offset_bottom = 32.0
-
-[node name="Inventory" parent="Ui/HBoxContainer4/HBoxContainer3" index="0"]
-size_flags_horizontal = 8
-text = "Inventory"
-
-[node name="Respawn" parent="Ui/HBoxContainer4" index="1"]
-size_flags_horizontal = 8
-text = "Respawn"
-
-[node name="Button" parent="Ui/HBoxContainer4" index="2"]
-size_flags_horizontal = 8
-text = "Quit"
-
-[node name="VBoxContainer" parent="Ui" index="1"]
-offset_left = -424.0
-offset_top = 270.0
-offset_right = -299.0
-offset_bottom = 324.0
 
 [node name="ManaLabel" parent="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer2/ManaBar" index="1"]
 offset_left = 49.5
 offset_right = 176.5
 
-[node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 8
-script = ExtResource("18_b1ygp")
-metadata/_custom_type_script = "uid://dd7t7gd5cbl81"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_b1ygp")
-
-[node name="head_area" type="Area2D" parent="."]
-position = Vector2(-29, 72)
-rotation = -0.0101299
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="head_area"]
-position = Vector2(29.9608, -94.7014)
-shape = SubResource("RectangleShape2D_o28un")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-scale = Vector2(1, -1.36)
-shape = SubResource("SeparationRayShape2D_b1ygp")
-
-[connection signal="health_changed" from="." to="." method="_on_health_changed"]
 [connection signal="health_changed" from="." to="HealthBar" method="_on_character_body_2d_2_health_changed"]
 [connection signal="health_changed" from="." to="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer/HealthBar" method="_on_character_body_2d_2_health_changed"]
 [connection signal="mana_changed" from="." to="ManaBar" method="_on_character_body_2d_2_mana_changed"]
 [connection signal="mana_changed" from="." to="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer2/ManaBar" method="_on_character_body_2d_2_mana_changed"]
-[connection signal="area_entered" from="SpriteSlash/Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="area_exited" from="SpriteSlash/Hitbox" to="." method="_on_hitbox_area_exited"]
+[connection signal="body_entered" from="SpriteSlash/Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="SpriteSlash/Hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Ui/HBoxContainer4/Button" to="." method="_on_button_pressed"]
-[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="body_entered" from="head_area" to="." method="_on_head_area_body_entered"]
 
 [editable path="Ui"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cby4pbjpfxvd5"]
+
+[ext_resource type="Script" uid="uid://bxjursif13gi0" path="res://Worlds/Sigmiukas Residence Scripts/spawner.gd" id="1_ec1sc"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_ec1sc")

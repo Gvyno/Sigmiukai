@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 @onready var animation = $AnimationPlayer
-
-
+@export var knockbackPower: int = 25
 signal health_changed(new_health,new_min_health,new_max_health)
 signal mana_changed(new_mana,new_min_mana,new_max_mana)
+var is_alive = true
 var max_health=100
 var min_health=0
 var health =100
@@ -29,7 +29,8 @@ var slash_timer = 0.0
 var dash_timer = 0.0  
 var dash_cooldown_timer = 0.0  
 var dash_direction = 1  
-
+var is_hurt = false
+var hurt_timer =0.3
 enum AttackDirection { FORWARD, UP, DOWN }
 var attack_direction = AttackDirection.FORWARD
 
@@ -53,6 +54,20 @@ func _on_timer_timeout():
 func _physics_process(delta: float) -> void:
 	emit_signal("health_changed", health, min_health,max_health)
 	emit_signal("mana_changed", mana,min_mana,max_mana)
+	if is_hurt:
+		hurt_timer -= delta
+		if hurt_timer <= 0:
+			is_hurt = false
+		else:
+			move_and_slide()
+			return
+	if !is_alive:
+		hurt_timer -= delta
+		if hurt_timer <= 0:
+			is_alive = false
+		else:
+			move_and_slide()
+			return
 
 	# **Freeze movement while casting**
 	if is_casting:
@@ -145,6 +160,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_right_mouse"):
 		if mana - 20 >= min_mana:
 			mana -= 20
+			if((health-5)<=min_health):
+				die()
 			health -= 5
 			emit_signal("health_changed", health, min_health, max_health)
 			emit_signal("mana_changed", mana, min_mana, max_mana)
@@ -270,6 +287,7 @@ func trigger_slash():
 				$SpriteSlash.global_position = global_position + Vector2(offset_x, 0)
 				$SpriteSlash.flip_h = false
 
+
 		AttackDirection.UP:
 			$SpriteSlashUD.visible = true
 			$SecondaryAnimationPlayer.play("SlashUD")
@@ -315,17 +333,25 @@ func flip_sprites(flip: bool):
 		slash_node.position.x = -20 if flip else 20
 
 func hide_other_sprites(exception: String):
-	for sprite in ["Idle", "Walk", "Jump", "Cast", "Attack", "Slash", "Dash", "DoubleJump", "AttackWalking", "SlashUD"]:
+	for sprite in ["Death","Hurt" ,"Idle", "Walk", "Jump", "Cast", "Attack", "Slash", "Dash", "DoubleJump", "AttackWalking", "SlashUD"]:
 		var node = get_node_or_null("Sprite" + sprite)
 		if node and sprite != exception:
 			node.visible = false
 
 func hide_effect_sprites():
-	for sprite in ["Slash", "SlashUD"]:
+	for sprite in ["Slash", "SlashUD","Cast"]:
 		var node = get_node_or_null("Sprite" + sprite)
 		if node:
 			node.visible = false
 
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+	
+
+func _on_hitbox_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
+
+	
 '''
 func _on_dogy_update_health() -> void:
 	emit_signal("health_changed", health,min_health,max_health)
@@ -380,3 +406,100 @@ func _on_dog_food_item_update_health() -> void:
 func _on_dog_food_item_update_mana() -> void:
 	emit_signal("mana_changed", mana,min_mana,max_mana)
 '''
+
+
+#func _on_hitbox_area_entered(area: Area2D) -> void:
+#	pass # Replace with function body.
+
+
+#func _on_hitbox_area_exited(area: Area2D) -> void:
+#	pass # Replace with function body.
+func knockback():
+	var knockbackDirection= (-velocity)
+	velocity = knockbackDirection
+	print_debug(velocity)
+	print_debug(position)
+	move_and_slide()
+	print_debug(position)
+	print_debug("    ")
+
+
+
+#func _on_hurt_box_itake_damage(damage: int) -> void:
+#	pass # Replace with function body.
+
+
+func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
+#	knockback()
+#	print("a skaud ?")
+	if is_alive:
+		is_hurt = true
+		hurt_timer = 0.3
+		$SpriteHurt.visible = true
+		hide_other_sprites("Hurt")
+		animation.play("Hurt")
+
+		health=health-hitbox.get("Damage")
+		emit_signal("health_changed",health,min_health,max_health)
+		if health <= min_health:
+			die()
+		pass # Replace with function body.
+	pass # Replace with function body.
+
+
+func _on_hurt_box_body_entered(body: Node2D) -> void:
+	hide_effect_sprites()
+	$SpriteHurt.visible=true
+	hide_other_sprites("Hurt")
+	animation.play("Hurt")
+#	animation.advance(0)
+#	print("Something entered the enemy hitbox:", body)
+#	print(body.name)
+#	print(body.get_path())
+	pass # Replace with function body.
+
+func die():
+	hide_effect_sprites()
+	is_alive = false
+	hurt_timer = 1
+	$SpriteDeath.visible = true
+	hide_other_sprites("Death")
+	animation.play("Death")
+#	print("Enemy died!")
+	await get_tree().create_timer(1).timeout  
+	get_tree().reload_current_scene()
+	queue_free()  
+#WIP might be useful later rn now it's here for more computer resource consumption :3
+func _on_health_changed(new_health: Variant, new_min_health: Variant, new_max_health: Variant) -> void:
+	if(health>new_health):
+		hide_effect_sprites()
+		$SpriteHurt.visible=true
+		hide_other_sprites("Hurt" )
+		animation.play("Hurt")
+#		animation.advance(0)
+	pass # Replace with function body.
+
+
+func _on_head_area_body_entered(body: Node2D) -> void:
+#	if body.is_in_group("emeny_rat"):  # Check if the object is the player
+		if is_alive:
+#			print("zdare")
+			#knockback()
+#			velocity.y = -velocity.y*knockbackPower  # Apply upward velocity to the player (bounce)
+#			body.velocity.x = -body.velocity.x+1  # Apply knockback force to the player
+#			body.velocity.y = -body.velocity.y  # Optionally, apply some vertical force to the player
+#			body.GRAVITY=-2500
+#			body.GRAVITY=2500
+			# If the player is falling and is above the enemy, the enemy dies
+#			if body.velocity.y > 0 and body.position.y < position.y:
+				pass
+
+
+func _on_respawn_pressed() -> void:
+	die()
+	pass # Replace with function body.
+
+
+func _on_button_pressed() -> void:
+	get_tree().quit()
+	pass # Replace with function body.

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://byevpiwgoxwdq"]
+[gd_scene load_steps=9 format=3 uid="uid://byevpiwgoxwdq"]
 
 [ext_resource type="Script" uid="uid://bx1thitxh2fsl" path="res://Player/projectile.gd" id="1_mo4ol"]
 [ext_resource type="Texture2D" uid="uid://jjstai7o2xvd" path="res://Player/Player Sprites/projectile.png" id="2_7i71o"]
+[ext_resource type="Script" uid="uid://bmrxuf4hdc7o7" path="res://Player/hitboxprojectile.gd" id="3_7i71o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e7peq"]
 radius = 16.0312
@@ -45,6 +46,9 @@ _data = {
 &"RESET": SubResource("Animation_3rnyv")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7i71o"]
+radius = 15.2971
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_mo4ol")
 
@@ -60,3 +64,12 @@ shape = SubResource("CircleShape2D_e7peq")
 libraries = {
 &"": SubResource("AnimationLibrary_dbogy")
 }
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+script = ExtResource("3_7i71o")
+metadata/_custom_type_script = "uid://pjr6b0dw2pam"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+scale = Vector2(1.16948, 1.16948)
+shape = SubResource("CircleShape2D_7i71o")

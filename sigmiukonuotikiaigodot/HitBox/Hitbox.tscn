@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3264gdxyivf"]
+
+[ext_resource type="Script" uid="uid://pjr6b0dw2pam" path="res://HitBox/Hitbox.gd" id="1_ptib5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctpi6"]
+radius = 17.6945
+height = 35.3889
+
+[node name="Hitbox" type="Area2D"]
+position = Vector2(1, 2)
+script = ExtResource("1_ptib5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -3)
+rotation = -0.0153984
+scale = Vector2(6.27869, 6.1781)
+shape = SubResource("CapsuleShape2D_ctpi6")
+disabled = true

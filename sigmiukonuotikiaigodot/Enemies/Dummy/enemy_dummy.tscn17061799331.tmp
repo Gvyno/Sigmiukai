@@ -1,10 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://k5tj51wpc761"]
+[gd_scene load_steps=14 format=3 uid="uid://k5tj51wpc761"]
 
 [ext_resource type="Script" uid="uid://j166064844ym" path="res://Enemies/Dummy/enemy_dummy.gd" id="1_3qsc4"]
 [ext_resource type="Texture2D" uid="uid://bw7akofm6it8u" path="res://Enemies/Dummy/dummy_jump.png" id="1_e7pyd"]
 [ext_resource type="Script" uid="uid://c401cbp7skafx" path="res://HitBox/HurtBox.gd" id="3_61pm4"]
-[ext_resource type="PackedScene" uid="uid://ddoxp44fjesk0" path="res://Bars/Health_bar.tscn" id="4_t5h6d"]
-[ext_resource type="PackedScene" uid="uid://dh5638o8nsc3t" path="res://Bars/Mana_bar.tscn" id="5_h5q6p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ij6vw"]
 atlas = ExtResource("1_e7pyd")
@@ -67,10 +65,9 @@ animations = [{
 size = Vector2(26, 52.75)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_61pm4"]
-radius = 4.64396
 
 [node name="enemy_dummy" type="CharacterBody2D"]
-collision_layer = 5
+collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_3qsc4")
 
@@ -88,32 +85,12 @@ position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_1kp85")
 
 [node name="HurtBox" type="Area2D" parent="."]
-position = Vector2(81, -3)
-disable_mode = 2
 collision_layer = 0
 collision_mask = 4
-monitorable = false
 script = ExtResource("3_61pm4")
 metadata/_custom_type_script = "uid://c401cbp7skafx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-82, 3)
-scale = Vector2(2.84, 5.76)
+position = Vector2(-1, 5)
+scale = Vector2(6.68, 5.76)
 shape = SubResource("CircleShape2D_61pm4")
-
-[node name="HealthBar" parent="." instance=ExtResource("4_t5h6d")]
-offset_left = -23.0
-offset_top = -32.0
-offset_right = 100.0
-offset_bottom = 0.0
-
-[node name="ManaBar" parent="." instance=ExtResource("5_h5q6p")]
-visible = false
-offset_left = -65.0
-offset_top = 42.0
-offset_right = 73.0
-offset_bottom = 69.0
-
-[connection signal="health_changed" from="." to="HealthBar" method="_on_enemy_dummy_health_changed"]
-[connection signal="ItakeDamage" from="HurtBox" to="." method="_on_hurt_box_itake_damage"]
-[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

@@ -4,9 +4,20 @@ var speed = 150  # Speed at which the enemy moves
 var player_chase = false  # Whether the enemy is chasing the player
 var player = null  # Reference to the player node
 var is_alive = true  # If the enemy is alive
-const GRAVITY = 2500.0  # Gravity strength (adjust as needed)
+const GRAVITY = 2055  # Gravity strength (adjust as needed)
 const JUMP_VELOCITY = -400.0  # Jump force
-
+signal health_changed(new_health,new_min_health,new_max_health)
+var max_health=80
+var min_health=0
+var health =80
+var max_mana=50
+var min_mana=0
+var mana =50
+var enemy_attackcooldown =true
+func _ready():
+	emit_signal("health_changed",health,min_health,max_health)
+	pass
+	
 # This function will be triggered when the player enters the Area2D
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):  # Check if the object is the player
@@ -56,9 +67,8 @@ func die():
 	$AnimatedSprite2D.stop()  # Stop all animations
 	$AnimatedSprite2D.play("die")  # Play the death animation
 
-	await get_tree().create_timer(1.5).timeout  # Wait for 1.5 seconds
+	await get_tree().create_timer(0.5).timeout  # Wait for 1.5 seconds
 	queue_free()  # Remove the enemy
-
 
 
 
@@ -67,11 +77,36 @@ func _on_head_area_body_entered(body: Node2D) -> void:
 		if is_alive:
 			# If the player is falling and is above the enemy, the enemy dies
 			if body.velocity.y > 0 and body.position.y < position.y:
-				print("Player jumped on enemy! Enemy dies.")
-				die()  # Enemy dies when the player jumps on top of it
-				body.velocity.y = -400  # Apply upward velocity to the player (bounce)
+				print("Player jumped on enemy! CRITICAL HIT.")
+				health=health-50
+				emit_signal("health_changed",health,min_health,max_health)
+				if health <= min_health:
+					die()
+#				velocity.y = -400  # Apply upward velocity to the player (bounce)
 			else:
 				# If the player hits the enemy from the side, knockback the player
 				print("Player hit the enemy from the side!")
-				body.velocity.x = -150  # Apply knockback force to the player
-				body.velocity.y = -200  # Optionally, apply some vertical force to the player
+#				body.velocity.x = -150  # Apply knockback force to the player
+#				body.velocity.y = -200  # Optionally, apply some vertical force to the player
+#				velocity.x = -150  # Apply knockback force to the player
+#				velocity.y = -200  # Optionally, apply some vertical force to the player
+func enemy():
+	pass
+
+func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
+	if is_alive:
+#			print("Something entered the enemy hitbox:", hitbox)
+#			print(hitbox.name)
+#			print(hitbox.get_path())
+		if(enemy_attackcooldown==true):
+			health=health-hitbox.get("Damage")
+			emit_signal("health_changed",health,min_health,max_health)
+			if health <= min_health:
+				die()
+			enemy_attackcooldown==false
+			$AttackCooldown.start()
+	pass # Replace with function body.
+
+
+func _on_attack_cooldown_timeout() -> void:
+	enemy_attackcooldown = true

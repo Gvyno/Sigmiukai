@@ -18,6 +18,14 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 DialogueManager="*res://Dialogue/DialogueManager.gd"
 
+[file_customization]
+
+folder_colors={
+"res://Bars/": "teal",
+"res://Enemies/": "teal",
+"res://HitBox/": "teal"
+}
+
 [global_group]
 
 player=""

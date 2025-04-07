@@ -1,9 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://txwnm02pbwt6"]
+[gd_scene load_steps=29 format=3 uid="uid://txwnm02pbwt6"]
 
 [ext_resource type="Script" uid="uid://dv6mispfiqemx" path="res://Enemies/Rat/emeny_rat.gd" id="1_cm882"]
 [ext_resource type="Texture2D" uid="uid://dbt4emu5sfogt" path="res://Enemies/Rat/Rat Idle.png" id="2_p8ayk"]
 [ext_resource type="Texture2D" uid="uid://dpgqw1ltitcgf" path="res://Enemies/Rat/Rat Die.png" id="2_xugol"]
 [ext_resource type="Texture2D" uid="uid://bku6mag66564s" path="res://Enemies/Rat/Rat Walk.png" id="4_g7i08"]
+[ext_resource type="Script" uid="uid://c401cbp7skafx" path="res://HitBox/HurtBox.gd" id="5_4odyn"]
+[ext_resource type="PackedScene" uid="uid://ddoxp44fjesk0" path="res://Bars/Health_bar.tscn" id="6_5cbw1"]
+[ext_resource type="PackedScene" uid="uid://dh5638o8nsc3t" path="res://Bars/Mana_bar.tscn" id="7_b8moj"]
+[ext_resource type="Script" uid="uid://m2rhk5o07s62" path="res://Enemies/Rat/hitbox.gd" id="8_5cbw1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekm63"]
 atlas = ExtResource("2_xugol")
@@ -118,12 +122,22 @@ animations = [{
 radius = 166.193
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8ayk"]
-size = Vector2(50.5, 19)
+size = Vector2(49, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm882"]
-size = Vector2(50, 9.5)
+size = Vector2(55.0174, 32.5318)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u8xi1"]
+radius = 5.08982
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cbw1"]
+size = Vector2(20.5132, 27.4612)
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_5cbw1"]
+length = 13.9706
 
 [node name="rat_enemy" type="CharacterBody2D"]
+collision_layer = 5
 script = ExtResource("1_cm882")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -141,16 +155,67 @@ position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_o688d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-11.25, 5)
+position = Vector2(-11.5, 5.5)
 shape = SubResource("RectangleShape2D_p8ayk")
 
 [node name="head_area" type="Area2D" parent="."]
 position = Vector2(-29, 72)
+rotation = -0.0101299
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="head_area"]
-position = Vector2(18, -79)
+position = Vector2(18.3095, -90.5159)
 shape = SubResource("RectangleShape2D_cm882")
 
+[node name="HurtBox" type="Area2D" parent="."]
+position = Vector2(81, -3)
+disable_mode = 2
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("5_4odyn")
+metadata/_custom_type_script = "uid://c401cbp7skafx"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-91, 3)
+scale = Vector2(6.68, 5.76)
+shape = SubResource("CircleShape2D_u8xi1")
+
+[node name="HealthBar" parent="." instance=ExtResource("6_5cbw1")]
+offset_left = -23.0
+offset_top = -32.0
+offset_right = 100.0
+offset_bottom = 0.0
+
+[node name="ManaBar" parent="." instance=ExtResource("7_b8moj")]
+visible = false
+offset_left = -65.0
+offset_top = 42.0
+offset_right = 73.0
+offset_bottom = 69.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("8_5cbw1")
+metadata/_custom_type_script = "uid://pjr6b0dw2pam"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-10.2678, -0.5)
+scale = Vector2(2.85355, 1.05604)
+shape = SubResource("RectangleShape2D_5cbw1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-10, -21)
+rotation = -0.00171959
+scale = Vector2(11.0153, 2.59341)
+shape = SubResource("SeparationRayShape2D_5cbw1")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="health_changed" from="." to="HealthBar" method="_on_rat_enemy_health_changed"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="head_area" to="." method="_on_head_area_body_entered"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
