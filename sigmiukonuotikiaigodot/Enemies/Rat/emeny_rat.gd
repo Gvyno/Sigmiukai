@@ -56,7 +56,7 @@ func die():
 	$AnimatedSprite2D.stop()  # Stop all animations
 	$AnimatedSprite2D.play("die")  # Play the death animation
 
-	await get_tree().create_timer(1.5).timeout  # Wait for 1.5 seconds
+	#await get_tree().create_timer(1.5).timeout  # Wait for 1.5 seconds
 	queue_free()  # Remove the enemy
 
 

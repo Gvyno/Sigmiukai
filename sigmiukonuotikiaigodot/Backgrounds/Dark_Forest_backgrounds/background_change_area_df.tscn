@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://uxrdrngnbkkg"]
+
+[ext_resource type="Script" uid="uid://de0qyj5p1eql1" path="res://Backgrounds/Dark_Forest_backgrounds/background_change_area.gd" id="1_480hm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bg7h"]
+size = Vector2(105, 91)
+
+[node name="Background_change_area" type="Area2D"]
+script = ExtResource("1_480hm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7bg7h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

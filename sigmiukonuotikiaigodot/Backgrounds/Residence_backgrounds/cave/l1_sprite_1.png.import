@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwkl8i3w32sm3"
-path="res://.godot/imported/Cave (Placeholder).jpg-a0d23fc47a1e8b123ccca8fae1cdbd00.ctex"
+uid="uid://bwgjjswq5oqmo"
+path="res://.godot/imported/l1_sprite_1.png-12fdf21345fa2a5e81a7a1217cede5c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Backgrounds/Cave (Placeholder).jpg"
-dest_files=["res://.godot/imported/Cave (Placeholder).jpg-a0d23fc47a1e8b123ccca8fae1cdbd00.ctex"]
+source_file="res://Backgrounds/Residence_backgrounds/cave/l1_sprite_1.png"
+dest_files=["res://.godot/imported/l1_sprite_1.png-12fdf21345fa2a5e81a7a1217cede5c7.ctex"]
 
 [params]
 

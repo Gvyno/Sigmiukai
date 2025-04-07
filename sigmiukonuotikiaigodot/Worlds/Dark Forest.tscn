@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://cq3g4nwev8kfw"]
+[gd_scene load_steps=8 format=4 uid="uid://cq3g4nwev8kfw"]
 
 [ext_resource type="Texture2D" uid="uid://dd0q0fn1wh16e" path="res://Tile Sets/Tile Set Dark Forest.png" id="1_66nir"]
 [ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="2_ebum2"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="3_b7d7x"]
+[ext_resource type="PackedScene" uid="uid://fiacdramul3w" path="res://Backgrounds/Dark_Forest_backgrounds/dark_forest_background.tscn" id="4_mkq5n"]
+[ext_resource type="PackedScene" uid="uid://uxrdrngnbkkg" path="res://Backgrounds/Dark_Forest_backgrounds/background_change_area_df.tscn" id="5_xr5go"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebum2"]
 texture = ExtResource("1_66nir")
@@ -78,6 +80,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ebum2")
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(-22, 5)
+metadata/_edit_vertical_guides_ = [-3998.0]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 3)
@@ -98,3 +102,9 @@ position = Vector2(-1302, 1430)
 
 [node name="rat_enemy4" parent="." instance=ExtResource("3_b7d7x")]
 position = Vector2(-1125, 1432)
+
+[node name="dark_forest_background" parent="." instance=ExtResource("4_mkq5n")]
+scroll_offset = Vector2(453, 659)
+
+[node name="Background_change_area" parent="." instance=ExtResource("5_xr5go")]
+position = Vector2(0, 441)
