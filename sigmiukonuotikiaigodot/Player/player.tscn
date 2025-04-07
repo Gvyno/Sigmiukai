@@ -888,6 +888,7 @@ shape = SubResource("SeparationRayShape2D_b1ygp")
 [connection signal="pressed" from="Ui/HBoxContainer4/Respawn" to="." method="_on_respawn_pressed"]
 [connection signal="pressed" from="Ui/HBoxContainer4/Button" to="." method="_on_button_pressed"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="body_entered" from="head_area" to="." method="_on_head_area_body_entered"]
 
 [editable path="Ui"]

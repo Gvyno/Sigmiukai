@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cq3g4nwev8kfw"]
+[gd_scene load_steps=15 format=4 uid="uid://cq3g4nwev8kfw"]
 
 [ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="2_ebum2"]
 [ext_resource type="Texture2D" uid="uid://jmpr3axm2vtn" path="res://Tile Sets/Dark Forest/Dark Forest TS1.png" id="2_gbln1"]
@@ -12,6 +12,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbln1"]
 size = Vector2(20, 457.32)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p1duc"]
+friction = 0.0
+bounce = 50.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bl24v"]
 texture = ExtResource("2_gbln1")
@@ -87,6 +91,7 @@ texture_region_size = Vector2i(32, 32)
 7:5/0 = 0
 0:6/0 = 0
 0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -9.53251, -0.719435, -4.67633, 10.6117, -1.25901, 3.23746, 0.539576, 3.0576, 4.49647, 10.6117, 9.35265, -1.25901, 9.53251, -0.719435, 16, 16)
+0:6/0/physics_layer_1/polygon_0/points = PackedVector2Array(-9.55892, -0.63726, -5.41672, 10.8334, -0.31863, 1.59315, 4.77946, 12.108, 9.87756, -0.955893, 16, 16, -16, 16)
 1:6/0 = 0
 1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, 0.899294, 9.1728, -11.3311, 4.31661, -3.41732, 0.359718, -3.59717, -1.97845, -11.511, -4.67633, 0.719435, -10.0721, -16, -16)
 4:6/0 = 0
@@ -189,6 +194,10 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_b7d7x"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_priority = 2.0
+physics_layer_1/collision_layer = 8
+physics_layer_1/collision_mask = 0
+physics_layer_1/physics_material = SubResource("PhysicsMaterial_p1duc")
 sources/1 = SubResource("TileSetAtlasSource_bl24v")
 sources/2 = SubResource("TileSetAtlasSource_uli8w")
 
@@ -207,7 +216,7 @@ tile_map_data = PackedByteArray("AADA/y0AAQABAAAAAADB/y0AAQABAAAAAADC/y0AAQABAAA
 tile_set = SubResource("TileSet_b7d7x")
 
 [node name="Sigmiukas" parent="." instance=ExtResource("2_ebum2")]
-position = Vector2(-3258, 1370)
+position = Vector2(-3265, 1212)
 
 [node name="BredItem" parent="." instance=ExtResource("4_xr5go")]
 position = Vector2(-3151, 1390)

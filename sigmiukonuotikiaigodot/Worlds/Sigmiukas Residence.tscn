@@ -417,7 +417,7 @@ position = Vector2(37, 39)
 shape = SubResource("CircleShape2D_iyaap")
 
 [node name="enemy_dummy" parent="." instance=ExtResource("21_mtjgx")]
-position = Vector2(1253, 420)
+position = Vector2(1252, 419)
 
 [node name="rat_enemy" parent="." instance=ExtResource("21_st1e4")]
 position = Vector2(2730, 493)

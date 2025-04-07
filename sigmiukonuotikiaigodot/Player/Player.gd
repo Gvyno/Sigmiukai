@@ -52,6 +52,9 @@ func _on_timer_timeout():
 		#print("mana="+str(mana))
 
 func _physics_process(delta: float) -> void:
+#	if is_on_wall() or is_on_floor():
+#		var collision = get_last_slide_collision()
+#		velocity = velocity.bounce(collision.get_normal()) * 0.8  # Adjust bounce strength
 	emit_signal("health_changed", health, min_health,max_health)
 	emit_signal("mana_changed", mana,min_mana,max_mana)
 	if is_hurt:
@@ -408,15 +411,15 @@ func _on_dog_food_item_update_mana() -> void:
 '''
 
 
-#func _on_hitbox_area_entered(area: Area2D) -> void:
-#	pass # Replace with function body.
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
 
-
-#func _on_hitbox_area_exited(area: Area2D) -> void:
-#	pass # Replace with function body.
+func _on_hitbox_area_exited(area: Area2D) -> void:
+	pass # Replace with function body.
 func knockback():
-	var knockbackDirection= (-velocity)
-	velocity = knockbackDirection
+	velocity.y = -300  # simulate bounce up
+#	var knockbackDirection= (-velocity)
+#	velocity = knockbackDirection
 	print_debug(velocity)
 	print_debug(position)
 	move_and_slide()
@@ -448,14 +451,19 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
-	hide_effect_sprites()
-	$SpriteHurt.visible=true
-	hide_other_sprites("Hurt")
-	animation.play("Hurt")
-#	animation.advance(0)
-#	print("Something entered the enemy hitbox:", body)
-#	print(body.name)
-#	print(body.get_path())
+	if is_alive:
+		knockback()
+		is_hurt = true
+		hurt_timer = 0.3
+		$SpriteHurt.visible = true
+		hide_other_sprites("Hurt")
+		animation.play("Hurt")
+		health=health-20
+#		health=health-hitbox.get("Damage")
+		emit_signal("health_changed",health,min_health,max_health)
+		if health <= min_health:
+			die()
+		pass # Replace with function body.
 	pass # Replace with function body.
 
 func die():
