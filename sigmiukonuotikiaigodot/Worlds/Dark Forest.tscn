@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cq3g4nwev8kfw"]
+[gd_scene load_steps=16 format=4 uid="uid://cq3g4nwev8kfw"]
 
 [ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="2_ebum2"]
 [ext_resource type="Texture2D" uid="uid://jmpr3axm2vtn" path="res://Tile Sets/Dark Forest/Dark Forest TS1.png" id="2_gbln1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b0xndgq67q3bd" path="res://Concept Art/TheStrongestDragon.png" id="7_p1duc"]
 [ext_resource type="Texture2D" uid="uid://dkfpgsin5cyl7" path="res://Concept Art/TheVeryHungryBatman.png" id="8_bl24v"]
 [ext_resource type="Texture2D" uid="uid://dwbr8l2hit6yw" path="res://Concept Art/TheVeryScaryTree.png" id="9_uli8w"]
+[ext_resource type="PackedScene" uid="uid://fiacdramul3w" path="res://Backgrounds/Dark_Forest_backgrounds/dark_forest_background.tscn" id="10_bl24v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbln1"]
 size = Vector2(20, 457.32)
@@ -202,6 +203,7 @@ sources/1 = SubResource("TileSetAtlasSource_bl24v")
 sources/2 = SubResource("TileSetAtlasSource_uli8w")
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(2819, -119)
 
 [node name="Invisable Border" type="StaticBody2D" parent="."]
 position = Vector2(-1826, 283)
@@ -257,6 +259,9 @@ position = Vector2(7834, -1352)
 rotation = -0.246187
 scale = Vector2(0.022685, 0.022685)
 texture = ExtResource("9_uli8w")
+
+[node name="background" parent="." instance=ExtResource("10_bl24v")]
+scroll_offset = Vector2(-74, 1260)
 
 [connection signal="update_health" from="BredItem" to="Sigmiukas" method="_on_bred_item_update_health"]
 [connection signal="update_mana" from="BredItem" to="Sigmiukas" method="_on_bred_item_update_mana"]

@@ -1,7 +1,5 @@
 [gd_scene load_steps=34 format=4 uid="uid://dsflv0gye3udl"]
 
-[ext_resource type="Texture2D" uid="uid://cn0mdleiuu03h" path="res://Backgrounds/Outside (Placeholder).jpg" id="1_p1v5b"]
-[ext_resource type="Texture2D" uid="uid://dwkl8i3w32sm3" path="res://Backgrounds/Cave (Placeholder).jpg" id="2_wygdx"]
 [ext_resource type="Texture2D" uid="uid://deishaboc7yfq" path="res://Tile Sets/Sigmiukas Residence/Sigmiukas House.png" id="3_crylc"]
 [ext_resource type="Texture2D" uid="uid://dsb62d6malgeh" path="res://Tile Sets/Sigmiukas Residence/Tile Set 1.1.png" id="3_xyse1"]
 [ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="4_fv4w7"]
@@ -14,6 +12,8 @@
 [ext_resource type="Script" uid="uid://c0qvp376ok3ar" path="res://Worlds/Sigmiukas Residence Scripts/sign_5_area.gd" id="15_kspjl"]
 [ext_resource type="Script" uid="uid://dd423bkli0ovo" path="res://Worlds/Sigmiukas Residence Scripts/sign_6_area.gd" id="16_3pnre"]
 [ext_resource type="Script" uid="uid://be7bkvkixy2bb" path="res://Worlds/Sigmiukas Residence Scripts/sign_7_area.gd" id="17_w3dpc"]
+[ext_resource type="PackedScene" uid="uid://ht2na40t3n6r" path="res://Backgrounds/Residence_backgrounds/residence_background.tscn" id="18_wektq"]
+[ext_resource type="PackedScene" uid="uid://db1f28ab0c30c" path="res://Backgrounds/Residence_backgrounds/background_change_area.tscn" id="19_vhnll"]
 [ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="21_mtjgx"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="21_st1e4"]
 [ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="23_xyse1"]
@@ -202,7 +202,6 @@ texture_region_size = Vector2i(32, 32)
 2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -9.87755, -0.955893, -5.09809, -12.108, -1.59315, -3.82357, 0, -3.82357, 4.46083, -11.7893, 8.92166, 0, 16, -16)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vhnll"]
-load_path = "res://.godot/imported/Tile Set Dark Forest.png-f2c475af0b846008896bbc983e5665ec.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtjgx"]
 texture = SubResource("CompressedTexture2D_vhnll")
@@ -282,34 +281,6 @@ radius = 48.2597
 
 [node name="Node2D" type="Node2D"]
 
-[node name="TextureRect4" type="TextureRect" parent="."]
-offset_left = -2199.0
-offset_top = -138.0
-offset_right = -320.0
-offset_bottom = 844.0
-texture = ExtResource("1_p1v5b")
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = 1463.0
-offset_top = -263.0
-offset_right = 3342.0
-offset_bottom = 719.0
-texture = ExtResource("1_p1v5b")
-
-[node name="TextureRect3" type="TextureRect" parent="."]
-offset_left = 2107.0
-offset_top = 139.0
-offset_right = 3963.0
-offset_bottom = 806.0
-texture = ExtResource("2_wygdx")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -320.0
-offset_top = -138.0
-offset_right = 1559.0
-offset_bottom = 844.0
-texture = ExtResource("1_p1v5b")
-
 [node name="Invisable Border" type="StaticBody2D" parent="."]
 position = Vector2(-1826, 283)
 
@@ -323,7 +294,7 @@ tile_map_data = PackedByteArray("AAAiAA4AAgABAAAAAAAhAA4AAgABAAAAAAAgAA4AAgABAAA
 tile_set = SubResource("TileSet_h2yiy")
 
 [node name="Sigmiukas" parent="." instance=ExtResource("4_fv4w7")]
-position = Vector2(-1441, 423)
+position = Vector2(11199, 740)
 
 [node name="Sign 1" type="StaticBody2D" parent="."]
 position = Vector2(-1214, 392)
@@ -521,6 +492,71 @@ position = Vector2(12096, 399)
 
 [node name="rat_enemy16" parent="." instance=ExtResource("21_st1e4")]
 position = Vector2(12162, 720)
+
+[node name="Parallax2D" parent="." instance=ExtResource("18_wektq")]
+
+[node name="Background_change_area" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(2449, 370)
+scale = Vector2(0.2, 1)
+
+[node name="Background_change_area2" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(3013, 75)
+scale = Vector2(1, 0.2)
+
+[node name="Background_change_area3" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(3236, 79)
+scale = Vector2(1, 0.2)
+
+[node name="Background_change_area4" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(3898, 149)
+scale = Vector2(1, 0.2)
+
+[node name="Background_change_area6" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(6048, 485)
+scale = Vector2(0.1, 1)
+
+[node name="Background_change_area7" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(6354, 377)
+scale = Vector2(0.2, 1)
+
+[node name="Background_change_area8" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(7320, 505)
+scale = Vector2(0.2, 1)
+
+[node name="Background_change_area9" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(9172, 497)
+scale = Vector2(0.2, 1)
+
+[node name="Background_change_area10" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(10644, 657)
+scale = Vector2(0.2, 1)
+
+[node name="Background_change_area12" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(11617, 713)
+scale = Vector2(2, 0.2)
+
+[node name="Background_change_area13" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(11919, 684.999)
+rotation = -5.93412
+scale = Vector2(2, 0.2)
+skew = -0.225147
+
+[node name="Background_change_area14" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(12365, 636)
+scale = Vector2(1, 0.2)
+
+[node name="Background_change_area15" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(12247, 672)
+scale = Vector2(1, 0.1)
+
+[node name="Background_change_area5" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(4046, 113)
+scale = Vector2(1, 0.2)
+
+[node name="Background_change_area11" parent="." instance=ExtResource("19_vhnll")]
+position = Vector2(11501, 730)
+scale = Vector2(0.2, 1)
+skew = 0.418879
 
 [connection signal="body_entered" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_entered"]
 [connection signal="body_exited" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_exited"]
