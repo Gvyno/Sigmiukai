@@ -1,0 +1,241 @@
+[gd_scene load_steps=14 format=4 uid="uid://dmucn2b5yv8mp"]
+
+[ext_resource type="Texture2D" uid="uid://dqbqdu2vwcxd" path="res://Tile Sets/Playground/Platform TS.png" id="1_y15p8"]
+[ext_resource type="Texture2D" uid="uid://brmnwva7oqbeq" path="res://Tile Sets/Sigmiukas Residence/Tile Set 1.png" id="2_guqxm"]
+[ext_resource type="Texture2D" uid="uid://dsb62d6malgeh" path="res://Tile Sets/Sigmiukas Residence/Tile Set 1.1.png" id="3_tarky"]
+[ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="4_8hufw"]
+[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://Food/BredItem.tscn" id="5_kyt7g"]
+[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://Food/ChemsItem.tscn" id="6_0qfdb"]
+[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://Food/DogFoodItem.tscn" id="7_guqxm"]
+[ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="8_8hufw"]
+[ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="9_kyt7g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fc48a"]
+texture = ExtResource("1_y15p8")
+texture_region_size = Vector2i(32, 32)
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 5.93534, 16, 5.93534, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 5.93534, 16, 5.93534, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 5.93534, 16, 5.93534, 16, 16, -16, 16)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, -16, 16, 16, 16)
+0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(16, 5.93534, 16, 16, -16, 16, -16, 5.93534)
+1:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jq6rf"]
+texture = ExtResource("2_guqxm")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+5:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, 16, 16, 9.53251, -0.899294, 4.49647, 10.0721, 0.899294, 3.0576, -1.43887, 3.0576, -4.67633, 10.0721, -9.71237, -0.899294)
+1:5/0/physics_layer_1/polygon_0/points = PackedVector2Array(16, 16, 9.35265, -0.899294, 4.31661, 10.9714, 0.899294, 3.0576, -1.61873, 2.69788, -4.49647, 10.9714, -9.71237, -0.899294, -16, 16)
+2:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1dwn"]
+texture = ExtResource("3_tarky")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+7:0/0 = 0
+1:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+0:7/0 = 0
+3:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_w22sm"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 9
+sources/1 = SubResource("TileSetAtlasSource_fc48a")
+sources/3 = SubResource("TileSetAtlasSource_jq6rf")
+sources/4 = SubResource("TileSetAtlasSource_w1dwn")
+
+[node name="Playground" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAGAA0AAwABAAAAAAAHAA0AAwABAAAAAAAIAA0AAwABAAAAAAAQAA0AAwAAAAAAAAARAA0AAwABAAAAAAASAA0AAwABAAAAAAATAA0AAwACAAAAAAAAAA4ABAAAAAIAAAAeAA4AAwAEAAAAAAAdAA4AAwAEAAAAAAAcAA4AAwAEAAAAAAAbAA4AAwAEAAAAAAAaAA4AAwAEAAAAAAAZAA4AAwADAAAAAAAYAA4ABAABAAIAAAAXAA4ABAABAAIAAAAWAA4ABAABAAIAAAAVAA4ABAABAAIAAAAUAA4ABAABAAIAAAATAA4ABAABAAIAAAASAA4ABAABAAIAAAARAA4ABAABAAIAAAAQAA4ABAABAAIAAAAPAA4ABAABAAIAAAAOAA4ABAABAAIAAAANAA4ABAABAAIAAAAMAA4ABAABAAIAAAALAA4ABAABAAIAAAAKAA4ABAABAAIAAAAJAA4ABAABAAIAAAAIAA4ABAABAAIAAAAHAA4ABAABAAIAAAAGAA4ABAABAAIAAAAFAA4ABAABAAIAAAAEAA4ABAABAAIAAAADAA4ABAABAAIAAAACAA4ABAABAAIAAAABAA4ABAABAAIAAAAAAA8AAwAEAAEAAAAAABAAAwAEAAEAAAABABAAAwAEAAEAAAACABAAAwAEAAEAAAADABAAAwAEAAEAAAAEABAAAwAEAAEAAAAFABAAAwAEAAEAAAAGABAAAwAEAAEAAAAHABAAAwAEAAEAAAAIABAAAwAEAAEAAAAJABAAAwAEAAEAAAAKABAAAwAEAAEAAAALABAAAwAEAAEAAAAMABAAAwAEAAEAAAANABAAAwAEAAEAAAAOABAAAwAEAAEAAAAPABAAAwAEAAEAAAAQABAAAwAEAAEAAAARABAAAwAEAAEAAAASABAAAwAEAAEAAAATABAAAwAEAAEAAAAUABAAAwAEAAEAAAAVABAAAwAEAAEAAAAWABAAAwAEAAEAAAAXABAAAwAEAAEAAAAYABAAAwAEAAEAAAAZABAAAwAEAAEAAAAaABAAAwAEAAEAAAAbABAAAwAEAAEAAAAcABAAAwAEAAEAAAAdABAAAwAEAAEAAAAeABAAAwAEAAEAAAAeAA8AAwAEAAEAAAAdAA8AAwAEAAEAAAAcAA8AAwAEAAEAAAAbAA8AAwAEAAEAAAAaAA8AAwAEAAEAAAAZAA8AAwAEAAEAAAAYAA8AAwAEAAEAAAAXAA8AAwAEAAEAAAAWAA8AAwAEAAEAAAALAA8AAwAEAAEAAAAKAA8AAwAEAAEAAAAJAA8AAwAEAAEAAAAIAA8AAwAEAAEAAAAHAA8AAwAEAAEAAAAGAA8AAwAEAAEAAAAFAA8AAwAEAAEAAAAEAA8AAwAEAAEAAAADAA8AAwAEAAEAAAACAA8AAwAEAAEAAAABAA8AAwAEAAEAAAAMAA8AAwAEAAEAAAANAA8AAwAEAAEAAAAOAA8AAwAEAAEAAAAPAA8AAwAEAAEAAAAQAA8AAwAEAAEAAAARAA8AAwAEAAEAAAASAA8AAwAEAAEAAAATAA8AAwAEAAEAAAAUAA8AAwAEAAEAAAAVAA8AAwAEAAEAAAAjAA4ABAACAAIAAAAiAA4ABAABAAIAAAAhAA4AAwAFAAAAAAAgAA4AAwAEAAAAAAAfAA4AAwAEAAAAAAAfABAAAwAEAAEAAAAgABAAAwAEAAEAAAAhABAAAwAEAAEAAAAiABAAAwAEAAEAAAAjABAAAwAEAAEAAAAjAA8AAwAEAAEAAAAiAA8AAwAEAAEAAAAhAA8AAwAEAAEAAAAgAA8AAwAEAAEAAAAfAA8AAwAEAAEAAAAAAAgAAQABAAAAAAABAAgAAQACAAAAAAACAAgAAQACAAAAAAADAAgAAQACAAAAAAAEAAgAAQACAAAAAAAFAAgAAQADAAAAAAAAAA0AAwAAAAAAAAABAA0AAwABAAAAAAACAA0AAwABAAAAAAADAA0AAwABAAAAAAAEAA0AAwABAAAAAAAFAA0AAwABAAAAAAAAAAoAAQABAAAAAAABAAoAAQACAAAAAAACAAoAAQACAAAAAAADAAoAAQACAAAAAAAEAAoAAQACAAAAAAAFAAoAAQADAAAAAAAFAAwAAQADAAAAAAAAAAwAAQABAAAAAAAEAAwAAQACAAAAAAADAAwAAQACAAAAAAACAAwAAQACAAAAAAABAAwAAQACAAAAAAAJAA0AAwABAAAAAAALAA0AAwABAAAAAAAMAA0AAwACAAAAAAAKAA0AAwABAAAAAAANAA0AAwABAAUAAAAOAA0AAwABAAUAAAAPAA0AAwABAAUAAAAYAA0AAwAEAAEAAAAXAA0AAwAEAAEAAAAWAA0AAwAEAAEAAAAVAA0AAwAEAAEAAAAUAA0AAwAEAAEAAAAUAAwAAwAEAAEAAAAVAAwAAwAEAAEAAAAWAAwAAwAEAAEAAAAXAAwAAwAEAAEAAAAXAAsAAwAEAAEAAAAWAAsAAwAEAAEAAAAWAAoAAwAEAAEAAAAVAAoAAwAEAAEAAAAVAAsAAwAEAAEAAAAiAA0AAwAAAAAAAAAjAA0AAwABAAAAAAAkAA0AAwABAAAAAAAlAA0AAwABAAAAAAAmAA0AAwABAAAAAAAnAA0AAwABAAAAAAAoAA0AAwACAAAAAAAkAA4ABAABAAIAAAAlAA4ABAABAAIAAAAmAA4ABAABAAIAAAAnAA4ABAABAAIAAAAoAA4ABAACAAIAAAAoAA8AAwAEAAEAAAAnAA8AAwAEAAEAAAAmAA8AAwAEAAEAAAAlAA8AAwAEAAEAAAAkAA8AAwAEAAEAAAAkABAAAwAEAAEAAAAlABAAAwAEAAEAAAAmABAAAwAEAAEAAAAnABAAAwAEAAEAAAAoABAAAwAEAAEAAAA=")
+tile_set = SubResource("TileSet_w22sm")
+rendering_quadrant_size = 32
+
+[node name="Sigmiukas" parent="." instance=ExtResource("4_8hufw")]
+position = Vector2(241, 392)
+
+[node name="BredItem" parent="." instance=ExtResource("5_kyt7g")]
+position = Vector2(15, 394)
+
+[node name="BredItem2" parent="." instance=ExtResource("5_kyt7g")]
+position = Vector2(44, 395)
+
+[node name="BredItem3" parent="." instance=ExtResource("5_kyt7g")]
+position = Vector2(75, 395)
+
+[node name="BredItem4" parent="." instance=ExtResource("5_kyt7g")]
+position = Vector2(108, 395)
+
+[node name="BredItem5" parent="." instance=ExtResource("5_kyt7g")]
+position = Vector2(140, 395)
+
+[node name="BredItem6" parent="." instance=ExtResource("5_kyt7g")]
+position = Vector2(172, 395)
+
+[node name="ChemsItem" parent="." instance=ExtResource("6_0qfdb")]
+position = Vector2(15, 325)
+
+[node name="ChemsItem2" parent="." instance=ExtResource("6_0qfdb")]
+position = Vector2(43, 325)
+
+[node name="ChemsItem3" parent="." instance=ExtResource("6_0qfdb")]
+position = Vector2(73, 325)
+
+[node name="ChemsItem4" parent="." instance=ExtResource("6_0qfdb")]
+position = Vector2(105, 325)
+
+[node name="ChemsItem5" parent="." instance=ExtResource("6_0qfdb")]
+position = Vector2(138, 325)
+
+[node name="ChemsItem6" parent="." instance=ExtResource("6_0qfdb")]
+position = Vector2(173, 325)
+
+[node name="DogFoodItem" parent="." instance=ExtResource("7_guqxm")]
+position = Vector2(13, 262)
+
+[node name="DogFoodItem2" parent="." instance=ExtResource("7_guqxm")]
+position = Vector2(39, 262)
+
+[node name="DogFoodItem3" parent="." instance=ExtResource("7_guqxm")]
+position = Vector2(71, 262)
+
+[node name="DogFoodItem4" parent="." instance=ExtResource("7_guqxm")]
+position = Vector2(106, 263)
+
+[node name="DogFoodItem5" parent="." instance=ExtResource("7_guqxm")]
+position = Vector2(140, 263)
+
+[node name="DogFoodItem6" parent="." instance=ExtResource("7_guqxm")]
+position = Vector2(171, 263)
+
+[node name="enemy_dummy" parent="." instance=ExtResource("8_8hufw")]
+position = Vector2(340, 389)
+
+[node name="enemy_dummy2" parent="." instance=ExtResource("8_8hufw")]
+position = Vector2(584, 389)
+
+[node name="rat_enemy" parent="." instance=ExtResource("9_kyt7g")]
+position = Vector2(854, 432)
+
+[node name="rat_enemy2" parent="." instance=ExtResource("9_kyt7g")]
+position = Vector2(950, 433)
+
+[node name="rat_enemy3" parent="." instance=ExtResource("9_kyt7g")]
+position = Vector2(1043, 434)

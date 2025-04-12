@@ -16,9 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://db1f28ab0c30c" path="res://Backgrounds/Residence_backgrounds/background_change_area.tscn" id="19_vhnll"]
 [ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="21_mtjgx"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="21_st1e4"]
-[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="23_xyse1"]
-[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="26_qw5ue"]
-[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="27_lhemu"]
+[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://Food/BredItem.tscn" id="23_xyse1"]
+[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://Food/ChemsItem.tscn" id="26_qw5ue"]
+[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://Food/DogFoodItem.tscn" id="27_lhemu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trxdx"]
 size = Vector2(28.3125, 457.32)
@@ -294,7 +294,7 @@ tile_map_data = PackedByteArray("AAAiAA4AAgABAAAAAAAhAA4AAgABAAAAAAAgAA4AAgABAAA
 tile_set = SubResource("TileSet_h2yiy")
 
 [node name="Sigmiukas" parent="." instance=ExtResource("4_fv4w7")]
-position = Vector2(11199, 740)
+position = Vector2(-1439, 422)
 
 [node name="Sign 1" type="StaticBody2D" parent="."]
 position = Vector2(-1214, 392)
