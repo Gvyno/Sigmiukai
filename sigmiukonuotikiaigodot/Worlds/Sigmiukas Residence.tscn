@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dsflv0gye3udl"]
+[gd_scene load_steps=35 format=4 uid="uid://dsflv0gye3udl"]
 
 [ext_resource type="Texture2D" uid="uid://deishaboc7yfq" path="res://Tile Sets/Sigmiukas Residence/Sigmiukas House.png" id="3_crylc"]
 [ext_resource type="Texture2D" uid="uid://dsb62d6malgeh" path="res://Tile Sets/Sigmiukas Residence/Tile Set 1.1.png" id="3_xyse1"]
@@ -14,11 +14,12 @@
 [ext_resource type="Script" uid="uid://be7bkvkixy2bb" path="res://Worlds/Sigmiukas Residence Scripts/sign_7_area.gd" id="17_w3dpc"]
 [ext_resource type="PackedScene" uid="uid://ht2na40t3n6r" path="res://Backgrounds/Residence_backgrounds/residence_background.tscn" id="18_wektq"]
 [ext_resource type="PackedScene" uid="uid://db1f28ab0c30c" path="res://Backgrounds/Residence_backgrounds/background_change_area.tscn" id="19_vhnll"]
+[ext_resource type="PackedScene" uid="uid://dwn8m6jkdc0l1" path="res://World Transitions/World Change.tscn" id="20_6aqo0"]
 [ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="21_mtjgx"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="21_st1e4"]
-[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://Food/BredItem.tscn" id="23_xyse1"]
-[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://Food/ChemsItem.tscn" id="26_qw5ue"]
-[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://Food/DogFoodItem.tscn" id="27_lhemu"]
+[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="23_xyse1"]
+[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="26_qw5ue"]
+[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="27_lhemu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trxdx"]
 size = Vector2(28.3125, 457.32)
@@ -294,7 +295,7 @@ tile_map_data = PackedByteArray("AAAiAA4AAgABAAAAAAAhAA4AAgABAAAAAAAgAA4AAgABAAA
 tile_set = SubResource("TileSet_h2yiy")
 
 [node name="Sigmiukas" parent="." instance=ExtResource("4_fv4w7")]
-position = Vector2(-1439, 422)
+position = Vector2(-1402, 424)
 
 [node name="Sign 1" type="StaticBody2D" parent="."]
 position = Vector2(-1214, 392)
@@ -488,7 +489,7 @@ position = Vector2(11458, 399)
 position = Vector2(11490, 399)
 
 [node name="rat_enemy15" parent="." instance=ExtResource("21_st1e4")]
-position = Vector2(12096, 399)
+position = Vector2(12079, 403)
 
 [node name="rat_enemy16" parent="." instance=ExtResource("21_st1e4")]
 position = Vector2(12162, 720)
@@ -504,7 +505,7 @@ position = Vector2(3013, 75)
 scale = Vector2(1, 0.2)
 
 [node name="Background_change_area3" parent="." instance=ExtResource("19_vhnll")]
-position = Vector2(3236, 79)
+position = Vector2(3238, 114)
 scale = Vector2(1, 0.2)
 
 [node name="Background_change_area4" parent="." instance=ExtResource("19_vhnll")]
@@ -528,7 +529,7 @@ position = Vector2(9172, 497)
 scale = Vector2(0.2, 1)
 
 [node name="Background_change_area10" parent="." instance=ExtResource("19_vhnll")]
-position = Vector2(10644, 657)
+position = Vector2(10677, 660)
 scale = Vector2(0.2, 1)
 
 [node name="Background_change_area12" parent="." instance=ExtResource("19_vhnll")]
@@ -542,8 +543,8 @@ scale = Vector2(2, 0.2)
 skew = -0.225147
 
 [node name="Background_change_area14" parent="." instance=ExtResource("19_vhnll")]
-position = Vector2(12365, 636)
-scale = Vector2(1, 0.2)
+position = Vector2(12393, 655)
+scale = Vector2(0.1, 1)
 
 [node name="Background_change_area15" parent="." instance=ExtResource("19_vhnll")]
 position = Vector2(12247, 672)
@@ -554,9 +555,12 @@ position = Vector2(4046, 113)
 scale = Vector2(1, 0.2)
 
 [node name="Background_change_area11" parent="." instance=ExtResource("19_vhnll")]
-position = Vector2(11501, 730)
+position = Vector2(11535, 747)
 scale = Vector2(0.2, 1)
-skew = 0.418879
+skew = 1.16064
+
+[node name="ResidenceToForest" parent="." instance=ExtResource("20_6aqo0")]
+position = Vector2(13603, 627)
 
 [connection signal="body_entered" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_entered"]
 [connection signal="body_exited" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_exited"]

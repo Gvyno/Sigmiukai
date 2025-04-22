@@ -41,6 +41,36 @@ var double_jump_timer = 0.0
 @export var projectile_scene: PackedScene = preload("res://Player/Projectile.tscn")  
 
 
+func _ready():
+	load_player_data()
+
+# Function to save the player's data
+func save_player_data():
+	var file = FileAccess.open("user://player_data.save", FileAccess.WRITE)
+	if file:
+		var data = {
+			"health": health,
+			"mana": mana
+ 		}
+		file.store_var(data)  # Store the player's data (health, mana)
+		print("data is stored")
+		file.close()
+		PlayerState.state = true
+
+# Function to load the player's data
+func load_player_data():
+	var file_path = "user://player_data.save"
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	
+	if file and PlayerState.state:
+		var data = file.get_var()
+		health = clamp(data.get("health", max_health), 0, max_health)
+		mana = clamp(data.get("mana", max_mana), 0, max_mana)
+		PlayerState.state = false
+
+	
+
+
 #regen timer
 func _on_timer_timeout():
 		if ((mana+10)>=max_mana):

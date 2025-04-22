@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbtyeqywg8mrx"]
+
+[ext_resource type="Script" uid="uid://buvh4y4fpjdei" path="res://Backgrounds/Dark_Forest_backgrounds/forest_to_tree.gd" id="1_f7ys1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bg7h"]
+size = Vector2(132.5, 128.5)
+
+[node name="forest_to_tree" type="Area2D"]
+script = ExtResource("1_f7ys1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(67.75, 55.75)
+shape = SubResource("RectangleShape2D_7bg7h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

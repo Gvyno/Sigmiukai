@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dswnwum7wh3no"
-path="res://.godot/imported/bred.png-f510ab28c2dbeb1f796cbd97c3a5e1c1.ctex"
+uid="uid://d4nick2md01jp"
+path="res://.godot/imported/l1_sprite_1.png-fd6bf968274032e2bc5fda8f0f2f1174.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://food/bred.png"
-dest_files=["res://.godot/imported/bred.png-f510ab28c2dbeb1f796cbd97c3a5e1c1.ctex"]
+source_file="res://Backgrounds/Dark_Forest_backgrounds/clouds/l1_sprite_1.png"
+dest_files=["res://.godot/imported/l1_sprite_1.png-fd6bf968274032e2bc5fda8f0f2f1174.ctex"]
 
 [params]
 

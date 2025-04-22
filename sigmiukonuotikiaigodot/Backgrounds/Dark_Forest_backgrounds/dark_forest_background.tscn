@@ -1,46 +1,119 @@
-[gd_scene load_steps=5 format=3 uid="uid://fiacdramul3w"]
+[gd_scene load_steps=12 format=3 uid="uid://fiacdramul3w"]
 
 [ext_resource type="Texture2D" uid="uid://byjqgwpd1idj2" path="res://Backgrounds/Dark_Forest_backgrounds/forest/l0_sprite_1.png" id="1_coac5"]
 [ext_resource type="Texture2D" uid="uid://cwggqfqb413a1" path="res://Backgrounds/Dark_Forest_backgrounds/forest/l2_sprite_1.png" id="2_vhmaf"]
 [ext_resource type="Texture2D" uid="uid://cwtpeycam5mq3" path="res://Backgrounds/Dark_Forest_backgrounds/forest/l1_sprite_1.png" id="2_vn5d1"]
 [ext_resource type="Texture2D" uid="uid://clnsc3u11ymei" path="res://Backgrounds/Dark_Forest_backgrounds/forest/l3_sprite_1.png" id="3_vn5d1"]
+[ext_resource type="Texture2D" uid="uid://dd6dtddwsybr5" path="res://Backgrounds/Dark_Forest_backgrounds/tree/l0_sprite_1.png" id="5_jkiu8"]
+[ext_resource type="Texture2D" uid="uid://d3iegb1s3it73" path="res://Backgrounds/Dark_Forest_backgrounds/tree/l1_sprite_1.png" id="6_vmdo4"]
+[ext_resource type="Texture2D" uid="uid://5l73r75dmkrg" path="res://Backgrounds/Dark_Forest_backgrounds/tree/l2_sprite_1.png" id="7_qooyi"]
+[ext_resource type="Texture2D" uid="uid://bixnekh5dus0g" path="res://Backgrounds/Dark_Forest_backgrounds/tree/l3_sprite_1.png" id="8_g4vgi"]
+[ext_resource type="Texture2D" uid="uid://dgmolhjtu8f0p" path="res://Backgrounds/Dark_Forest_backgrounds/clouds/l0_sprite_1.png" id="9_fj0wp"]
+[ext_resource type="Texture2D" uid="uid://d4nick2md01jp" path="res://Backgrounds/Dark_Forest_backgrounds/clouds/l1_sprite_1.png" id="10_jkiu8"]
+[ext_resource type="Texture2D" uid="uid://b1v4ngfick7f1" path="res://Backgrounds/Dark_Forest_backgrounds/clouds/l2_sprite_1.png" id="11_vmdo4"]
 
-[node name="ParallaxBackground" type="Parallax2D"]
+[node name="Parallax2D" type="ParallaxBackground"]
 scroll_offset = Vector2(6.99997, 1188)
 
-[node name="forest_group" type="ParallaxBackground" parent="."]
+[node name="forest_group" type="ParallaxBackground" parent="." groups=["df"]]
 
 [node name="1" type="ParallaxLayer" parent="forest_group"]
-position = Vector2(-5, 1188)
+position = Vector2(-5, 1088)
 motion_scale = Vector2(0.7, 1)
 motion_mirroring = Vector2(1344, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="forest_group/1"]
-scale = Vector2(0.7, 1.2)
+scale = Vector2(0.7, 1.5)
 texture = ExtResource("1_coac5")
 
 [node name="3" type="ParallaxLayer" parent="forest_group"]
-position = Vector2(-5, 1188)
+position = Vector2(-5, 1088)
 motion_scale = Vector2(0.8, 1)
 motion_mirroring = Vector2(1344, 0)
 
 [node name="Sprite2D3" type="Sprite2D" parent="forest_group/3"]
-scale = Vector2(0.7, 1.2)
+scale = Vector2(0.7, 1.5)
 texture = ExtResource("2_vn5d1")
 
 [node name="2" type="ParallaxLayer" parent="forest_group"]
-position = Vector2(-5, 1188)
+position = Vector2(-5, 1088)
 motion_scale = Vector2(0.9, 1)
 motion_mirroring = Vector2(1344, 0)
 
 [node name="Sprite2D2" type="Sprite2D" parent="forest_group/2"]
-scale = Vector2(0.7, 1.2)
+scale = Vector2(0.7, 1.5)
 texture = ExtResource("2_vhmaf")
 
 [node name="4" type="ParallaxLayer" parent="forest_group"]
-position = Vector2(-5, 1188)
+position = Vector2(-5, 1088)
 motion_mirroring = Vector2(1344, 0)
 
 [node name="Sprite2D3" type="Sprite2D" parent="forest_group/4"]
-scale = Vector2(0.7, 1.2)
+scale = Vector2(0.7, 1.5)
 texture = ExtResource("3_vn5d1")
+
+[node name="tree_group" type="ParallaxBackground" parent="." groups=["df"]]
+
+[node name="1" type="ParallaxLayer" parent="tree_group"]
+position = Vector2(-5, 1188)
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1344, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="tree_group/1"]
+scale = Vector2(0.7, 5)
+texture = ExtResource("5_jkiu8")
+
+[node name="3" type="ParallaxLayer" parent="tree_group"]
+position = Vector2(-5, 1188)
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(1344, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="tree_group/3"]
+scale = Vector2(0.7, 5)
+texture = ExtResource("6_vmdo4")
+
+[node name="2" type="ParallaxLayer" parent="tree_group"]
+position = Vector2(-5, 1188)
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(1344, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="tree_group/2"]
+scale = Vector2(0.7, 5)
+texture = ExtResource("7_qooyi")
+
+[node name="4" type="ParallaxLayer" parent="tree_group"]
+position = Vector2(-5, 1188)
+motion_mirroring = Vector2(1344, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="tree_group/4"]
+scale = Vector2(0.7, 5)
+texture = ExtResource("8_g4vgi")
+
+[node name="cloud_group" type="ParallaxBackground" parent="." groups=["df"]]
+
+[node name="1" type="ParallaxLayer" parent="cloud_group"]
+position = Vector2(-5, -1600)
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="cloud_group/1"]
+scale = Vector2(2, 2)
+texture = ExtResource("9_fj0wp")
+
+[node name="3" type="ParallaxLayer" parent="cloud_group"]
+position = Vector2(-5, -1600)
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(4000, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="cloud_group/3"]
+scale = Vector2(2, 2)
+texture = ExtResource("10_jkiu8")
+
+[node name="2" type="ParallaxLayer" parent="cloud_group"]
+position = Vector2(-5, -1600)
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(4000, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="cloud_group/2"]
+scale = Vector2(2, 2)
+texture = ExtResource("11_vmdo4")

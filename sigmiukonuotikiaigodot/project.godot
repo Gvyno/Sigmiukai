@@ -17,6 +17,9 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 [autoload]
 
 DialogueManager="*res://Dialogue/DialogueManager.gd"
+PlayerState="*res://World Transitions/PlayerState.gd"
+TransitionScene="*res://Backgrounds/Fades/transition_scene.tscn"
+BackgroundFade="*res://Backgrounds/Fades/background_fade.tscn"
 
 [file_customization]
 
@@ -30,6 +33,7 @@ folder_colors={
 
 player=""
 attack_hitbox=""
+df=""
 
 [input]
 

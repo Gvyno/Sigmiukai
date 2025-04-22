@@ -1,14 +1,17 @@
-[gd_scene load_steps=15 format=4 uid="uid://cq3g4nwev8kfw"]
+[gd_scene load_steps=18 format=4 uid="uid://cq3g4nwev8kfw"]
 
 [ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="2_ebum2"]
 [ext_resource type="Texture2D" uid="uid://jmpr3axm2vtn" path="res://Tile Sets/Dark Forest/Dark Forest TS1.png" id="2_gbln1"]
 [ext_resource type="Texture2D" uid="uid://c83qawaosb41w" path="res://Tile Sets/Dark Forest/Dark Forest TS2.png" id="3_p1duc"]
-[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://Food/BredItem.tscn" id="4_xr5go"]
-[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://Food/ChemsItem.tscn" id="5_m076m"]
+[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="4_xr5go"]
+[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="5_m076m"]
 [ext_resource type="Texture2D" uid="uid://b0xndgq67q3bd" path="res://Concept Art/TheStrongestDragon.png" id="7_p1duc"]
 [ext_resource type="Texture2D" uid="uid://dkfpgsin5cyl7" path="res://Concept Art/TheVeryHungryBatman.png" id="8_bl24v"]
 [ext_resource type="Texture2D" uid="uid://dwbr8l2hit6yw" path="res://Concept Art/TheVeryScaryTree.png" id="9_uli8w"]
 [ext_resource type="PackedScene" uid="uid://fiacdramul3w" path="res://Backgrounds/Dark_Forest_backgrounds/dark_forest_background.tscn" id="10_bl24v"]
+[ext_resource type="PackedScene" uid="uid://dwn8m6jkdc0l1" path="res://World Transitions/World Change.tscn" id="10_uli8w"]
+[ext_resource type="PackedScene" uid="uid://i2ofe1300ty8" path="res://Backgrounds/Dark_Forest_backgrounds/tree_to_clouds.tscn" id="11_f76gi"]
+[ext_resource type="PackedScene" uid="uid://bbtyeqywg8mrx" path="res://Backgrounds/Dark_Forest_backgrounds/forest_to_tree.tscn" id="11_uli8w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbln1"]
 size = Vector2(20, 457.32)
@@ -202,10 +205,10 @@ sources/1 = SubResource("TileSetAtlasSource_bl24v")
 sources/2 = SubResource("TileSetAtlasSource_uli8w")
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(2819, -119)
+position = Vector2(3185, -115)
 
 [node name="background" parent="." instance=ExtResource("10_bl24v")]
-scroll_offset = Vector2(-80, 1275)
+scroll_offset = Vector2(0, 1253)
 
 [node name="Invisable Border" type="StaticBody2D" parent="."]
 position = Vector2(-3758, 1062)
@@ -220,7 +223,7 @@ tile_map_data = PackedByteArray("AADA/y0AAQABAAAAAADB/y0AAQABAAAAAADC/y0AAQABAAA
 tile_set = SubResource("TileSet_b7d7x")
 
 [node name="Sigmiukas" parent="." instance=ExtResource("2_ebum2")]
-position = Vector2(-3404, 1386)
+position = Vector2(-3474, 1370)
 
 [node name="BredItem" parent="." instance=ExtResource("4_xr5go")]
 position = Vector2(-3632, 1395)
@@ -252,6 +255,33 @@ position = Vector2(7834, -1352)
 rotation = -0.246187
 scale = Vector2(0.022685, 0.022685)
 texture = ExtResource("9_uli8w")
+
+[node name="World Change" parent="." instance=ExtResource("10_uli8w")]
+position = Vector2(7326, -1312)
+
+[node name="forest_to_tree" parent="." instance=ExtResource("11_uli8w")]
+position = Vector2(2860, 1122)
+scale = Vector2(1, 0.2)
+
+[node name="forest_to_tree2" parent="." instance=ExtResource("11_uli8w")]
+position = Vector2(2976, 1160)
+scale = Vector2(1, 0.2)
+
+[node name="forest_to_tree3" parent="." instance=ExtResource("11_uli8w")]
+position = Vector2(3298, 760)
+scale = Vector2(0.2, 1)
+
+[node name="forest_to_tree4" parent="." instance=ExtResource("11_uli8w")]
+position = Vector2(3754, 760)
+scale = Vector2(40, 0.2)
+
+[node name="tree_to_clouds" parent="." instance=ExtResource("11_f76gi")]
+position = Vector2(4890, -1885)
+scale = Vector2(0.2, 5)
+
+[node name="tree_to_clouds2" parent="." instance=ExtResource("11_f76gi")]
+position = Vector2(5609, -1121)
+scale = Vector2(15, 0.2)
 
 [connection signal="update_health" from="BredItem" to="Sigmiukas" method="_on_bred_item_update_health"]
 [connection signal="update_mana" from="BredItem" to="Sigmiukas" method="_on_bred_item_update_mana"]
