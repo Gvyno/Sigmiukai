@@ -9,12 +9,26 @@ var target: Node2D = null
 var attack_cooldown := true
 var is_alive := true
 
+#var speed = 150  # Speed at which the enemy moves
+var player_chase = false  # Whether the enemy is chasing the player
+var player = null  # Reference to the player node
+#var is_alive = true  # If the enemy is alive
+const GRAVITY = 2055  # Gravity strength (adjust as needed)
+const JUMP_VELOCITY = -400.0  # Jump force
+signal health_changed(new_health,new_min_health,new_max_health)
+#var max_health=80
+var min_health=0
+var health =max_health
+var max_mana=50
+var min_mana=0
+var mana =50
+var enemy_attackcooldown =true
 # Health-related signals
-signal health_changed(new_health)
+#signal health_changed(new_health)
 
 func _ready():
 	current_health = max_health
-
+	print(is_alive)
 	# Play idle animation
 	$SpriteIdle.visible = true
 	$AnimationPlayer.play("Idle")
@@ -22,17 +36,18 @@ func _ready():
 	# Connect detection signals
 	$DetectionArea.body_entered.connect(_on_detection_body_entered)
 	$DetectionArea.body_exited.connect(_on_detection_body_exited)
-
+	
 	# Connect HurtBox collision signal
-	if has_node("HurtBox"):
-		$HurtBox.body_entered.connect(_on_hurtbox_body_entered)
-
+#	if has_node("HurtBox"):
+#		$HurtBox.body_entered.connect(_on_hurtbox_body_entered)
+		
 	# Connect attack cooldown timer
 	if has_node("AttackCooldown"):
 		$AttackCooldown.timeout.connect(_on_attack_cooldown_timeout)
 
 	# Emit the initial health signal
-	emit_signal("health_changed", current_health)
+	emit_signal("health_changed",health,min_health,max_health)
+	pass
 
 func _physics_process(delta):
 	if not is_alive:
@@ -55,11 +70,21 @@ func _on_detection_body_entered(body):
 func _on_detection_body_exited(body):
 	if body == target:
 		target = null
-
+'''
 # Handle damage from the HurtBox when the player "hits" it (i.e., collides with it)
-func _on_hurtbox_body_entered(body):
-	if not is_alive:
-		return
+func _on_hurtbox_body_entered(hitbox: Hitbox) -> void:
+	if is_alive:
+		print("Something entered the enemy hitbox:", hitbox)
+		print(hitbox.name)
+		print(hitbox.get_path())
+		if(enemy_attackcooldown==true):
+			health=health-hitbox.get("Damage")
+			emit_signal("health_changed",health,min_health,max_health)
+			if health <= min_health:
+				die()
+			enemy_attackcooldown==false
+			#$AttackCooldown.start()
+	pass
 
 	if is_instance_valid(body):
 		if body.is_in_group("player") and body.has_node("Hitbox"):
@@ -71,6 +96,21 @@ func _on_hurtbox_body_entered(body):
 				# Apply damage to the player (if needed)
 				if body.has_method("take_damage"):
 					body.take_damage(damage)
+'''
+func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
+	if is_alive:
+#		print("Something entered the enemy hitbox:", hitbox)
+#		print(hitbox.name)
+#		print(hitbox.get_path())
+		if(enemy_attackcooldown==true):
+			health=health-hitbox.get("Damage")
+			emit_signal("health_changed",health,min_health,max_health)
+			if health <= min_health:
+				die()
+			enemy_attackcooldown==false
+			$AttackCooldown.start()
+	pass # Replace with function body.
+
 
 # Handling damage taken by the flying enemy
 func take_damage(amount: int):
@@ -81,7 +121,7 @@ func take_damage(amount: int):
 	print("Flying enemy took", amount, "damage! HP left:", current_health)
 
 	# Emit health change signal for health bar update
-	emit_signal("health_changed", current_health)
+	emit_signal("health_changed",health,min_health,max_health)
 
 	# Play hit animation if available
 	if has_node("AnimationPlayer"):

@@ -58,8 +58,8 @@ radius = 23.0217
 size = Vector2(13.3167, 5.20814)
 
 [node name="Blood Bat" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 5
+position = Vector2(76, 45)
+collision_layer = 5
 script = ExtResource("1_xyvop")
 
 [node name="SpriteIdle" type="Sprite2D" parent="."]
@@ -83,8 +83,10 @@ visible = false
 shape = SubResource("CircleShape2D_b4f8s")
 
 [node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 8
+disable_mode = 2
+collision_layer = 0
 collision_mask = 4
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_ich77")
@@ -116,4 +118,5 @@ shape = SubResource("RectangleShape2D_v4s0v")
 [node name="AttackCooldown" type="Timer" parent="."]
 wait_time = 5.0
 
+[connection signal="health_changed" from="." to="HealthBar" method="_on_blood_bat_health_changed"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
