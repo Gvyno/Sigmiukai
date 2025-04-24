@@ -1,6 +1,7 @@
 extends Area2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var food_img: Sprite2D = $food_img
+@onready var animation = $AnimationPlayer
 signal update_health()
 signal update_mana()
 
@@ -11,6 +12,7 @@ var consumed = false
 func _ready():
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
+	animation.play("Dogy")
 
 func _on_body_entered(body):
 	if body.is_in_group("player") and not consumed:

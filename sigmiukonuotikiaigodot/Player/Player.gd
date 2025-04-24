@@ -447,7 +447,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 func _on_hitbox_area_exited(area: Area2D) -> void:
 	pass # Replace with function body.
 func knockback():
-	velocity.y = -300  # simulate bounce up
+	velocity.y = -100  # simulate bounce up
 #	var knockbackDirection= (-velocity)
 #	velocity = knockbackDirection
 	print_debug(velocity)

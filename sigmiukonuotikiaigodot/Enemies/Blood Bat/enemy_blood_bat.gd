@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 100.0
+@export var speed: float = 150.0
 @export var damage: int = 10
 @export var max_health: int = 30
 
@@ -70,33 +70,7 @@ func _on_detection_body_entered(body):
 func _on_detection_body_exited(body):
 	if body == target:
 		target = null
-'''
-# Handle damage from the HurtBox when the player "hits" it (i.e., collides with it)
-func _on_hurtbox_body_entered(hitbox: Hitbox) -> void:
-	if is_alive:
-		print("Something entered the enemy hitbox:", hitbox)
-		print(hitbox.name)
-		print(hitbox.get_path())
-		if(enemy_attackcooldown==true):
-			health=health-hitbox.get("Damage")
-			emit_signal("health_changed",health,min_health,max_health)
-			if health <= min_health:
-				die()
-			enemy_attackcooldown==false
-			#$AttackCooldown.start()
-	pass
 
-	if is_instance_valid(body):
-		if body.is_in_group("player") and body.has_node("Hitbox"):
-			var attack_hitbox = body.get_node("Hitbox")
-			if get_node("Hurtbox") and attack_hitbox.is_colliding():
-				# The player hit the HurtBox, so apply damage to the enemy
-				take_damage(damage)
-
-				# Apply damage to the player (if needed)
-				if body.has_method("take_damage"):
-					body.take_damage(damage)
-'''
 func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 	if is_alive:
 #		print("Something entered the enemy hitbox:", hitbox)
@@ -110,25 +84,6 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 			enemy_attackcooldown==false
 			$AttackCooldown.start()
 	pass # Replace with function body.
-
-
-# Handling damage taken by the flying enemy
-func take_damage(amount: int):
-	if not is_alive:
-		return
-
-	current_health -= amount
-	print("Flying enemy took", amount, "damage! HP left:", current_health)
-
-	# Emit health change signal for health bar update
-	emit_signal("health_changed",health,min_health,max_health)
-
-	# Play hit animation if available
-	if has_node("AnimationPlayer"):
-		$AnimationPlayer.play("Idle")
-
-	if current_health <= 0:
-		die()
 
 # Handling the enemy's death
 func die():
