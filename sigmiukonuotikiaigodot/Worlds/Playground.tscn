@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="6_0qfdb"]
 [ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="7_guqxm"]
 [ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="8_8hufw"]
-[ext_resource type="PackedScene" uid="uid://ykcx5uycsmh" path="res://Enemies/Blood Bat/enemy_blood_bat.tscn" id="10_0qfdb"]
-[ext_resource type="PackedScene" uid="uid://cm1ij7pkkp6wp" path="res://Enemies/Slimer/enemy_slimer.tscn" id="10_kyt7g"]
+[ext_resource type="PackedScene" uid="uid://df3186n7hcpy4" path="res://Enemies/Ice Mimic/Ice Mimic.tscn" id="9_8hufw"]
+[ext_resource type="PackedScene" uid="uid://dia2ilr53nuvh" path="res://Enemies/Ice Wisp/Ice Wisp.tscn" id="10_kyt7g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fc48a"]
 texture = ExtResource("1_y15p8")
@@ -232,8 +232,9 @@ position = Vector2(340, 389)
 [node name="enemy_dummy2" parent="." instance=ExtResource("8_8hufw")]
 position = Vector2(584, 389)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("10_kyt7g")]
-position = Vector2(538, 389)
+[node name="Ice Mimic" parent="." instance=ExtResource("9_8hufw")]
+position = Vector2(1116, 397)
+scale = Vector2(0.75, 0.75)
 
-[node name="Blood Bat" parent="." instance=ExtResource("10_0qfdb")]
-position = Vector2(1093, 337)
+[node name="Ice Wisp" parent="." instance=ExtResource("10_kyt7g")]
+position = Vector2(706, 297)
