@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://dsflv0gye3udl"]
+[gd_scene load_steps=36 format=4 uid="uid://dsflv0gye3udl"]
 
 [ext_resource type="Texture2D" uid="uid://deishaboc7yfq" path="res://Tile Sets/Sigmiukas Residence/Sigmiukas House.png" id="3_crylc"]
 [ext_resource type="Texture2D" uid="uid://dsb62d6malgeh" path="res://Tile Sets/Sigmiukas Residence/Tile Set 1.1.png" id="3_xyse1"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dwn8m6jkdc0l1" path="res://World Transitions/World Change.tscn" id="20_6aqo0"]
 [ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="21_mtjgx"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="21_st1e4"]
+[ext_resource type="PackedScene" uid="uid://ykcx5uycsmh" path="res://Enemies/Blood Bat/enemy_blood_bat.tscn" id="21_w3dpc"]
 [ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="23_xyse1"]
 [ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="26_qw5ue"]
 [ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="27_lhemu"]
@@ -561,6 +562,9 @@ skew = 1.16064
 
 [node name="ResidenceToForest" parent="." instance=ExtResource("20_6aqo0")]
 position = Vector2(13603, 627)
+
+[node name="Blood Bat" parent="." instance=ExtResource("21_w3dpc")]
+position = Vector2(-908, 396)
 
 [connection signal="body_entered" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_entered"]
 [connection signal="body_exited" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_exited"]

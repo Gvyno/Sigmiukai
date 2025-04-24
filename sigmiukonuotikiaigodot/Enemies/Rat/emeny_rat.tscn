@@ -148,6 +148,7 @@ sprite_frames = SubResource("SpriteFrames_uxccr")
 animation = &"die"
 
 [node name="detection_area" type="Area2D" parent="."]
+visible = false
 gravity_space_override = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
@@ -155,6 +156,7 @@ position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_o688d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-11.5, 5.5)
 shape = SubResource("RectangleShape2D_p8ayk")
 

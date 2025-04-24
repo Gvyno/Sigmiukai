@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=3 uid="uid://ykcx5uycsmh"]
+
+[ext_resource type="Texture2D" uid="uid://bvj002y2kggmu" path="res://Enemies/Blood Bat/Blood Bat Idle.png" id="1_v4s0v"]
+[ext_resource type="Script" uid="uid://b58e4ac8g3wdv" path="res://Enemies/Blood Bat/enemy_blood_bat.gd" id="1_xyvop"]
+[ext_resource type="PackedScene" uid="uid://ddoxp44fjesk0" path="res://Bars/Health_bar.tscn" id="3_5elye"]
+[ext_resource type="PackedScene" uid="uid://dh5638o8nsc3t" path="res://Bars/Mana_bar.tscn" id="4_3lhn4"]
+[ext_resource type="Script" uid="uid://m2rhk5o07s62" path="res://Enemies/Rat/hitbox.gd" id="5_ats5f"]
+
+[sub_resource type="Animation" id="Animation_huxwp"]
+resource_name = "Idle"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_b4f8s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ich77"]
+_data = {
+&"Idle": SubResource("Animation_huxwp"),
+&"RESET": SubResource("Animation_b4f8s")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tifb6"]
+radius = 14.0357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b4f8s"]
+radius = 186.024
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ich77"]
+radius = 23.0217
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4s0v"]
+size = Vector2(13.3167, 5.20814)
+
+[node name="Blood Bat" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_xyvop")
+
+[node name="SpriteIdle" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_v4s0v")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ich77")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_tifb6")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_b4f8s")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_ich77")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_5elye")]
+offset_left = -23.0
+offset_top = -32.0
+offset_right = 100.0
+offset_bottom = 0.0
+
+[node name="ManaBar" parent="." instance=ExtResource("4_3lhn4")]
+visible = false
+offset_left = -65.0
+offset_top = 42.0
+offset_right = 73.0
+offset_bottom = 69.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("5_ats5f")
+metadata/_custom_type_script = "uid://pjr6b0dw2pam"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(7.15256e-07, 2.75)
+scale = Vector2(2.85355, 1.05604)
+shape = SubResource("RectangleShape2D_v4s0v")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

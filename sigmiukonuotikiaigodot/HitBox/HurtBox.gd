@@ -19,5 +19,5 @@ func _on_area_entered(hitbox: Hitbox)-> void:
 #	print("Something entered the enemy hitbox:", hitbox)
 #	print(hitbox.name)
 #	print(hitbox.get_path())
-	emit_signal("ItakeDamage",1)
+	#emit_signal("ItakeDamage",1)
 	pass
