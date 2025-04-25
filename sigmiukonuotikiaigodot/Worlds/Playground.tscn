@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://d0irwc6bw3gyf"]
+[gd_scene load_steps=14 format=4 uid="uid://d0irwc6bw3gyf"]
 
 [ext_resource type="Texture2D" uid="uid://dqbqdu2vwcxd" path="res://Tile Sets/Playground/Platform TS.png" id="1_y15p8"]
 [ext_resource type="Texture2D" uid="uid://brmnwva7oqbeq" path="res://Tile Sets/Sigmiukas Residence/Tile Set 1.png" id="2_guqxm"]
@@ -8,8 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="6_0qfdb"]
 [ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="7_guqxm"]
 [ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="8_8hufw"]
-[ext_resource type="PackedScene" uid="uid://df3186n7hcpy4" path="res://Enemies/Ice Mimic/Ice Mimic.tscn" id="9_8hufw"]
-[ext_resource type="PackedScene" uid="uid://dia2ilr53nuvh" path="res://Enemies/Ice Wisp/Ice Wisp.tscn" id="10_kyt7g"]
+[ext_resource type="PackedScene" uid="uid://ccx0vtxdg5xhq" path="res://Enemies/Frozen Skull/Frozen Skull.tscn" id="9_8hufw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fc48a"]
 texture = ExtResource("1_y15p8")
@@ -232,9 +231,5 @@ position = Vector2(340, 389)
 [node name="enemy_dummy2" parent="." instance=ExtResource("8_8hufw")]
 position = Vector2(584, 389)
 
-[node name="Ice Mimic" parent="." instance=ExtResource("9_8hufw")]
-position = Vector2(1116, 397)
-scale = Vector2(0.75, 0.75)
-
-[node name="Ice Wisp" parent="." instance=ExtResource("10_kyt7g")]
-position = Vector2(706, 297)
+[node name="Frozen Skull" parent="." instance=ExtResource("9_8hufw")]
+position = Vector2(711, 306)

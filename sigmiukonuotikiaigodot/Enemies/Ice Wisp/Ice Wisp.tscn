@@ -49,7 +49,7 @@ _data = {
 height = 38.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fouig"]
-radius = 186.024
+radius = 298.002
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wah64"]
 radius = 21.0238
@@ -75,7 +75,6 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_b3d07")
 
 [node name="DetectionArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_fouig")

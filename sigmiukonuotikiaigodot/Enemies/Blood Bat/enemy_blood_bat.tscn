@@ -49,7 +49,7 @@ _data = {
 radius = 14.0357
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b4f8s"]
-radius = 186.024
+radius = 288.063
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ich77"]
 radius = 23.0217
@@ -77,9 +77,9 @@ visible = false
 shape = SubResource("CircleShape2D_tifb6")
 
 [node name="DetectionArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
 shape = SubResource("CircleShape2D_b4f8s")
 
 [node name="HurtBox" type="Area2D" parent="."]

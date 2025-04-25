@@ -2,19 +2,18 @@ extends CharacterBody2D
 
 @export var speed: float = 175.0
 @export var damage: int = 10
-@export var max_health: int = 60
+@export var max_health: int = 30
+
+@export var dash_speed: float = 300.0
+@export var glide_speed: float = 75.0
+@export var dash_interval: float = 0.5
+@export var dash_duration: float = 0.1
+@export var momentum_blend_speed: float = 5.0
 
 var current_health: int
 var target: Node2D = null
 var attack_cooldown := true
 var is_alive := true
-
-var player_chase = false
-var player = null
-const GRAVITY = 2055
-const JUMP_VELOCITY = -500.0
-
-signal health_changed(new_health, new_min_health, new_max_health)
 
 var min_health = 0
 var health = max_health
@@ -23,10 +22,14 @@ var min_mana = 0
 var mana = 50
 var enemy_attackcooldown = true
 
+signal health_changed(new_health, new_min_health, new_max_health)
+
+var is_dashing = false
+var dash_direction := Vector2.ZERO
+
 func _ready():
 	current_health = max_health
 	print(is_alive)
-
 	$SpriteIdle.visible = true
 	$AnimationPlayer.play("Idle")
 
@@ -36,8 +39,14 @@ func _ready():
 	if has_node("AttackCooldown"):
 		$AttackCooldown.timeout.connect(_on_attack_cooldown_timeout)
 
-	if has_node("JumpTimer"):
-		$JumpTimer.timeout.connect(_on_jump_timer_timeout)
+	# Setup Dash Timer
+	var dash_timer = Timer.new()
+	dash_timer.name = "DashTimer"
+	dash_timer.wait_time = dash_interval
+	dash_timer.autostart = true
+	dash_timer.one_shot = false
+	add_child(dash_timer)
+	dash_timer.timeout.connect(_on_dash_timer_timeout)
 
 	emit_signal("health_changed", health, min_health, max_health)
 
@@ -45,40 +54,39 @@ func _physics_process(delta):
 	if not is_alive:
 		return
 
-	# Apply gravity
-	velocity.y += GRAVITY * delta
+	if target:
+		var to_target = (target.global_position - global_position).normalized()
 
-	# Move horizontally only when in the air and player is detected
-	if target and not is_on_floor():
-		var direction = (target.global_position - global_position).normalized()
-		velocity.x = direction.x * speed
+		if is_dashing:
+			velocity = dash_direction * dash_speed
+		else:
+			# Blend current velocity toward glide direction smoothly
+			var target_velocity = to_target * glide_speed
+			velocity = velocity.lerp(target_velocity, delta * momentum_blend_speed)
+
+		move_and_slide()
 		$SpriteIdle.flip_h = target.global_position.x < global_position.x
-		$SpriteAttack.flip_h = target.global_position.x >  global_position.x
 	else:
-		velocity.x = 0
+		velocity = velocity.lerp(Vector2.ZERO, delta * momentum_blend_speed)
 
-	move_and_slide()
+func _on_dash_timer_timeout():
+	if not is_alive or target == null:
+		return
+
+	is_dashing = true
+	dash_direction = (target.global_position - global_position).normalized()
+	velocity = dash_direction * dash_speed
+
+	await get_tree().create_timer(dash_duration).timeout
+	is_dashing = false
 
 func _on_detection_body_entered(body):
 	if body.is_in_group("player"):
 		target = body
-		$SpriteIdle.set_visible(false)
-		$SpriteAttack.set_visible(true)
-		$AnimationPlayer.play("Attack")
-		$HealthBar.set_visible(true)
-		$JumpTimer.start()
 
 func _on_detection_body_exited(body):
 	if body == target:
 		target = null
-		$SpriteIdle.set_visible(true)
-		$SpriteAttack.set_visible(false)
-		$AnimationPlayer.stop
-		$JumpTimer.stop()
-
-func _on_jump_timer_timeout():
-	if target and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
 func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 	if is_alive:
@@ -90,13 +98,13 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 			enemy_attackcooldown = false
 			$AttackCooldown.start()
 
+func _on_attack_cooldown_timeout():
+	attack_cooldown = true
+	enemy_attackcooldown = true
+
 func die():
 	is_alive = false
 	velocity = Vector2.ZERO
 	$AnimationPlayer.play("Idle")
 	await get_tree().create_timer(0.5).timeout
 	queue_free()
-
-func _on_attack_cooldown_timeout():
-	attack_cooldown = true
-	enemy_attackcooldown = true

@@ -49,7 +49,7 @@ _data = {
 height = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_veu5w"]
-radius = 186.024
+radius = 272.066
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_76lgf"]
 radius = 25.0799

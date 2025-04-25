@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 150.0
 @export var damage: int = 10
-@export var max_health: int = 30
+@export var max_health: int = 40
 
 var current_health: int
 var target: Node2D = null
