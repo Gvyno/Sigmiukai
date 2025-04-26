@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://db1f28ab0c30c"]
+[gd_scene load_steps=3 format=3 uid="uid://b721vwgu8pcs1"]
 
-[ext_resource type="Script" uid="uid://dtjkmsiqgpw54" path="res://Backgrounds/Residence_backgrounds/background_change_area.gd" id="1_vocag"]
+[ext_resource type="Script" uid="uid://dcbterjpeqein" path="res://Backgrounds/Ice_backgrounds/Scenes/ice_cave_to_outside_change_area.gd" id="1_k2fsy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bg7h"]
 size = Vector2(132.5, 128.5)
 
 [node name="Background_change_area" type="Area2D"]
-script = ExtResource("1_vocag")
+script = ExtResource("1_k2fsy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(67.75, 55.75)

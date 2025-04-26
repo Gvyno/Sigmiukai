@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1wa1r6do15j2"]
+
+[ext_resource type="Texture2D" uid="uid://c2kety2c5qi16" path="res://Backgrounds/Ice_backgrounds/outside/l0_sprite_1.png" id="1_j6ixb"]
+[ext_resource type="Texture2D" uid="uid://bbleq2tmwyrik" path="res://Backgrounds/Ice_backgrounds/outside/l1_sprite_1.png" id="2_ln1xn"]
+[ext_resource type="Texture2D" uid="uid://dwbdnf2n2ctca" path="res://Backgrounds/Ice_backgrounds/outside/l2_sprite_1.png" id="3_m1cpo"]
+[ext_resource type="Texture2D" uid="uid://piwmkj5y38qd" path="res://Backgrounds/Ice_backgrounds/outside/l3_sprite_1.png" id="4_7rrcm"]
+[ext_resource type="Texture2D" uid="uid://do5uaocnaqbia" path="res://Backgrounds/Ice_backgrounds/cave/l0_sprite_1.png" id="5_scl87"]
+[ext_resource type="Texture2D" uid="uid://bdbtt32dupxr" path="res://Backgrounds/Ice_backgrounds/cave/l1_sprite_1.png" id="6_xm4vl"]
+[ext_resource type="Texture2D" uid="uid://b16d21m15iq7h" path="res://Backgrounds/Ice_backgrounds/cave/l2_sprite_1.png" id="7_80uam"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_offset = Vector2(7531, 1250)
+
+[node name="ice_outside_group" type="ParallaxBackground" parent="." groups=["ice"]]
+
+[node name="1" type="ParallaxLayer" parent="ice_outside_group"]
+position = Vector2(43, 361)
+motion_mirroring = Vector2(1536, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ice_outside_group/1"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_j6ixb")
+
+[node name="2" type="ParallaxLayer" parent="ice_outside_group"]
+position = Vector2(43, 361)
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(1536, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ice_outside_group/2"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ln1xn")
+
+[node name="3" type="ParallaxLayer" parent="ice_outside_group"]
+position = Vector2(43, 361)
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1536, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ice_outside_group/3"]
+position = Vector2(0, 159)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_m1cpo")
+
+[node name="4" type="ParallaxLayer" parent="ice_outside_group"]
+position = Vector2(43, 361)
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1536, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ice_outside_group/4"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_7rrcm")
+
+[node name="ice_cave_group" type="ParallaxBackground" parent="." groups=["ice"]]
+
+[node name="4" type="ParallaxLayer" parent="ice_cave_group"]
+position = Vector2(43, 361)
+motion_mirroring = Vector2(1536, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ice_cave_group/4"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_scl87")
+
+[node name="5" type="ParallaxLayer" parent="ice_cave_group"]
+position = Vector2(43, 361)
+motion_mirroring = Vector2(1536, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ice_cave_group/5"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_xm4vl")
+
+[node name="3" type="ParallaxLayer" parent="ice_cave_group"]
+position = Vector2(43, 361)
+motion_mirroring = Vector2(1536, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ice_cave_group/3"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_80uam")

@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://ht2na40t3n6r"]
 
-[ext_resource type="Texture2D" uid="uid://ckq7oa7auntfa" path="res://Backgrounds/Residence_backgrounds/cave/l0_sprite_1.png" id="1_ff13c"]
-[ext_resource type="Texture2D" uid="uid://bwgjjswq5oqmo" path="res://Backgrounds/Residence_backgrounds/cave/l1_sprite_1.png" id="2_ist28"]
-[ext_resource type="Texture2D" uid="uid://cjbovfl02v5ya" path="res://Backgrounds/Residence_backgrounds/cave/l2_sprite_1.png" id="3_8mo6t"]
-[ext_resource type="Texture2D" uid="uid://dxa1fjgqb36mw" path="res://Backgrounds/Residence_backgrounds/outside/l0_sprite_1.png" id="4_ff13c"]
-[ext_resource type="Texture2D" uid="uid://bfpy3dwdrucgi" path="res://Backgrounds/Residence_backgrounds/outside/l1_sprite_1.png" id="5_koou1"]
-[ext_resource type="Texture2D" uid="uid://cih3tx2jexm4w" path="res://Backgrounds/Residence_backgrounds/outside/l2_sprite_1.png" id="6_8mo6t"]
-[ext_resource type="Texture2D" uid="uid://c8088nh8kouum" path="res://Backgrounds/Residence_backgrounds/outside/l3_sprite_1.png" id="7_r8wek"]
+[ext_resource type="Texture2D" uid="uid://dxa1fjgqb36mw" path="res://Backgrounds/Residence_backgrounds/outside/l0_sprite_1.png" id="1_c8brq"]
+[ext_resource type="Texture2D" uid="uid://bfpy3dwdrucgi" path="res://Backgrounds/Residence_backgrounds/outside/l1_sprite_1.png" id="2_805im"]
+[ext_resource type="Texture2D" uid="uid://cih3tx2jexm4w" path="res://Backgrounds/Residence_backgrounds/outside/l2_sprite_1.png" id="3_hqiwy"]
+[ext_resource type="Texture2D" uid="uid://c8088nh8kouum" path="res://Backgrounds/Residence_backgrounds/outside/l3_sprite_1.png" id="4_q6cih"]
+[ext_resource type="Texture2D" uid="uid://ckq7oa7auntfa" path="res://Backgrounds/Residence_backgrounds/cave/l0_sprite_1.png" id="5_dysu6"]
+[ext_resource type="Texture2D" uid="uid://bwgjjswq5oqmo" path="res://Backgrounds/Residence_backgrounds/cave/l1_sprite_1.png" id="6_n4w20"]
+[ext_resource type="Texture2D" uid="uid://cjbovfl02v5ya" path="res://Backgrounds/Residence_backgrounds/cave/l2_sprite_1.png" id="7_4jyg6"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 scroll_offset = Vector2(7531, 1250)
@@ -19,7 +19,7 @@ motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="outside_group/1"]
 scale = Vector2(1, 2)
-texture = ExtResource("4_ff13c")
+texture = ExtResource("1_c8brq")
 
 [node name="2" type="ParallaxLayer" parent="outside_group"]
 position = Vector2(43, 361)
@@ -27,7 +27,7 @@ motion_scale = Vector2(0.9, 1)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="outside_group/2"]
-texture = ExtResource("5_koou1")
+texture = ExtResource("2_805im")
 
 [node name="3" type="ParallaxLayer" parent="outside_group"]
 position = Vector2(43, 361)
@@ -36,7 +36,7 @@ motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="outside_group/3"]
 position = Vector2(0, 159)
-texture = ExtResource("6_8mo6t")
+texture = ExtResource("3_hqiwy")
 
 [node name="4" type="ParallaxLayer" parent="outside_group"]
 position = Vector2(43, 361)
@@ -44,7 +44,7 @@ motion_scale = Vector2(0.6, 1)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="outside_group/4"]
-texture = ExtResource("7_r8wek")
+texture = ExtResource("4_q6cih")
 
 [node name="cave_group" type="ParallaxBackground" parent="."]
 visible = false
@@ -54,7 +54,7 @@ position = Vector2(43, 643)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="cave_group/1"]
-texture = ExtResource("1_ff13c")
+texture = ExtResource("5_dysu6")
 
 [node name="2" type="ParallaxLayer" parent="cave_group"]
 position = Vector2(43, 643)
@@ -62,7 +62,7 @@ motion_scale = Vector2(0.8, 1)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="cave_group/2"]
-texture = ExtResource("2_ist28")
+texture = ExtResource("6_n4w20")
 
 [node name="3" type="ParallaxLayer" parent="cave_group"]
 position = Vector2(43, 643)
@@ -70,4 +70,4 @@ motion_scale = Vector2(0.7, 1)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="cave_group/3"]
-texture = ExtResource("3_8mo6t")
+texture = ExtResource("7_4jyg6")
