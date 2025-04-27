@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-var speed = 150  # Speed at which the enemy moves
+var speed = 10#150  # Speed at which the enemy moves
 var player_chase = false  # Whether the enemy is chasing the player
 var player = null  # Reference to the player node
 var is_alive = true  # If the enemy is alive
-const GRAVITY = 2055  # Gravity strength (adjust as needed)
+const GRAVITY = 100  # Gravity strength (adjust as needed)
 const JUMP_VELOCITY = -400.0  # Jump force
 signal health_changed(new_health,new_min_health,new_max_health)
 var max_health=80
@@ -38,8 +38,8 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity when not on the floor
-	if not is_on_floor():
-		velocity.y += GRAVITY * delta
+#	if not is_on_floor():
+#		velocity.y += GRAVITY * delta
 	if player_chase and player:
 		if player.position.x > position.x:
 			$AnimatedSprite2D.flip_h = true
@@ -60,7 +60,7 @@ func die():
 
 	is_alive = false  
 	velocity = Vector2.ZERO  # Stop movement
-
+	
 	# Flip die animation to match walking direction
 	$AnimatedSprite2D.flip_h = $AnimatedSprite2D.flip_h  
 
@@ -100,6 +100,7 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 #			print(hitbox.name)
 #			print(hitbox.get_path())
 		if(enemy_attackcooldown==true):
+			knockbackAttackPlayer()
 			health=health-hitbox.get("Damage")
 			emit_signal("health_changed",health,min_health,max_health)
 			if health <= min_health:
@@ -111,3 +112,27 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attackcooldown = true
+
+func knockbackTakeDamage():
+	velocity.y = -500 # simulate bounce up
+	velocity.x = -500  
+#	var knockbackDirection= (-velocity)
+#	velocity = knockbackDirection
+#	print_debug(velocity)
+#	print_debug(position)
+	move_and_slide()
+#	print_debug(position)
+#	print_debug("    ")
+	print("OWKNOCKEDBYPLAYER!")
+	
+func knockbackAttackPlayer():
+	velocity.y = -500 # simulate bounce up
+	velocity.x = -500  
+#	var knockbackDirection= (-velocity)
+#	velocity = knockbackDirection
+#	print_debug(velocity)
+#	print_debug(position)
+	move_and_slide()
+#	print_debug(position)
+#	print_debug("    ")
+	print("ISTEPAWAYFROMPLEYER HEHE!")

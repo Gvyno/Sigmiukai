@@ -866,14 +866,17 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_b1ygp")
 
 [node name="head_area" type="Area2D" parent="."]
-position = Vector2(-29, 72)
+visible = false
+position = Vector2(-28, 81)
 rotation = -0.0101299
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="head_area"]
-position = Vector2(29.9608, -94.7014)
+visible = false
+position = Vector2(29.8899, -87.7017)
 shape = SubResource("RectangleShape2D_o28un")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1, 13)
 scale = Vector2(1, -1.36)
 shape = SubResource("SeparationRayShape2D_b1ygp")
 

@@ -76,7 +76,7 @@ func _on_dash_timer_timeout():
 	is_dashing = true
 	dash_direction = (target.global_position - global_position).normalized()
 	velocity = dash_direction * dash_speed
-
+	knockbackAttackPlayer()
 	await get_tree().create_timer(dash_duration).timeout
 	is_dashing = false
 
@@ -93,6 +93,7 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 		if enemy_attackcooldown == true:
 			health -= hitbox.get("Damage")
 			emit_signal("health_changed", health, min_health, max_health)
+			knockbackTakeDamage()
 			if health <= min_health:
 				die()
 			enemy_attackcooldown = false
@@ -108,3 +109,29 @@ func die():
 	$AnimationPlayer.play("Idle")
 	await get_tree().create_timer(0.5).timeout
 	queue_free()
+
+
+
+func knockbackTakeDamage():
+	velocity.y = -500 # simulate bounce up
+	velocity.x = -500  
+#	var knockbackDirection= (-velocity)
+#	velocity = knockbackDirection
+#	print_debug(velocity)
+#	print_debug(position)
+	move_and_slide()
+#	print_debug(position)
+#	print_debug("    ")
+	print("OWKNOCKEDBYPLAYER!")
+	
+func knockbackAttackPlayer():
+	velocity.y = -500 # simulate bounce up
+	velocity.x = -500  
+#	var knockbackDirection= (-velocity)
+#	velocity = knockbackDirection
+#	print_debug(velocity)
+#	print_debug(position)
+	move_and_slide()
+#	print_debug(position)
+#	print_debug("    ")
+	print("ISTEPAWAYFROMPLEYER HEHE!")

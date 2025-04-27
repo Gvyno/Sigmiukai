@@ -446,8 +446,11 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 
 func _on_hitbox_area_exited(area: Area2D) -> void:
 	pass # Replace with function body.
-func knockback():
-	velocity.y = -100  # simulate bounce up
+	
+	
+func knockbackSpike():
+	velocity.y = -150 # simulate bounce up
+#	velocity.x = -500  
 #	var knockbackDirection= (-velocity)
 #	velocity = knockbackDirection
 	print_debug(velocity)
@@ -456,7 +459,17 @@ func knockback():
 	print_debug(position)
 	print_debug("    ")
 
-
+func knockbackDamage():
+	velocity.y = -150 # simulate bounce up
+	velocity.x = -150  
+#	var knockbackDirection= (-velocity)
+#	velocity = knockbackDirection
+#	print_debug(velocity)
+#	print_debug(position)
+	move_and_slide()
+#	print_debug(position)
+#	print_debug("    ")
+	print("DamageKnockback!")
 
 #func _on_hurt_box_itake_damage(damage: int) -> void:
 #	pass # Replace with function body.
@@ -471,9 +484,9 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 		$SpriteHurt.visible = true
 		hide_other_sprites("Hurt")
 		animation.play("Hurt")
-
 		health=health-hitbox.get("Damage")
 		emit_signal("health_changed",health,min_health,max_health)
+		knockbackDamage()
 		if health <= min_health:
 			die()
 		pass # Replace with function body.
@@ -482,7 +495,7 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if is_alive:
-		knockback()
+		knockbackSpike()
 		is_hurt = true
 		hurt_timer = 0.3
 		$SpriteHurt.visible = true
