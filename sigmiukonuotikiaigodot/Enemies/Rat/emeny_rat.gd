@@ -14,9 +14,9 @@ const JUMP_VELOCITY = -200.0
 var knockback
 
 
-var max_health=80
+@export var max_health=80
 var min_health=0
-var health =80
+@export var health =80
 var max_mana=50
 var min_mana=0
 var mana =50
@@ -137,8 +137,8 @@ func _on_attack_cooldown_timeout() -> void:
 	enemy_DamageCooldown = true
 
 func knockbackTakeHeadKnockback():
-	velocity.y = -100*5  # simulate bounce up
-	velocity.x = -100*5 
+	velocity.y = -100*2  # simulate bounce up
+	velocity.x = -100*2 
 #	var knockbackDirection= (-velocity)
 #	velocity = knockbackDirection
 #	print_debug(velocity)

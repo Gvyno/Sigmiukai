@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://m2rhk5o07s62" path="res://Enemies/Rat/hitbox.gd" id="7_rvx8j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xh08p"]
-size = Vector2(8.53659, 9.69827)
+size = Vector2(19.5122, 13.7931)
 
 [sub_resource type="Animation" id="Animation_uquay"]
 resource_name = "Attack"
@@ -114,10 +114,10 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f7c8x"]
-radius = 89.0898
+radius = 272.066
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s2me"]
-size = Vector2(64, 64)
+[sub_resource type="CircleShape2D" id="CircleShape2D_nogbr"]
+radius = 25.0799
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6qt3d"]
 radius = 5.60705
@@ -127,7 +127,7 @@ height = 20.8325
 script = ExtResource("1_qlgyi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.8743e-07, 8.5)
+position = Vector2(-5.96046e-08, 0)
 scale = Vector2(3.28, 4.64)
 shape = SubResource("RectangleShape2D_xh08p")
 
@@ -142,7 +142,6 @@ texture = ExtResource("3_e6ybf")
 hframes = 4
 
 [node name="DFBWalk" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("4_0s2me")
 hframes = 4
 
@@ -152,19 +151,19 @@ libraries = {
 }
 
 [node name="HealthBar" parent="." instance=ExtResource("5_0s2me")]
-offset_left = -24.0
-offset_top = -43.0
-offset_right = 99.0
-offset_bottom = -11.0
+offset_left = -123.5
+offset_top = 95.0
+offset_right = -0.5
+offset_bottom = 127.0
 
 [node name="ManaBar" parent="." instance=ExtResource("6_xh08p")]
-offset_left = -24.0
-offset_top = -38.0
-offset_right = 114.0
-offset_bottom = -11.0
-scale = Vector2(0.344409, 0.155872)
+offset_left = -131.0
+offset_top = 112.0
+offset_right = 7.0
+offset_bottom = 139.0
 
 [node name="DetectionArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_f7c8x")
@@ -176,7 +175,8 @@ collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("RectangleShape2D_0s2me")
+position = Vector2(0, 17)
+shape = SubResource("CircleShape2D_nogbr")
 
 [node name="Hitbox" type="Area2D" parent="."]
 visible = false
@@ -186,22 +186,6 @@ script = ExtResource("7_rvx8j")
 metadata/_custom_type_script = "uid://pjr6b0dw2pam"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
 position = Vector2(0, 17)
 scale = Vector2(2.85355, 1.05604)
 shape = SubResource("CapsuleShape2D_6qt3d")
-
-[node name="AttackCooldown" type="Timer" parent="."]
-autostart = true
-
-[node name="DamageCooldown" type="Timer" parent="."]
-autostart = true
-
-[connection signal="health_changed" from="." to="HealthBar" method="_on_boss_darkforest_health_changed"]
-[connection signal="mana_changed" from="." to="ManaBar" method="_on_boss_darkforest_mana_changed"]
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
-[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
-[connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]

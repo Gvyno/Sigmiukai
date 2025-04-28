@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://d0irwc6bw3gyf"]
+[gd_scene load_steps=20 format=4 uid="uid://d0irwc6bw3gyf"]
 
 [ext_resource type="Texture2D" uid="uid://dqbqdu2vwcxd" path="res://Tile Sets/Playground/Platform TS.png" id="1_y15p8"]
 [ext_resource type="Texture2D" uid="uid://brmnwva7oqbeq" path="res://Tile Sets/Sigmiukas Residence/Tile Set 1.png" id="2_guqxm"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="12_fc48a"]
 [ext_resource type="PackedScene" uid="uid://cm1ij7pkkp6wp" path="res://Enemies/Slimer/enemy_slimer.tscn" id="13_jq6rf"]
 [ext_resource type="PackedScene" uid="uid://df3186n7hcpy4" path="res://Enemies/Ice Mimic/Ice Mimic.tscn" id="14_w1dwn"]
+[ext_resource type="PackedScene" uid="uid://bl5p5mo3b5owo" path="res://Enemies/Boss DarkForest/Boss_darkforest.tscn" id="15_w22sm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fc48a"]
 texture = ExtResource("1_y15p8")
@@ -238,7 +239,7 @@ position = Vector2(405, 389)
 position = Vector2(584, 389)
 
 [node name="Frozen Skull" parent="." instance=ExtResource("9_8hufw")]
-position = Vector2(599, 202)
+position = Vector2(1342, 277)
 
 [node name="Background_change_area" parent="." instance=ExtResource("10_kyt7g")]
 position = Vector2(482, 305)
@@ -246,10 +247,14 @@ position = Vector2(482, 305)
 [node name="ParallaxBackground" parent="." instance=ExtResource("11_0qfdb")]
 
 [node name="rat_enemy" parent="." instance=ExtResource("12_fc48a")]
-position = Vector2(673, 330)
+position = Vector2(1359, 339)
 
 [node name="Slimer" parent="." instance=ExtResource("13_jq6rf")]
-position = Vector2(1158, 377)
+position = Vector2(1345, 378)
 
 [node name="Ice Mimic" parent="." instance=ExtResource("14_w1dwn")]
-position = Vector2(337, 370)
+position = Vector2(1345, 423)
+
+[node name="BossDarkforest" parent="." instance=ExtResource("15_w22sm")]
+position = Vector2(318, 378)
+max_health = 250

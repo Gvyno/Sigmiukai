@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 150.0
 @export var damage: int = 10
 @export var max_health: int = 40
-
+@export var health =max_health
 var current_health: int
 var target: Node2D = null
 #var damage_cooldown := true
@@ -19,7 +19,7 @@ const JUMP_VELOCITY = -400.0  # Jump force
 signal health_changed(new_health,new_min_health,new_max_health)
 #var max_health=80
 var min_health=0
-var health =max_health
+
 var max_mana=50
 var min_mana=0
 var mana =50
@@ -51,6 +51,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	emit_signal("health_changed",health,min_health,max_health)
 	if not is_alive:
 		return
 
@@ -98,8 +99,8 @@ func die():
 
 
 func knockbackTakeDamage():
-	velocity.y = -150 # simulate bounce up
-	velocity.x = -500  
+#	velocity.y = -150 # simulate bounce up
+#	velocity.x = -500  
 #	var knockbackDirection= (-velocity)
 #	velocity = knockbackDirection
 #	print_debug(velocity)
