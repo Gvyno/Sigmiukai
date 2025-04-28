@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 150.0
 @export var damage: int = 10
-@export var max_health: int = 50
+@export var max_health: int = 250
 @export var Bat_scene: PackedScene = preload("res://Enemies/Boss DarkForest/enemy_blood_bat_boss.tscn")
 @export var Rat_scene: PackedScene = preload("res://Enemies/Boss DarkForest/emeny_rat_boss.tscn")
  
@@ -21,13 +21,16 @@ signal mana_changed(new_mana, new_min_mana, new_max_mana)
 
 
 var min_health = 0
-var health = 250
+var health = max_health
 var max_mana = 50
 var min_mana = 0
 var mana = 50
 
 func _ready():
 	current_health = max_health
+	mana=max_mana
+	emit_signal("health_changed", health, min_health, max_health)
+	emit_signal("mana_changed", mana,min_mana, max_mana)
 	print(is_alive)
 	
 	$DFBIdle.visible = true
@@ -66,7 +69,7 @@ func _physics_process(delta):
 		var direction = (target.global_position - global_position).normalized()
 		$DFBIdle.flip_h = target.global_position.x < global_position.x
 		$DFBAttack.flip_h = target.global_position.x < global_position.x
-		velocity.x = direction.x * speed/4 
+		velocity.x = direction.x * -speed/4 
 	else:
 		velocity.x = 0
 
@@ -123,7 +126,7 @@ func _on_damage_cooldown_timeout() -> void:
 				var facing_right = not $DFBIdle.flip_h
 				var direction_vector = Vector2.RIGHT if facing_right else Vector2.LEFT
 				var direction_vector_up=Vector2.UP
-				projectile.global_position = global_position + (direction_vector_up * 150)
+				projectile.global_position = global_position + (direction_vector * 150)
 	pass # Replace with function body.
 
 

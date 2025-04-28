@@ -257,4 +257,3 @@ position = Vector2(1345, 423)
 
 [node name="BossDarkforest" parent="." instance=ExtResource("15_w22sm")]
 position = Vector2(318, 378)
-max_health = 250
