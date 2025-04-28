@@ -723,12 +723,14 @@ texture = ExtResource("8_jatw7")
 hframes = 3
 
 [node name="Hitbox" type="Area2D" parent="SpriteSlash"]
+visible = false
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("9_b1ygp")
 metadata/_custom_type_script = "uid://pjr6b0dw2pam"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteSlash/Hitbox"]
+visible = false
 position = Vector2(6.00815e-05, 5.55558)
 rotation = -0.0153984
 scale = Vector2(7.42168, 7.30277)
@@ -744,12 +746,14 @@ texture = ExtResource("8_jatw7")
 hframes = 3
 
 [node name="Hitbox" type="Area2D" parent="SpriteSlashUD"]
+visible = false
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("9_b1ygp")
 metadata/_custom_type_script = "uid://pjr6b0dw2pam"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteSlashUD/Hitbox"]
+visible = false
 position = Vector2(-5.55555, -2.0111e-05)
 scale = Vector2(10.1628, -9.70896)
 shape = SubResource("CircleShape2D_b1ygp")
