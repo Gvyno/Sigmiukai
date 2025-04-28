@@ -659,8 +659,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o28un"]
-radius = 11.0
-height = 42.0
+radius = 11.9495
+height = 41.6667
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o28un"]
 size = Vector2(19.9686, 8.54993)
@@ -875,7 +875,7 @@ metadata/_custom_type_script = "uid://dd7t7gd5cbl81"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -1)
-scale = Vector2(1.1716, 1.08)
+scale = Vector2(1.1716, 1.2)
 shape = SubResource("CapsuleShape2D_o28un")
 
 [node name="head_area" type="Area2D" parent="."]
