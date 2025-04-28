@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cnhqrrd8wh6t5"]
 
-[ext_resource type="Script" path="res://Enemies/Boss_DarkForest/boss_darkforest.gd" id="1_51tmh"]
+[ext_resource type="Script" uid="uid://drvssho2amd3v" path="res://Enemies/Boss DarkForest/boss_darkforest.gd" id="1_51tmh"]
 [ext_resource type="Texture2D" uid="uid://ckr2w1yojbykd" path="res://Enemies/Boss DarkForest/placeholder_sprites.png" id="2_ioscg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avfen"]

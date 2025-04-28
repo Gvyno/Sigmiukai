@@ -2,12 +2,13 @@ extends CharacterBody2D
 
 @onready var animation = $AnimationPlayer
 @export var knockbackPower: int = 25
+
 signal health_changed(new_health,new_min_health,new_max_health)
 signal mana_changed(new_mana,new_min_mana,new_max_mana)
 var is_alive = true
-var max_health=100
+var max_health=1000
 var min_health=0
-var health =100
+var health =1000
 var max_mana=50
 var min_mana=0
 var mana =50
@@ -39,6 +40,9 @@ var double_jump_timer = 0.0
 @export var DoubleJumpEnabled: bool = true  
 @export var DashEnabled: bool = true  
 @export var projectile_scene: PackedScene = preload("res://Player/Projectile.tscn")  
+
+#var knockback_dir=Vector2()
+#var knockback_wait=10
 
 
 func _ready():
@@ -123,6 +127,10 @@ func _physics_process(delta: float) -> void:
 	# Apply gravity normally when not on the ground
 	if not is_on_floor() and not is_dashing:
 		velocity += get_gravity() * delta
+#		velocity += Vector2.DOWN * get_gravity()
+#	else:
+#		velocity.x = lerpf(velocity.x,0,20 * delta)
+#		move_and_slide()
 
 	# Reset double jump when landing
 	if is_on_floor():
@@ -460,8 +468,8 @@ func knockbackSpike():
 	print_debug("    ")
 
 func knockbackDamage():
-	velocity.y = -150 # simulate bounce up
-	velocity.x = -150  
+	velocity.y = -50 # simulate bounce up
+	velocity.x = -50  
 #	var knockbackDirection= (-velocity)
 #	velocity = knockbackDirection
 #	print_debug(velocity)

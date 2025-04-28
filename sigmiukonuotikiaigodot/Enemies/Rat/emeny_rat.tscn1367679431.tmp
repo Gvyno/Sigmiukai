@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://txwnm02pbwt6"]
+[gd_scene load_steps=29 format=3 uid="uid://txwnm02pbwt6"]
 
 [ext_resource type="Script" uid="uid://dv6mispfiqemx" path="res://Enemies/Rat/emeny_rat.gd" id="1_cm882"]
 [ext_resource type="Texture2D" uid="uid://dbt4emu5sfogt" path="res://Enemies/Rat/Rat Idle.png" id="2_p8ayk"]
@@ -133,6 +133,9 @@ radius = 5.08982
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5cbw1"]
 size = Vector2(20.5132, 27.4612)
 
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_5cbw1"]
+length = 13.9706
+
 [node name="rat_enemy" type="CharacterBody2D"]
 safe_margin = 0.1
 script = ExtResource("1_cm882")
@@ -202,17 +205,20 @@ position = Vector2(-10.2678, -0.5)
 scale = Vector2(2.85355, 1.05604)
 shape = SubResource("RectangleShape2D_5cbw1")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-10, -21)
+rotation = -0.00171959
+scale = Vector2(11.0153, 2.59341)
+shape = SubResource("SeparationRayShape2D_5cbw1")
+
 [node name="AttackCooldown" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
-
-[node name="JumpTimer" type="Timer" parent="."]
 
 [connection signal="health_changed" from="." to="HealthBar" method="_on_rat_enemy_health_changed"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="head_area" to="." method="_on_head_area_body_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
-[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

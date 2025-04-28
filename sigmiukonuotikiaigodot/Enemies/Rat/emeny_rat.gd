@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-var speed = 10#150  # Speed at which the enemy moves
+var speed = 100#150  # Speed at which the enemy moves
 var player_chase = false  # Whether the enemy is chasing the player
 var player = null  # Reference to the player node
 var is_alive = true  # If the enemy is alive
-const GRAVITY = 100  # Gravity strength (adjust as needed)
-const JUMP_VELOCITY = -400.0  # Jump force
+const GRAVITY = 2055
+const JUMP_VELOCITY = -200.0
+var knockback
 signal health_changed(new_health,new_min_health,new_max_health)
 var max_health=80
 var min_health=0
@@ -16,6 +17,8 @@ var mana =50
 var enemy_attackcooldown =true
 func _ready():
 	emit_signal("health_changed",health,min_health,max_health)
+	if has_node("JumpTimer"):
+		$JumpTimer.timeout.connect(_on_jump_timer_timeout)
 	pass
 	
 # This function will be triggered when the player enters the Area2D
@@ -24,6 +27,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 		#print("Player entered detection area!")  # Debugging message
 		player = body  # Assign the player node
 		player_chase = true  # Start chasing the player
+		$JumpTimer.start()
 		
 
 # This function will be triggered when the player leaves the Area2D
@@ -38,7 +42,8 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity when not on the floor
-#	if not is_on_floor():
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 #		velocity.y += GRAVITY * delta
 	if player_chase and player:
 		if player.position.x > position.x:
@@ -47,11 +52,19 @@ func _physics_process(delta: float) -> void:
 		elif player.position.x < position.x:
 			$AnimatedSprite2D.flip_h = false
 			velocity.x = -speed  
+		if player.position.y > position.y:
+			pass
+#			$AnimatedSprite2D.flip_h = true
+#			velocity.y = JUMP_VELOCITY  
+#			$AnimatedSprite2D.flip_h = false
+#			velocity.y = -JUMP_VELOCITY
 
 		$AnimatedSprite2D.play("walk")
 		move_and_slide()
 	else:
 		$AnimatedSprite2D.play("idle")
+		# On the rat:
+
 
 
 func die():
@@ -80,6 +93,7 @@ func _on_head_area_body_entered(body: Node2D) -> void:
 			if body.velocity.y > 0 and body.position.y < position.y:
 				print("Player jumped on enemy! CRITICAL HIT.")
 				health=health-50
+				knockbackTakeHeadKnockback()
 				emit_signal("health_changed",health,min_health,max_health)
 				if health <= min_health:
 					die()
@@ -100,22 +114,33 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 #			print(hitbox.name)
 #			print(hitbox.get_path())
 		if(enemy_attackcooldown==true):
-			knockbackAttackPlayer()
+			#get hitbox str
 			health=health-hitbox.get("Damage")
+			
+			knockbackAttackPlayer(hitbox.get("Knockback"))
 			emit_signal("health_changed",health,min_health,max_health)
 			if health <= min_health:
 				die()
-			enemy_attackcooldown==false
-			$AttackCooldown.start()
+			#enemy_attackcooldown=false
+			#$AttackCooldown.start()
 	pass # Replace with function body.
 
 
 func _on_attack_cooldown_timeout() -> void:
+	print("ticktock")
 	enemy_attackcooldown = true
 
-func knockbackTakeDamage():
-	velocity.y = -500 # simulate bounce up
-	velocity.x = -500  
+func knockbackTakeHeadKnockback():
+	velocity.y = -100*5  # simulate bounce up
+	velocity.x = -100*5 
+#	var knockbackDirection= (-velocity)
+#	velocity = knockbackDirection
+#	print_debug(velocity)
+#	print_debug(position)
+#	else:
+#		velocity=Vector2(-force *2,-force*up_force)
+#	velocity.y = -150 # simulate bounce up
+#	velocity.x = -150  
 #	var knockbackDirection= (-velocity)
 #	velocity = knockbackDirection
 #	print_debug(velocity)
@@ -124,10 +149,10 @@ func knockbackTakeDamage():
 #	print_debug(position)
 #	print_debug("    ")
 	print("OWKNOCKEDBYPLAYER!")
-	
-func knockbackAttackPlayer():
-	velocity.y = -500 # simulate bounce up
-	velocity.x = -500  
+
+func knockbackAttackPlayer(Force:int):
+	velocity.y = -100*Force  # simulate bounce up
+	velocity.x = -100*Force 
 #	var knockbackDirection= (-velocity)
 #	velocity = knockbackDirection
 #	print_debug(velocity)
@@ -135,4 +160,21 @@ func knockbackAttackPlayer():
 	move_and_slide()
 #	print_debug(position)
 #	print_debug("    ")
-	print("ISTEPAWAYFROMPLEYER HEHE!")
+#	print("")
+
+#for future
+func _on_hitbox_area_entered(hitbox: Hitbox) -> void:
+#	if(enemy_attackcooldown==true):
+#		knockbackAttackPlayer()
+#		health=health-hitbox.get("Damage")
+#		emit_signal("health_changed",health,min_health,max_health)
+#	if health <= min_health:
+#		die()
+#	enemy_attackcooldown=false
+#	$AttackCooldown.start()
+	pass
+
+
+func _on_jump_timer_timeout():
+	if player and is_on_floor():
+		velocity.y = JUMP_VELOCITY

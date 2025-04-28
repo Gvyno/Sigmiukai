@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5l2adja7scq0"]
 
-[ext_resource type="Texture2D" uid="uid://dub0f8mtm6vy7" path="res://food/chms.png" id="1_nfrb3"]
-[ext_resource type="Script" uid="uid://4ouglb5qjvv3" path="res://food/chems_item.gd" id="1_ssdus"]
+[ext_resource type="Texture2D" uid="uid://dub0f8mtm6vy7" path="res://Food/chms.png" id="1_nfrb3"]
+[ext_resource type="Script" uid="uid://4ouglb5qjvv3" path="res://Food/chems_item.gd" id="1_ssdus"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ssdus"]
 

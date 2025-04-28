@@ -69,7 +69,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0943939, 0.199821, 0.4, 0.550427),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, true, false, true, false]
+"values": [true, true, false, true, true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -81,7 +81,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.0943939, 0.199821, 0.4, 0.550427),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, true, false, true, false]
+"values": [true, true, false, true, true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -714,7 +714,6 @@ texture = ExtResource("7_r3kul")
 hframes = 6
 
 [node name="SpriteSlash" type="Sprite2D" parent="."]
-visible = false
 light_mask = 5
 visibility_layer = 5
 position = Vector2(393, -157)
@@ -736,7 +735,6 @@ shape = SubResource("CapsuleShape2D_b1ygp")
 disabled = true
 
 [node name="SpriteSlashUD" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(386, -158)
 rotation = -1.5708
 scale = Vector2(0.18, 0.18)

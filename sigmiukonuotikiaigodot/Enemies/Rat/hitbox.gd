@@ -1,6 +1,7 @@
 extends Hitbox
 
-var Damage =10
+@export var Damage =10
+@export var Knockback =1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
