@@ -165,7 +165,7 @@ sources/1 = SubResource("TileSetAtlasSource_fc48a")
 sources/3 = SubResource("TileSetAtlasSource_jq6rf")
 sources/4 = SubResource("TileSetAtlasSource_w1dwn")
 
-[node name="Playground" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 position = Vector2(-242, 6)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
