@@ -1,20 +1,26 @@
 extends CharacterBody2D
 
+signal health_changed(new_health,new_min_health,new_max_health)
+var enemy_DamageCooldown =true
+
 var speed = 100#150  # Speed at which the enemy moves
+
 var player_chase = false  # Whether the enemy is chasing the player
 var player = null  # Reference to the player node
 var is_alive = true  # If the enemy is alive
+
 const GRAVITY = 2055
 const JUMP_VELOCITY = -200.0
 var knockback
-signal health_changed(new_health,new_min_health,new_max_health)
+
+
 var max_health=80
 var min_health=0
 var health =80
 var max_mana=50
 var min_mana=0
 var mana =50
-var enemy_attackcooldown =true
+
 func _ready():
 	emit_signal("health_changed",health,min_health,max_health)
 	if has_node("JumpTimer"):
@@ -113,7 +119,7 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 #			print("Something entered the enemy hitbox:", hitbox)
 #			print(hitbox.name)
 #			print(hitbox.get_path())
-		if(enemy_attackcooldown==true):
+		if(enemy_DamageCooldown==true):
 			#get hitbox str
 			health=health-hitbox.get("Damage")
 			
@@ -121,14 +127,14 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 			emit_signal("health_changed",health,min_health,max_health)
 			if health <= min_health:
 				die()
-			#enemy_attackcooldown=false
-			#$AttackCooldown.start()
+			enemy_DamageCooldown=false
+			$DamageCooldown.start()
 	pass # Replace with function body.
 
 
 func _on_attack_cooldown_timeout() -> void:
-	print("ticktock")
-	enemy_attackcooldown = true
+#	print("ticktock")
+	enemy_DamageCooldown = true
 
 func knockbackTakeHeadKnockback():
 	velocity.y = -100*5  # simulate bounce up
@@ -164,17 +170,21 @@ func knockbackAttackPlayer(Force:int):
 
 #for future
 func _on_hitbox_area_entered(hitbox: Hitbox) -> void:
-#	if(enemy_attackcooldown==true):
+#	if(enemy_DamageCooldown==true):
 #		knockbackAttackPlayer()
 #		health=health-hitbox.get("Damage")
 #		emit_signal("health_changed",health,min_health,max_health)
 #	if health <= min_health:
 #		die()
-#	enemy_attackcooldown=false
-#	$AttackCooldown.start()
+#	enemy_DamageCooldown=false
+#	$DamageCooldown.start()
 	pass
 
 
 func _on_jump_timer_timeout():
 	if player and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+
+
+func _on_damage_cooldown_timeout() -> void:
+	pass # Replace with function body.

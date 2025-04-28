@@ -116,8 +116,15 @@ position = Vector2(7.15256e-07, 2.75)
 scale = Vector2(2.85355, 1.05604)
 shape = SubResource("RectangleShape2D_v4s0v")
 
+[node name="DamageCooldown" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [node name="AttackCooldown" type="Timer" parent="."]
-wait_time = 5.0
+autostart = true
 
 [connection signal="health_changed" from="." to="HealthBar" method="_on_blood_bat_health_changed"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

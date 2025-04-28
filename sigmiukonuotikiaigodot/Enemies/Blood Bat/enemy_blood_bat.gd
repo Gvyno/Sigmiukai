@@ -6,7 +6,8 @@ extends CharacterBody2D
 
 var current_health: int
 var target: Node2D = null
-var attack_cooldown := true
+#var damage_cooldown := true
+#var attack_cooldown := true
 var is_alive := true
 
 #var speed = 150  # Speed at which the enemy moves
@@ -22,7 +23,7 @@ var health =max_health
 var max_mana=50
 var min_mana=0
 var mana =50
-var enemy_attackcooldown =true
+var enemy_DamageCooldown =true
 # Health-related signals
 #signal health_changed(new_health)
 
@@ -42,8 +43,8 @@ func _ready():
 #		$HurtBox.body_entered.connect(_on_hurtbox_body_entered)
 		
 	# Connect attack cooldown timer
-	if has_node("AttackCooldown"):
-		$AttackCooldown.timeout.connect(_on_attack_cooldown_timeout)
+	if has_node("DamageCooldown"):
+		$DamageCooldown.timeout.connect(_on_damage_cooldown_timeout)
 
 	# Emit the initial health signal
 	emit_signal("health_changed",health,min_health,max_health)
@@ -76,14 +77,15 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 #		print("Something entered the enemy hitbox:", hitbox)
 #		print(hitbox.name)
 #		print(hitbox.get_path())
-		if(enemy_attackcooldown==true):
+		if(enemy_DamageCooldown==true):
 			health=health-hitbox.get("Damage")
 			emit_signal("health_changed",health,min_health,max_health)
 			knockbackTakeDamage()
 			if health <= min_health:
 				die()
-			enemy_attackcooldown==false
-			$AttackCooldown.start()
+			enemy_DamageCooldown=false
+			print("zdare")
+			$DamageCooldown.start()
 	pass # Replace with function body.
 
 # Handling the enemy's death
@@ -94,10 +96,7 @@ func die():
 	await get_tree().create_timer(0.5).timeout
 	queue_free()
 
-# Cooldown reset when timer completes
-func _on_attack_cooldown_timeout():
-	attack_cooldown = true
-	
+
 func knockbackTakeDamage():
 	velocity.y = -150 # simulate bounce up
 	velocity.x = -500  
@@ -121,3 +120,18 @@ func knockbackAttackPlayer():
 #	print_debug(position)
 #	print_debug("    ")
 	print("ISTEPAWAYFROMPLEYER HEHE!")
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	
+	pass # Replace with function body.
+
+
+func _on_damage_cooldown_timeout() -> void:
+#	print("lol")
+	enemy_DamageCooldown =true
+# Cooldown reset when timer completes
+func _on_attack_cooldown_timeout():
+#	attack_cooldown =true
+	pass
+	

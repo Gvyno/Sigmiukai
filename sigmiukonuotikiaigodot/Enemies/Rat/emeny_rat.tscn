@@ -203,10 +203,12 @@ scale = Vector2(2.85355, 1.05604)
 shape = SubResource("RectangleShape2D_5cbw1")
 
 [node name="AttackCooldown" type="Timer" parent="."]
-wait_time = 5.0
 autostart = true
 
 [node name="JumpTimer" type="Timer" parent="."]
+
+[node name="DamageCooldown" type="Timer" parent="."]
+autostart = true
 
 [connection signal="health_changed" from="." to="HealthBar" method="_on_rat_enemy_health_changed"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
@@ -216,3 +218,4 @@ autostart = true
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]

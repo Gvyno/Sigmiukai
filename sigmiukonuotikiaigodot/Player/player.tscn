@@ -891,6 +891,9 @@ position = Vector2(1, 13)
 scale = Vector2(1, -1.36)
 shape = SubResource("SeparationRayShape2D_b1ygp")
 
+[node name="ImmunityTime" type="Timer" parent="."]
+autostart = true
+
 [connection signal="health_changed" from="." to="." method="_on_health_changed"]
 [connection signal="health_changed" from="." to="HealthBar" method="_on_character_body_2d_2_health_changed"]
 [connection signal="health_changed" from="." to="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer/HealthBar" method="_on_character_body_2d_2_health_changed"]
@@ -905,5 +908,6 @@ shape = SubResource("SeparationRayShape2D_b1ygp")
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="body_entered" from="head_area" to="." method="_on_head_area_body_entered"]
+[connection signal="timeout" from="ImmunityTime" to="." method="_on_immunity_time_timeout"]
 
 [editable path="Ui"]
