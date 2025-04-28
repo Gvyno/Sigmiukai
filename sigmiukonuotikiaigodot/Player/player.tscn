@@ -892,7 +892,7 @@ scale = Vector2(1, -1.36)
 shape = SubResource("SeparationRayShape2D_b1ygp")
 
 [node name="ImmunityTime" type="Timer" parent="."]
-autostart = true
+one_shot = true
 
 [connection signal="health_changed" from="." to="." method="_on_health_changed"]
 [connection signal="health_changed" from="." to="HealthBar" method="_on_character_body_2d_2_health_changed"]

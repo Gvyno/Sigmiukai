@@ -6,12 +6,14 @@ extends CharacterBody2D
 signal health_changed(new_health,new_min_health,new_max_health)
 signal mana_changed(new_mana,new_min_mana,new_max_mana)
 var is_alive = true
+var is_nottakingdamage = false
 var max_health=1000
 var min_health=0
 var health =1000
 var max_mana=50
 var min_mana=0
 var mana =50
+
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
@@ -89,15 +91,17 @@ func _physics_process(delta: float) -> void:
 #	if is_on_wall() or is_on_floor():
 #		var collision = get_last_slide_collision()
 #		velocity = velocity.bounce(collision.get_normal()) * 0.8  # Adjust bounce strength
-	emit_signal("health_changed", health, min_health,max_health)
 	emit_signal("mana_changed", mana,min_mana,max_mana)
 	if is_hurt:
+#		$ImmunityTime.start()
 		hurt_timer -= delta
 		if hurt_timer <= 0:
 			is_hurt = false
 		else:
 			move_and_slide()
-			return
+		return
+	else:
+		emit_signal("health_changed", health, min_health,max_health)
 	if !is_alive:
 		hurt_timer -= delta
 		if hurt_timer <= 0:
@@ -487,13 +491,16 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 #	knockback()
 #	print("a skaud ?")
 	if is_alive:
-		is_hurt = true
-		hurt_timer = 0.3
-		$SpriteHurt.visible = true
-		hide_other_sprites("Hurt")
-		animation.play("Hurt")
-		health=health-hitbox.get("Damage")
-		emit_signal("health_changed",health,min_health,max_health)
+		if !is_nottakingdamage:
+			is_nottakingdamage=true
+			$ImmunityTime.start()
+			is_hurt = true
+			hurt_timer = 0.3
+			$SpriteHurt.visible = true
+			hide_other_sprites("Hurt")
+			animation.play("Hurt")
+			health=health-hitbox.get("Damage")
+			emit_signal("health_changed",health,min_health,max_health)
 		knockbackDamage()
 		if health <= min_health:
 			die()
@@ -504,14 +511,17 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	if is_alive:
 		knockbackSpike()
-		is_hurt = true
-		hurt_timer = 0.3
-		$SpriteHurt.visible = true
-		hide_other_sprites("Hurt")
-		animation.play("Hurt")
-		health=health-20
-#		health=health-hitbox.get("Damage")
-		emit_signal("health_changed",health,min_health,max_health)
+		if !is_nottakingdamage:
+			is_nottakingdamage=true
+			$ImmunityTime.start()
+			is_hurt = true
+			hurt_timer = 0.3
+			$SpriteHurt.visible = true
+			hide_other_sprites("Hurt")
+			animation.play("Hurt")
+			health=health-20
+	#		health=health-hitbox.get("Damage")
+			emit_signal("health_changed",health,min_health,max_health)
 		if health <= min_health:
 			die()
 		pass # Replace with function body.
@@ -567,3 +577,9 @@ func _on_respawn_pressed() -> void:
 
 func _on_quit_game_pressed() -> void:
 	get_tree().change_scene_to_file("res://Starting Page/Starting_Page.tscn")
+
+
+func _on_immunity_time_timeout() -> void:
+	print("RAAAAAAAAAG")
+	is_nottakingdamage = false
+	pass # Replace with function body.
