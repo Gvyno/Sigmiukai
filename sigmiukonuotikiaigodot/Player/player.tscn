@@ -832,25 +832,7 @@ offset_bottom = 196.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="HBoxContainer4" parent="Ui" index="0"]
-offset_left = -158.0
-offset_top = -2.0
-offset_right = 142.0
-offset_bottom = 29.0
-
-[node name="Inventory" parent="Ui/HBoxContainer4/HBoxContainer3" index="0"]
-size_flags_horizontal = 8
-text = "Inventory"
-
-[node name="Respawn" parent="Ui/HBoxContainer4" index="1"]
-size_flags_horizontal = 8
-text = "Respawn"
-
-[node name="Button" parent="Ui/HBoxContainer4" index="2"]
-size_flags_horizontal = 8
-text = "Quit"
-
-[node name="VBoxContainer" parent="Ui" index="1"]
+[node name="VBoxContainer" parent="Ui" index="0"]
 offset_left = -427.0
 offset_top = -2.0
 offset_right = -302.0
@@ -860,6 +842,29 @@ scale = Vector2(0.637993, 0.637993)
 [node name="ManaLabel" parent="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer2/ManaBar" index="1"]
 offset_left = 49.5
 offset_right = 176.5
+
+[node name="Pause Menu Button" parent="Ui" index="1"]
+offset_left = 120.0
+offset_top = -2.0
+offset_right = 184.0
+offset_bottom = 62.0
+scale = Vector2(0.4, 0.4)
+
+[node name="PausePanel" parent="Ui" index="2"]
+visible = false
+offset_left = -317.5
+offset_top = -96.0
+offset_right = -165.5
+offset_bottom = 67.0
+
+[node name="VBoxContainer" parent="Ui/PausePanel" index="0"]
+offset_left = -64.5
+offset_top = -72.5
+offset_right = 64.5
+offset_bottom = 72.5
+
+[node name="Respawn" parent="Ui/PausePanel/VBoxContainer" index="1"]
+size_flags_vertical = 0
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0
@@ -894,8 +899,9 @@ shape = SubResource("SeparationRayShape2D_b1ygp")
 [connection signal="area_entered" from="SpriteSlash/Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="SpriteSlash/Hitbox" to="." method="_on_hitbox_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Ui/HBoxContainer4/Respawn" to="." method="_on_respawn_pressed"]
-[connection signal="pressed" from="Ui/HBoxContainer4/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Ui/PausePanel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Ui/PausePanel/VBoxContainer/Respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="Ui/PausePanel/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="body_entered" from="head_area" to="." method="_on_head_area_body_entered"]

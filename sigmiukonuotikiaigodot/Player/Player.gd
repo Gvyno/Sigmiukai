@@ -554,16 +554,16 @@ func _on_head_area_body_entered(body: Node2D) -> void:
 				pass
 
 
-func _on_respawn_pressed() -> void:
-	die()
-	pass # Replace with function body.
-
-
-func _on_button_pressed() -> void:
-	get_tree().quit()
-	pass # Replace with function body.
-
-
 func _on_cast_projectile_timer_timeout() -> void:
 	$CastProjectileTimer.start()
 	pass # Replace with function body.
+	
+func _on_resume_pressed() -> void:
+	get_node("/root/Node2D/Sigmiukas/Ui/PausePanel").hide()
+
+func _on_respawn_pressed() -> void:
+	get_node("/root/Node2D/Sigmiukas/Ui/PausePanel").hide()
+	die()
+
+func _on_quit_game_pressed() -> void:
+	get_tree().change_scene_to_file("res://Starting Page/Starting_Page.tscn")
