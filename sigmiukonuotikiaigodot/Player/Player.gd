@@ -46,6 +46,12 @@ var double_jump_timer = 0.0
 #var knockback_dir=Vector2()
 #var knockback_wait=10
 
+var friction = 0.1 
+var ice_friction = 0.005  
+var current_friction = 0.1  
+var target_velocity = Vector2.ZERO  
+var is_sliding_on_slippery = false
+
 
 func _ready():
 	load_player_data()
@@ -88,9 +94,6 @@ func _on_timer_timeout():
 		#print("mana="+str(mana))
 
 func _physics_process(delta: float) -> void:
-#	if is_on_wall() or is_on_floor():
-#		var collision = get_last_slide_collision()
-#		velocity = velocity.bounce(collision.get_normal()) * 0.8  # Adjust bounce strength
 	emit_signal("mana_changed", mana,min_mana,max_mana)
 	if is_hurt:
 #		$ImmunityTime.start()
@@ -277,26 +280,31 @@ func _physics_process(delta: float) -> void:
 	# Get input direction
 	var direction := Input.get_axis("ui_left", "ui_right")
 
-	# Allow movement in air
+	# Allow movement in air and handle sliding on ground
 	if direction:
+		target_velocity.x = direction * SPEED
 		
 		if is_on_floor():
 			$SpriteWalk.visible = true
 			hide_other_sprites("Walk")
 			animation.play("Walk")
-			velocity.x = direction * SPEED
-		else:
-			velocity.x = direction * SPEED
-
+		
 		flip_sprites(direction < 0)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		target_velocity.x = 0
 		
-		if is_on_floor():
+		if is_on_floor() and abs(velocity.x) < 10:
 			$SpriteIdle.visible = true
 			hide_other_sprites("Idle")
 			animation.play("Idle")
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	# Apply sliding physics
+	if is_on_floor():
+		# Interpolate between current velocity and target velocity based on friction
+		velocity.x = lerp(velocity.x, target_velocity.x, current_friction)
+	else:
+		# When in air, movement is more direct
+		velocity.x = direction * SPEED
 
 	if not is_on_floor() and not $SpriteDoubleJump.visible:
 		$SpriteJump.visible = true
@@ -583,3 +591,14 @@ func _on_immunity_time_timeout() -> void:
 	print("RAAAAAAAAAG")
 	is_nottakingdamage = false
 	pass # Replace with function body.
+
+
+func _on_slippery_box_body_entered(body: Node2D) -> void:
+		is_sliding_on_slippery = true
+		current_friction = ice_friction
+		print("Now on slippery surface")
+
+func _on_slippery_box_body_exited(body: Node2D) -> void:
+		is_sliding_on_slippery = false
+		current_friction = friction
+		print("Left slippery surface")

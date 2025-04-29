@@ -50,3 +50,14 @@ func _on_boss_darkforest_mana_changed(new_mana: Variant, new_min_mana: Variant, 
 	if mana_label != null:
 		mana_label.text=(str(new_mana,"/",new_max_mana))
 	pass # Replace with function body.
+
+
+func _on_frozen_turtle_boss_mana_changed(new_mana: Variant, new_min_mana: Variant, new_max_mana: Variant) -> void:
+	self.value=new_mana
+	self.max_mana=new_max_mana
+	self.min_mana=new_min_mana
+	self.min_value=new_min_mana
+	self.max_value=new_max_mana
+	if mana_label != null:
+		mana_label.text=(str(new_mana,"/",new_max_mana))
+	pass # Replace with function body.

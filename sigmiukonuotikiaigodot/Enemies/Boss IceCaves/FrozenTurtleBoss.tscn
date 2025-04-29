@@ -1,0 +1,315 @@
+[gd_scene load_steps=23 format=3 uid="uid://dmswxvd6ed7s4"]
+
+[ext_resource type="Texture2D" uid="uid://c0lgwbdwqml8c" path="res://Enemies/Boss IceCaves/Frozen Turtle Bash.png" id="1_amunc"]
+[ext_resource type="Script" uid="uid://cjr1lw33y6qw8" path="res://Enemies/Boss IceCaves/frozen_turtle_boss.gd" id="1_vvg2q"]
+[ext_resource type="Texture2D" uid="uid://bvwch8skg3wv0" path="res://Enemies/Boss IceCaves/Frozen Turtle Idle.png" id="2_rdpel"]
+[ext_resource type="Texture2D" uid="uid://cwxyw8btxrjy6" path="res://Enemies/Boss IceCaves/Frozen Turtle Rotating.png" id="3_ueoh3"]
+[ext_resource type="Texture2D" uid="uid://bhk3v8bw6kacu" path="res://Enemies/Boss IceCaves/Frozen Turtle Walk.png" id="4_40b57"]
+[ext_resource type="PackedScene" uid="uid://ddoxp44fjesk0" path="res://Bars/Health_bar.tscn" id="6_fa2pg"]
+[ext_resource type="PackedScene" uid="uid://dh5638o8nsc3t" path="res://Bars/Mana_bar.tscn" id="7_c7k87"]
+[ext_resource type="Script" uid="uid://m2rhk5o07s62" path="res://Enemies/Rat/hitbox.gd" id="8_8r77m"]
+
+[sub_resource type="Animation" id="Animation_805c8"]
+resource_name = "Bash"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FTWBash:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_niull"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FTWIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_sw5gi"]
+resource_name = "RESET"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FTWBash:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FTWIdle:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FTWRotate:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FTWWalk:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2kgum"]
+resource_name = "Rotate"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FTWRotate:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_qx8ef"]
+resource_name = "Walk"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FTWWalk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhmid"]
+_data = {
+&"Bash": SubResource("Animation_805c8"),
+&"Idle": SubResource("Animation_niull"),
+&"RESET": SubResource("Animation_sw5gi"),
+&"Rotate": SubResource("Animation_2kgum"),
+&"Walk": SubResource("Animation_qx8ef")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vvg2q"]
+radius = 285.546
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y26jl"]
+size = Vector2(50.5, 22.1984)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m2v7y"]
+radius = 5.25661
+height = 54.6308
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fa2pg"]
+radius = 9.43396
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c7k87"]
+radius = 22.7998
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vvg2q"]
+radius = 18.0328
+height = 36.0656
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8r77m"]
+radius = 67.373
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_805c8"]
+radius = 14.0357
+
+[node name="FrozenTurtleBoss" type="CharacterBody2D"]
+script = ExtResource("1_vvg2q")
+
+[node name="FTWBash" type="Sprite2D" parent="."]
+texture = ExtResource("1_amunc")
+hframes = 4
+
+[node name="FTWIdle" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_rdpel")
+hframes = 4
+
+[node name="FTWRotate" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_ueoh3")
+hframes = 8
+
+[node name="FTWWalk" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_40b57")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uhmid")
+}
+
+[node name="HealthBar" parent="." instance=ExtResource("6_fa2pg")]
+offset_left = -23.0
+offset_top = -14.0
+offset_right = 100.0
+offset_bottom = 18.0
+
+[node name="ManaBar" parent="." instance=ExtResource("7_c7k87")]
+visible = false
+offset_left = -23.0
+offset_top = -9.0
+offset_right = 115.0
+offset_bottom = 18.0
+scale = Vector2(0.344409, 0.155872)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(0.861921, 0.906004)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_vvg2q")
+
+[node name="HurtBox" type="Area2D" parent="."]
+disable_mode = 2
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(1, 10.484)
+scale = Vector2(1.11592, 1.30496)
+shape = SubResource("RectangleShape2D_y26jl")
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(-3, -11)
+scale = Vector2(1.8677, 0.540691)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("8_8r77m")
+Damage = 20
+Knockback = 0
+metadata/_custom_type_script = "uid://pjr6b0dw2pam"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(2, 38.4615)
+scale = Vector2(2.85355, 1.05604)
+shape = SubResource("CapsuleShape2D_m2v7y")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+autostart = true
+
+[node name="DamageCooldown" type="Timer" parent="."]
+
+[node name="HurtBoxShell" type="Area2D" parent="."]
+visible = false
+disable_mode = 2
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxShell"]
+position = Vector2(5, 9)
+scale = Vector2(2.12, 1.32)
+shape = SubResource("CircleShape2D_fa2pg")
+
+[node name="DetectionAreaBash" type="Area2D" parent="."]
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(0.861921, 0.906004)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaBash"]
+position = Vector2(-10.4418, 9.93373)
+scale = Vector2(2.17522, 0.355373)
+shape = SubResource("CircleShape2D_c7k87")
+
+[node name="HitBoxBash" type="Area2D" parent="."]
+position = Vector2(-14, -9)
+scale = Vector2(1, 0.52)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("8_8r77m")
+Damage = 50
+metadata/_custom_type_script = "uid://pjr6b0dw2pam"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxBash"]
+position = Vector2(5, 34.6154)
+scale = Vector2(-2.44, 1)
+shape = SubResource("CapsuleShape2D_vvg2q")
+
+[node name="DetectionAreaNoRoll" type="Area2D" parent="."]
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(0.861921, 0.906004)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaNoRoll"]
+position = Vector2(-1.1602, 13.245)
+scale = Vector2(2.25302, 1)
+shape = SubResource("CircleShape2D_8r77m")
+
+[node name="Rolling" type="Timer" parent="."]
+wait_time = 3.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 10)
+shape = SubResource("CircleShape2D_805c8")
+
+[connection signal="health_changed" from="." to="HealthBar" method="_on_frozen_turtle_boss_health_changed"]
+[connection signal="mana_changed" from="." to="ManaBar" method="_on_frozen_turtle_boss_mana_changed"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="area_entered" from="HurtBoxShell" to="." method="_on_hurt_box_shell_area_entered"]
+[connection signal="body_entered" from="DetectionAreaBash" to="." method="_on_detection_area_bash_body_entered"]
+[connection signal="body_exited" from="DetectionAreaBash" to="." method="_on_detection_area_bash_body_exited"]
+[connection signal="area_entered" from="HitBoxBash" to="." method="_on_hit_box_bash_area_entered"]
+[connection signal="body_entered" from="DetectionAreaNoRoll" to="." method="_on_detection_area_no_roll_body_entered"]
+[connection signal="body_exited" from="DetectionAreaNoRoll" to="." method="_on_detection_area_no_roll_body_exited"]
+[connection signal="timeout" from="Rolling" to="." method="_on_rolling_timeout"]

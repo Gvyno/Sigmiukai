@@ -111,8 +111,8 @@ func _on_attack_cooldown_timeout() -> void:
 	else:
 		mana=mana+6
 	emit_signal("mana_changed", mana,min_mana,max_mana)
-	print("hp="+str(health))
-	print("mana="+str(mana))
+#	print("hp="+str(health))
+#	print("mana="+str(mana))
 	pass # Replace with function body.
 
 

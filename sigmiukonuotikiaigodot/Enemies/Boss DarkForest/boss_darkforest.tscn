@@ -47,24 +47,6 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_7pem4"]
-resource_name = "Walk"
-length = 0.4
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DFBWalk:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
 [sub_resource type="Animation" id="Animation_3nxh5"]
 resource_name = "RESET"
 length = 0.01
@@ -103,6 +85,24 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7pem4"]
+resource_name = "Walk"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DFBWalk:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_id4n2"]
@@ -196,7 +196,6 @@ shape = SubResource("CapsuleShape2D_6qt3d")
 autostart = true
 
 [node name="DamageCooldown" type="Timer" parent="."]
-autostart = true
 
 [connection signal="health_changed" from="." to="HealthBar" method="_on_boss_darkforest_health_changed"]
 [connection signal="mana_changed" from="." to="ManaBar" method="_on_boss_darkforest_mana_changed"]

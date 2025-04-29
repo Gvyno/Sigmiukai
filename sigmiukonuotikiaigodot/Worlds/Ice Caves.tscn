@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://bxcgfcg6bpl84"]
+[gd_scene load_steps=9 format=4 uid="uid://bxcgfcg6bpl84"]
 
 [ext_resource type="Texture2D" uid="uid://mlngwrm4nyrf" path="res://Tile Sets/Ice Caves/Ice Caves Tile Set.png" id="1_gsn1b"]
 [ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="2_ol6od"]
 [ext_resource type="PackedScene" uid="uid://df3186n7hcpy4" path="res://Enemies/Ice Mimic/Ice Mimic.tscn" id="3_tvb42"]
 [ext_resource type="PackedScene" uid="uid://ccx0vtxdg5xhq" path="res://Enemies/Frozen Skull/Frozen Skull.tscn" id="4_2s4qw"]
 [ext_resource type="PackedScene" uid="uid://dia2ilr53nuvh" path="res://Enemies/Ice Wisp/Ice Wisp.tscn" id="5_pkfkj"]
+[ext_resource type="PackedScene" uid="uid://dmswxvd6ed7s4" path="res://Enemies/Boss IceCaves/FrozenTurtleBoss.tscn" id="6_2s4qw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fq11b"]
 texture = ExtResource("1_gsn1b")
@@ -29,7 +30,8 @@ texture_region_size = Vector2i(32, 32)
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -12.7452, 16, -12.7452, 16, 16, -16, 16)
+3:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, 16, -16, -16, 16, -16, 16, 16)
 4:1/0 = 0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 7:1/0 = 0
@@ -85,6 +87,9 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_tvb42"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+physics_layer_1/collision_layer = 16
+physics_layer_1/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_fq11b")
 
 [node name="Node2D" type="Node2D"]
@@ -94,7 +99,7 @@ tile_map_data = PackedByteArray("AAAOAA4AAAABAAIAAAAPAA4AAAABAAIAAAAQAA4AAAACAAI
 tile_set = SubResource("TileSet_tvb42")
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("2_ol6od")]
-position = Vector2(407, 423)
+position = Vector2(5394, 1237)
 
 [node name="Ice Mimic" parent="." instance=ExtResource("3_tvb42")]
 position = Vector2(1950, 1062)
@@ -134,3 +139,6 @@ position = Vector2(3792, 793)
 
 [node name="Ice Wisp5" parent="." instance=ExtResource("5_pkfkj")]
 position = Vector2(3468, 1331)
+
+[node name="FrozenTurtleBoss" parent="." instance=ExtResource("6_2s4qw")]
+position = Vector2(8007, 1351)
