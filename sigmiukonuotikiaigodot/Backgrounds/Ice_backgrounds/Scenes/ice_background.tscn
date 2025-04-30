@@ -52,25 +52,27 @@ texture = ExtResource("4_7rrcm")
 [node name="ice_cave_group" type="ParallaxBackground" parent="." groups=["ice"]]
 
 [node name="4" type="ParallaxLayer" parent="ice_cave_group"]
-position = Vector2(43, 361)
+position = Vector2(43, 1129)
 motion_mirroring = Vector2(1536, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ice_cave_group/4"]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.8, 1.2)
 texture = ExtResource("5_scl87")
 
 [node name="5" type="ParallaxLayer" parent="ice_cave_group"]
-position = Vector2(43, 361)
+position = Vector2(43, 1129)
+motion_scale = Vector2(0.8, 1)
 motion_mirroring = Vector2(1536, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ice_cave_group/5"]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.8, 1.2)
 texture = ExtResource("6_xm4vl")
 
 [node name="3" type="ParallaxLayer" parent="ice_cave_group"]
-position = Vector2(43, 361)
+position = Vector2(43, 1129)
+motion_scale = Vector2(0.7, 1)
 motion_mirroring = Vector2(1536, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ice_cave_group/3"]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.8, 1.2)
 texture = ExtResource("7_80uam")

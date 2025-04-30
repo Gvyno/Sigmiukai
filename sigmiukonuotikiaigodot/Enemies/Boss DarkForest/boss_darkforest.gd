@@ -18,7 +18,7 @@ var target_chase = false
 #var player = null
 signal health_changed(new_health, new_min_health, new_max_health)
 signal mana_changed(new_mana, new_min_mana, new_max_mana)
-
+var forest_boss_dead = false  # for entering to the new level
 
 var min_health = 0
 var health = max_health
@@ -107,7 +107,10 @@ func die():
 	velocity = Vector2.ZERO
 	$AnimationPlayer.play("Idle")
 	await get_tree().create_timer(0.5).timeout
+	BossesState.forest_boss_dead = true;
 	queue_free()
+
+
 
 func _on_attack_cooldown_timeout() -> void:
 	if ((mana+1)>=max_mana):

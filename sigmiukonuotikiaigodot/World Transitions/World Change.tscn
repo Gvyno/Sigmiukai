@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bgqm2v6fyt4od" path="res://World Transitions/worldChange.gd" id="1_yoas8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pkyu8"]
-size = Vector2(153, 118)
+size = Vector2(298, 281)
 
 [node name="World Change" type="Area2D"]
 script = ExtResource("1_yoas8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(66.5, -49)
+position = Vector2(-6, -130.5)
 shape = SubResource("RectangleShape2D_pkyu8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -11,15 +11,16 @@ config_version=5
 [application]
 
 config/name="SigmiukoNuotikiaiGodot"
-run/main_scene="uid://d0irwc6bw3gyf"
+run/main_scene="uid://b5ic2ksi62htr"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
 
 DialogueManager="*res://Dialogue/DialogueManager.gd"
-PlayerState="*res://World Transitions/PlayerState.gd"
-TransitionScene="*res://Backgrounds/Fades/transition_scene.tscn"
+TransitionScene="*res://World Transitions/transition_scene.tscn"
 BackgroundFade="*res://Backgrounds/Fades/background_fade.tscn"
+BossesState="*res://World Transitions/BossesState.gd"
+PlayerState="*res://World Transitions/PlayerState.gd"
 
 [file_customization]
 

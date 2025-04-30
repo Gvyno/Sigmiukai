@@ -128,6 +128,7 @@ func die():
 	velocity = Vector2.ZERO
 	$AnimationPlayer.play("Idle")
 	await get_tree().create_timer(0.5).timeout
+	BossesState.ice_caves_boss_dead=true
 	queue_free()
 
 func _on_attack_cooldown_timeout() -> void:

@@ -12,13 +12,14 @@
 scroll_offset = Vector2(7531, 1250)
 
 [node name="outside_group" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="1" type="ParallaxLayer" parent="outside_group"]
 position = Vector2(43, 361)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="outside_group/1"]
-scale = Vector2(1, 2)
+scale = Vector2(1, 2.3)
 texture = ExtResource("1_c8brq")
 
 [node name="2" type="ParallaxLayer" parent="outside_group"]
@@ -47,7 +48,6 @@ motion_mirroring = Vector2(1920, 0)
 texture = ExtResource("4_q6cih")
 
 [node name="cave_group" type="ParallaxBackground" parent="."]
-visible = false
 
 [node name="1" type="ParallaxLayer" parent="cave_group"]
 position = Vector2(43, 643)

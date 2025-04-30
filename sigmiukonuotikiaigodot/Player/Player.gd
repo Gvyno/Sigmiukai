@@ -467,6 +467,21 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 func _on_hitbox_area_exited(area: Area2D) -> void:
 	pass # Replace with function body.
 	
+func apply_knockback(direction: String, power: float):
+	# Apply knockback in the specified direction
+	if direction == "left":
+		velocity.x = -power  # Knockback to the left (negative value)
+	elif direction == "right":
+		velocity.x = power   # Knockback to the right (positive value)
+
+	velocity.x = -1000  # Optional vertical knockback to simulate the impact
+
+	# Print debug information for testing
+	print("Knockback Applied!")
+	print("Velocity: ", velocity)
+	print("Position: ", position)
+	move_and_slide()  # Move the player with the knockback force applied
+	
 	
 func knockbackSpike():
 	velocity.y = -150 # simulate bounce up
