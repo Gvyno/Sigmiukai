@@ -196,6 +196,7 @@ shape = SubResource("CapsuleShape2D_6qt3d")
 autostart = true
 
 [node name="DamageCooldown" type="Timer" parent="."]
+wait_time = 2.4
 
 [connection signal="health_changed" from="." to="HealthBar" method="_on_boss_darkforest_health_changed"]
 [connection signal="mana_changed" from="." to="ManaBar" method="_on_boss_darkforest_mana_changed"]

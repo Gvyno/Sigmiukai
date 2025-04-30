@@ -25,7 +25,7 @@ var health = max_health
 var max_mana = 50
 var min_mana = 0
 var mana = 50
-
+var justsummoned =true
 func _ready():
 	current_health = max_health
 	mana=max_mana
@@ -87,15 +87,19 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 			attack_cooldown == false
 #			$AttackCooldown.start()
 			if(mana>4):
-				mana=mana-5
-				var projectile = Bat_scene.instantiate()
-				get_parent().add_child(projectile)
+				if(justsummoned==true):
+					justsummoned=false
+					mana=mana-5
+					var projectile = Bat_scene.instantiate()
+					get_parent().add_child(projectile)
 
-				# Get facing direction (not mouse position)
-				var facing_right = not $DFBIdle.flip_h
-				var direction_vector = Vector2.RIGHT if facing_right else Vector2.LEFT
-				var direction_vector_up=Vector2.UP
-				projectile.global_position = global_position + (direction_vector_up * 150)
+					# Get facing direction (not mouse position)
+					var facing_right = not $DFBIdle.flip_h
+					var direction_vector = Vector2.RIGHT if facing_right else Vector2.LEFT
+					var direction_vector_up=Vector2.UP
+					projectile.global_position = global_position + (direction_vector_up * 150)
+				else:
+					justsummoned=true
 			
 
 func die():
