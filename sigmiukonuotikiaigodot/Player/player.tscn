@@ -915,6 +915,16 @@ shape = SubResource("RectangleShape2D_b1ygp")
 [node name="SpikeKnockback" type="Timer" parent="."]
 one_shot = true
 
+[node name="Jumpyblocks" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("18_b1ygp")
+metadata/_custom_type_script = "uid://dd7t7gd5cbl81"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jumpyblocks"]
+position = Vector2(0.5, 14)
+shape = SubResource("RectangleShape2D_b1ygp")
+
 [connection signal="health_changed" from="." to="." method="_on_health_changed"]
 [connection signal="health_changed" from="." to="HealthBar" method="_on_character_body_2d_2_health_changed"]
 [connection signal="health_changed" from="." to="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer/HealthBar" method="_on_character_body_2d_2_health_changed"]
@@ -934,5 +944,7 @@ one_shot = true
 [connection signal="body_entered" from="SlipperyBox" to="." method="_on_slippery_box_body_entered"]
 [connection signal="body_exited" from="SlipperyBox" to="." method="_on_slippery_box_body_exited"]
 [connection signal="timeout" from="SpikeKnockback" to="." method="_on_spike_knockback_timeout"]
+[connection signal="body_entered" from="Jumpyblocks" to="." method="_on_jumpyblocks_body_entered"]
+[connection signal="body_exited" from="Jumpyblocks" to="." method="_on_jumpyblocks_body_exited"]
 
 [editable path="Ui"]

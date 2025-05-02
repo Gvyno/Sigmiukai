@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
 @onready var animation = $AnimationPlayer
-@export var knockbackPower: int = 25
+#@export var knockbackPower: int = 25
+var jumpstrength = 4
+
 
 signal health_changed(new_health,new_min_health,new_max_health)
 signal mana_changed(new_mana,new_min_mana,new_max_mana)
@@ -54,6 +56,8 @@ var is_sliding_on_slippery = false
 var slippytime=false
 
 var imonspike=true
+
+
 func _ready():
 	load_player_data()
 
@@ -643,4 +647,13 @@ func _on_spike_knockback_timeout() -> void:
 
 func _on_hurt_box_body_exited(body: Node2D) -> void:
 	imonspike=false
+	pass # Replace with function body.
+
+
+func _on_jumpyblocks_body_entered(body: Node2D) -> void:
+	velocity.y = -150*jumpstrength # time the spike jump
+	pass # Replace with function body.
+
+
+func _on_jumpyblocks_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
