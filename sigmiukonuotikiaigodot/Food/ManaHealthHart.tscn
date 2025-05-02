@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5u1kd2lfq014"]
+
+[ext_resource type="Script" uid="uid://m51m04t0h3b" path="res://Food/mana_health_hart.gd" id="1_apblj"]
+[ext_resource type="Texture2D" uid="uid://clas22ah8p6vr" path="res://Food/Placeholdermanahealth.png" id="2_apblj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w1he6"]
+radius = 37.054
+
+[node name="ManaHealthHart" type="Area2D"]
+script = ExtResource("1_apblj")
+
+[node name="food_img" type="Sprite2D" parent="."]
+texture = ExtResource("2_apblj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w1he6")

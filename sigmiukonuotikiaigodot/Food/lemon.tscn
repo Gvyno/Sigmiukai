@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2lwlpwessutr"]
 
-[ext_resource type="Script" uid="uid://mt1ifk3dh7fo" path="res://food/lemon.gd" id="1_0f6ds"]
+[ext_resource type="Script" uid="uid://mt1ifk3dh7fo" path="res://Food/lemon.gd" id="1_0f6ds"]
 [ext_resource type="Texture2D" uid="uid://dxvj0m8nftspq" path="res://Concept Art/TheHolyLemon(NoBackground).png" id="2_vvuai"]
 [ext_resource type="PackedScene" uid="uid://dyrb68h77nrve" path="res://Interaction Logic/interactable.tscn" id="3_uhyse"]
 

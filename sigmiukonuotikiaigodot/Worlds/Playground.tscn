@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://d0irwc6bw3gyf"]
+[gd_scene load_steps=24 format=4 uid="uid://d0irwc6bw3gyf"]
 
 [ext_resource type="Texture2D" uid="uid://dqbqdu2vwcxd" path="res://Tile Sets/Playground/Platform TS.png" id="1_y15p8"]
 [ext_resource type="Texture2D" uid="uid://brmnwva7oqbeq" path="res://Tile Sets/Sigmiukas Residence/Tile Set 1.png" id="2_guqxm"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://df3186n7hcpy4" path="res://Enemies/Ice Mimic/Ice Mimic.tscn" id="14_w1dwn"]
 [ext_resource type="PackedScene" uid="uid://bl5p5mo3b5owo" path="res://Enemies/Boss DarkForest/Boss_darkforest.tscn" id="15_w22sm"]
 [ext_resource type="PackedScene" uid="uid://dmswxvd6ed7s4" path="res://Enemies/Boss IceCaves/FrozenTurtleBoss.tscn" id="16_ecwe7"]
+[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://Food/HeartItem.tscn" id="17_dbb7e"]
+[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://Food/Manaitem.tscn" id="18_aogcw"]
+[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://Food/ManaHealthHart.tscn" id="19_cvvy8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fc48a"]
 texture = ExtResource("1_y15p8")
@@ -261,3 +264,15 @@ position = Vector2(337, 864)
 
 [node name="FrozenTurtleBoss" parent="." instance=ExtResource("16_ecwe7")]
 position = Vector2(1392, 843)
+
+[node name="HeartItem" parent="." instance=ExtResource("17_dbb7e")]
+position = Vector2(47, 877)
+scale = Vector2(0.634995, 0.634995)
+
+[node name="Manaitem" parent="." instance=ExtResource("18_aogcw")]
+position = Vector2(108, 876)
+scale = Vector2(0.594414, 0.594414)
+
+[node name="ManaHealthHart" parent="." instance=ExtResource("19_cvvy8")]
+position = Vector2(159, 876)
+scale = Vector2(0.624019, 0.624019)

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpm20gg6jf7tg"]
+
+[ext_resource type="Script" uid="uid://vjnd5g5h6g3j" path="res://Food/heart_item.gd" id="1_krk1r"]
+[ext_resource type="Texture2D" uid="uid://s8mldm42mng5" path="res://Food/Placeholderhart.png" id="2_krk1r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xa7fn"]
+radius = 36.2215
+
+[node name="HeartItem" type="Area2D"]
+script = ExtResource("1_krk1r")
+
+[node name="food_img" type="Sprite2D" parent="."]
+texture = ExtResource("2_krk1r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xa7fn")
