@@ -899,7 +899,6 @@ scale = Vector2(1, -1.36)
 shape = SubResource("SeparationRayShape2D_b1ygp")
 
 [node name="ImmunityTime" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 
 [node name="SlipperyBox" type="Area2D" parent="."]
@@ -913,7 +912,6 @@ position = Vector2(0.5, 14)
 shape = SubResource("RectangleShape2D_b1ygp")
 
 [node name="SpikeKnockback" type="Timer" parent="."]
-one_shot = true
 
 [connection signal="health_changed" from="." to="." method="_on_health_changed"]
 [connection signal="health_changed" from="." to="HealthBar" method="_on_character_body_2d_2_health_changed"]
@@ -928,7 +926,6 @@ one_shot = true
 [connection signal="pressed" from="Ui/PausePanel/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
-[connection signal="body_exited" from="HurtBox" to="." method="_on_hurt_box_body_exited"]
 [connection signal="body_entered" from="head_area" to="." method="_on_head_area_body_entered"]
 [connection signal="timeout" from="ImmunityTime" to="." method="_on_immunity_time_timeout"]
 [connection signal="body_entered" from="SlipperyBox" to="." method="_on_slippery_box_body_entered"]

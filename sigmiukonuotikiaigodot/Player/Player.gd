@@ -51,8 +51,9 @@ var ice_friction = 0.005
 var current_friction = 0.1  
 var target_velocity = Vector2.ZERO  
 var is_sliding_on_slippery = false
+var slippytime=false
 
-
+var imonspike=true
 func _ready():
 	load_player_data()
 
@@ -95,6 +96,7 @@ func _on_timer_timeout():
 
 func _physics_process(delta: float) -> void:
 	emit_signal("mana_changed", mana,min_mana,max_mana)
+	emit_signal("health_changed",health,min_health,max_health)
 	if is_hurt:
 #		$ImmunityTime.start()
 		hurt_timer -= delta
@@ -301,7 +303,10 @@ func _physics_process(delta: float) -> void:
 	# Apply sliding physics
 	if is_on_floor():
 		# Interpolate between current velocity and target velocity based on friction
-		velocity.x = lerp(velocity.x, target_velocity.x, current_friction)
+		if (slippytime==true):
+			velocity.x = lerp(velocity.x, target_velocity.x, current_friction)
+		else:
+			velocity.x = direction * SPEED
 	else:
 		# When in air, movement is more direct
 		velocity.x = direction * SPEED
@@ -484,15 +489,34 @@ func apply_knockback(direction: String, power: float):
 	
 	
 func knockbackSpike():
-	velocity.y = -150 # simulate bounce up
-#	velocity.x = -500  
-#	var knockbackDirection= (-velocity)
-#	velocity = knockbackDirection
-	print_debug(velocity)
-	print_debug(position)
-	move_and_slide()
-	print_debug(position)
-	print_debug("    ")
+	if is_alive:
+		if !is_nottakingdamage:
+			is_nottakingdamage=true
+			$ImmunityTime.start()
+			is_hurt = true
+			hurt_timer = 0.3
+			$SpriteHurt.visible = true
+			hide_other_sprites("Hurt")
+			animation.play("Hurt")
+			health=health-20
+			velocity.y = -150 # simulate bounce up
+		#	velocity.x = -500  
+		#	var knockbackDirection= (-velocity)
+		#	velocity = knockbackDirection
+		#	print_debug(velocity)
+		#	print_debug(position)
+			move_and_slide()
+	#		health=health-hitbox.get("Damage")
+		if health-20 <= min_health:
+			die()
+		$SpikeKnockback.start()
+		imonspike=true
+		pass # Replace with function body.
+	pass # Replace with function body.
+	
+#	print_debug(position)
+#	print_debug("    ")
+	
 
 func knockbackDamage():
 	velocity.y = -50 # simulate bounce up
@@ -502,6 +526,7 @@ func knockbackDamage():
 #	print_debug(velocity)
 #	print_debug(position)
 	move_and_slide()
+	
 #	print_debug(position)
 #	print_debug("    ")
 	print("DamageKnockback!")
@@ -509,10 +534,10 @@ func knockbackDamage():
 #func _on_hurt_box_itake_damage(damage: int) -> void:
 #	pass # Replace with function body.
 
-
+#need test in battle
 func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 #	knockback()
-#	print("a skaud ?")
+	print("a skaud ?")
 	if is_alive:
 		if !is_nottakingdamage:
 			is_nottakingdamage=true
@@ -524,6 +549,7 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 			animation.play("Hurt")
 			health=health-hitbox.get("Damage")
 			emit_signal("health_changed",health,min_health,max_health)
+		print("blet")
 		knockbackDamage()
 		if health <= min_health:
 			die()
@@ -532,23 +558,10 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
-	if is_alive:
-		knockbackSpike()
-		if !is_nottakingdamage:
-			is_nottakingdamage=true
-			$ImmunityTime.start()
-			is_hurt = true
-			hurt_timer = 0.3
-			$SpriteHurt.visible = true
-			hide_other_sprites("Hurt")
-			animation.play("Hurt")
-			health=health-20
-	#		health=health-hitbox.get("Damage")
+	
+			knockbackSpike()
 			emit_signal("health_changed",health,min_health,max_health)
-		if health <= min_health:
-			die()
-		pass # Replace with function body.
-	pass # Replace with function body.
+		
 
 func die():
 	hide_effect_sprites()
@@ -609,11 +622,25 @@ func _on_immunity_time_timeout() -> void:
 
 
 func _on_slippery_box_body_entered(body: Node2D) -> void:
+		slippytime=true
 		is_sliding_on_slippery = true
 		current_friction = ice_friction
 		print("Now on slippery surface")
 
 func _on_slippery_box_body_exited(body: Node2D) -> void:
+		slippytime=true
 		is_sliding_on_slippery = false
 		current_friction = friction
 		print("Left slippery surface")
+
+
+func _on_spike_knockback_timeout() -> void:
+	if(imonspike==true):
+		knockbackSpike()
+		print("imhere")
+	pass # Replace with function body.
+
+
+func _on_hurt_box_body_exited(body: Node2D) -> void:
+	imonspike=false
+	pass # Replace with function body.

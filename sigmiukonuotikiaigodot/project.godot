@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SigmiukoNuotikiaiGodot"
-run/main_scene="uid://b5ic2ksi62htr"
+run/main_scene="uid://dsflv0gye3udl"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
