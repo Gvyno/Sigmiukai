@@ -84,7 +84,7 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 			knockbackTakeDamage()
 			if health <= min_health:
 				die()
-			enemy_DamageCooldown=false
+			enemy_DamageCooldown==false
 			print("zdare")
 			$DamageCooldown.start()
 	pass # Replace with function body.

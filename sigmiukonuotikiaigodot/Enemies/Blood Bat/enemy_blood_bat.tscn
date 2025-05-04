@@ -117,7 +117,6 @@ scale = Vector2(2.85355, 1.05604)
 shape = SubResource("RectangleShape2D_v4s0v")
 
 [node name="DamageCooldown" type="Timer" parent="."]
-wait_time = 4096.0
 autostart = true
 
 [node name="AttackCooldown" type="Timer" parent="."]

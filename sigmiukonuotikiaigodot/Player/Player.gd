@@ -9,9 +9,9 @@ signal health_changed(new_health,new_min_health,new_max_health)
 signal mana_changed(new_mana,new_min_mana,new_max_mana)
 var is_alive = true
 var is_nottakingdamage = false
-var max_health=1000
+var max_health=200
 var min_health=0
-var health =1000
+var health =200
 var max_mana=50
 var min_mana=0
 var mana =50
@@ -183,7 +183,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			if attack_timer <= 0.6 and slash_timer > 0:
 				slash_timer = 0
+				$Slash2.start()
 				trigger_slash()
+				$SpriteSlash.flip_v=false
+				$SpriteSlashUD.flip_v=false
+
 			velocity.x = Input.get_axis("ui_left", "ui_right") * SPEED
 			if Input.is_action_just_pressed("ui_accept"):
 				if is_on_floor():
@@ -383,7 +387,7 @@ func fire_projectile():
 	
 	projectile.global_position = global_position + (direction_vector * 30)
 	projectile.direction = direction_vector
-	projectile.damage = damage*2.5*10000
+	projectile.damage = damage*2.5
 
 func flip_toward_facing():
 	flip_sprites($SpriteIdle.flip_h)  # Just use current facing direction
@@ -678,4 +682,10 @@ func _on_update_damage() -> void:
 func _on_mana_health_hart_update_mana() -> void:
 	$SpriteSlash/Hitbox.Damage=damage;
 	$SpriteSlashUD/Hitbox.Damage=damage;
+	pass # Replace with function body.
+
+
+func _on_slash_2_timeout() -> void:
+	$SpriteSlash.flip_v=true
+	$SpriteSlashUD.flip_v=true
 	pass # Replace with function body.

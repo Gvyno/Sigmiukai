@@ -926,6 +926,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_sg6sq")
 }
 
+[node name="Slash2" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="health_changed" from="." to="." method="_on_health_changed"]
 [connection signal="health_changed" from="." to="HealthBar" method="_on_character_body_2d_2_health_changed"]
 [connection signal="health_changed" from="." to="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer/HealthBar" method="_on_character_body_2d_2_health_changed"]
@@ -948,5 +952,6 @@ libraries = {
 [connection signal="body_entered" from="Jumpyblocks" to="." method="_on_jumpyblocks_body_entered"]
 [connection signal="body_exited" from="Jumpyblocks" to="." method="_on_jumpyblocks_body_exited"]
 [connection signal="timeout" from="ImOnEnemy" to="." method="_on_im_on_enemy_timeout"]
+[connection signal="timeout" from="Slash2" to="." method="_on_slash_2_timeout"]
 
 [editable path="Ui"]

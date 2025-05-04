@@ -1,7 +1,7 @@
 extends CharacterBody2D
 signal health_changed(new_health,new_min_health,new_max_health)
 var is_alive = true
-var max_health=1000
+var max_health=20
 var min_health=0
 var health =max_health
 var max_mana=50

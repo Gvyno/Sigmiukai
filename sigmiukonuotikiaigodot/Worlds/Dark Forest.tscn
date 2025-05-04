@@ -228,7 +228,7 @@ tile_map_data = PackedByteArray("AADA/y0AAQABAAAAAADB/y0AAQABAAAAAADC/y0AAQABAAA
 tile_set = SubResource("TileSet_b7d7x")
 
 [node name="Sigmiukas" parent="." instance=ExtResource("2_ebum2")]
-position = Vector2(3087, 907)
+position = Vector2(-3435, 1302)
 
 [node name="BredItem" parent="." instance=ExtResource("4_xr5go")]
 position = Vector2(-3632, 1395)

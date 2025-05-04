@@ -10,7 +10,7 @@ var player = null  # Reference to the player node
 var is_alive = true  # If the enemy is alive
 
 const GRAVITY = 2055
-const JUMP_VELOCITY = -200.0
+const JUMP_VELOCITY = -250.0
 var knockback
 
 
@@ -127,7 +127,7 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 			emit_signal("health_changed",health,min_health,max_health)
 			if health <= min_health:
 				die()
-			enemy_DamageCooldown=false
+			enemy_DamageCooldown==false
 			$DamageCooldown.start()
 	pass # Replace with function body.
 

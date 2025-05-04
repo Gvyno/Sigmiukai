@@ -87,7 +87,7 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 			emit_signal("health_changed", health, min_health, max_health)
 			if health <= min_health:
 				die()
-			enemy_attackcooldown = false
+			enemy_attackcooldown == false
 			$AttackCooldown.start()
 
 func die():
