@@ -54,10 +54,10 @@ tracks/1/path = NodePath("SpriteSlash/Hitbox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0943939, 0.2, 0.5, 0.549201),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.00147766, 0.0514777, 0.101478, 0.231478, 0.280679, 0.301478, 0.351478, 0.401478, 0.53, 0.579201),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, true, false, true, true]
+"values": [true, true, false, true, true, true, true, false, true, true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -66,10 +66,10 @@ tracks/2/path = NodePath("SpriteSlash/Hitbox:monitoring")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0943939, 0.199821, 0.4, 0.550427),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.00147766, 0.0614777, 0.101478, 0.131478, 0.281905, 0.301478, 0.361478, 0.401478, 0.43, 0.580427),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, true, false, true, true]
+"values": [true, true, false, true, true, true, true, false, true, true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -78,10 +78,10 @@ tracks/3/path = NodePath("SpriteSlash/Hitbox:monitorable")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0943939, 0.199821, 0.4, 0.550427),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.00147766, 0.0614777, 0.101478, 0.131478, 0.281905, 0.301478, 0.361478, 0.4, 0.43, 0.580427),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, true, false, true, true]
+"values": [true, true, false, true, true, true, true, false, true, true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -90,10 +90,10 @@ tracks/4/path = NodePath("SpriteSlashUD/Hitbox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.0942804, 0.200648, 0.499605, 0.549566),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.00147766, 0.0514777, 0.101478, 0.231083, 0.281044, 0.301478, 0.351478, 0.4, 0.529605, 0.579566),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, true, false, true, true]
+"values": [true, true, false, true, true, true, true, false, true, true]
 }
 
 [sub_resource type="Animation" id="Animation_itxgx"]
@@ -120,10 +120,10 @@ tracks/1/path = NodePath("SpriteSlash/Hitbox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0992573, 0.196606, 0.503922, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.23, 0.279201, 0.3, 0.35, 0.4, 0.528522, 0.577723),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, true, false, true, true]
+"values": [true, true, false, true, true, true, true, false, true, true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -132,10 +132,10 @@ tracks/2/path = NodePath("SpriteSlash/Hitbox:monitoring")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0992573, 0.196606, 0.398938, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.06, 0.1, 0.13, 0.280427, 0.3, 0.36, 0.4, 0.428522, 0.578949),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, true, false, true, true]
+"values": [true, true, false, true, true, true, true, false, true, true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -144,10 +144,10 @@ tracks/3/path = NodePath("SpriteSlash/Hitbox:monitorable")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0992573, 0.196606, 0.398938, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.06, 0.1, 0.13, 0.280427, 0.3, 0.36, 0.398522, 0.428522, 0.578949),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, true, false, true, true]
+"values": [true, true, false, true, true, true, true, false, true, true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -156,10 +156,10 @@ tracks/4/path = NodePath("SpriteSlashUD/Hitbox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.0999211, 0.201454, 0.50444, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.229605, 0.279566, 0.3, 0.35, 0.398522, 0.528127, 0.578088),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, true, false, true, true]
+"values": [true, true, false, true, true, true, true, false, true, true]
 }
 
 [sub_resource type="Animation" id="Animation_r3kul"]
@@ -545,7 +545,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_cgsek"]
 resource_name = "Slash"
-length = 0.3
+length = 0.6
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -555,10 +555,10 @@ tracks/0/path = NodePath("SpriteSlash:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0, 1, 2, 0, 1, 2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -567,10 +567,10 @@ tracks/1/path = NodePath("SpriteSlash/Hitbox:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.221357),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.221357, 0.3, 0.5, 0.521357),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false, false]
+"values": [true, false, false, true, false, false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -579,10 +579,10 @@ tracks/2/path = NodePath("SpriteSlash/Hitbox:monitorable")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.221357),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.221357, 0.3, 0.5, 0.521357),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false, false]
+"values": [true, false, false, true, false, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -591,15 +591,15 @@ tracks/3/path = NodePath("SpriteSlash/Hitbox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.221357, 0.225),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.221357, 0.225, 0.3, 0.521357, 0.525),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, true, true]
+"values": [false, true, true, false, true, true]
 }
 
 [sub_resource type="Animation" id="Animation_lfmf2"]
 resource_name = "SlashUD"
-length = 0.3
+length = 0.6
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -609,10 +609,10 @@ tracks/0/path = NodePath("SpriteSlashUD:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0, 1, 2, 0, 1, 2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -621,10 +621,10 @@ tracks/1/path = NodePath("SpriteSlash/Hitbox:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.252534, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.221357, 0.3, 0.5, 0.521357),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false, false]
+"values": [true, false, false, true, false, false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -633,10 +633,10 @@ tracks/2/path = NodePath("SpriteSlash/Hitbox:monitorable")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.252534, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.221357, 0.3, 0.5, 0.521357),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false, false]
+"values": [true, false, false, true, false, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -645,10 +645,10 @@ tracks/3/path = NodePath("SpriteSlash/Hitbox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.250083, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.221357, 0.225, 0.3, 0.521357, 0.525),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, true, true]
+"values": [false, true, true, false, true, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sg6sq"]
@@ -718,7 +718,6 @@ texture = ExtResource("7_r3kul")
 hframes = 6
 
 [node name="SpriteSlash" type="Sprite2D" parent="."]
-visible = false
 light_mask = 5
 visibility_layer = 5
 position = Vector2(393, -157)
@@ -727,14 +726,12 @@ texture = ExtResource("8_jatw7")
 hframes = 3
 
 [node name="Hitbox" type="Area2D" parent="SpriteSlash"]
-visible = false
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("9_b1ygp")
 metadata/_custom_type_script = "uid://pjr6b0dw2pam"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteSlash/Hitbox"]
-visible = false
 visibility_layer = 1023
 position = Vector2(6.00815e-05, 5.55558)
 rotation = -0.0153984
@@ -743,7 +740,6 @@ shape = SubResource("CapsuleShape2D_b1ygp")
 disabled = true
 
 [node name="SpriteSlashUD" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(386, -158)
 rotation = -1.5708
 scale = Vector2(0.18, 0.18)
@@ -751,14 +747,12 @@ texture = ExtResource("8_jatw7")
 hframes = 3
 
 [node name="Hitbox" type="Area2D" parent="SpriteSlashUD"]
-visible = false
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("9_b1ygp")
 metadata/_custom_type_script = "uid://pjr6b0dw2pam"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpriteSlashUD/Hitbox"]
-visible = false
 visibility_layer = 1023
 position = Vector2(-5.55555, -2.0111e-05)
 scale = Vector2(10.1628, -9.70896)

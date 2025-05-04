@@ -181,7 +181,7 @@ func _physics_process(delta: float) -> void:
 			$SpriteSlash.visible = false  
 			
 		else:
-			if attack_timer <= 0.3 and slash_timer > 0:
+			if attack_timer <= 0.6 and slash_timer > 0:
 				slash_timer = 0
 				trigger_slash()
 			velocity.x = Input.get_axis("ui_left", "ui_right") * SPEED
@@ -246,7 +246,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_left_mouse"):
 		is_attacking = true
 		attack_timer = 0.6
-		slash_timer = 0.3  
+		slash_timer = 0.6  
 
 		# Determine attack direction using mouse position
 		var mouse_pos = get_global_mouse_position()
