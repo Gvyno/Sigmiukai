@@ -143,7 +143,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vvg2q"]
-radius = 285.546
+radius = 401.925
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y26jl"]
 size = Vector2(50.5, 22.1984)
@@ -163,7 +163,7 @@ radius = 18.0328
 height = 36.0656
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8r77m"]
-radius = 67.373
+radius = 42.2838
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_805c8"]
 radius = 14.0357
@@ -202,7 +202,6 @@ offset_right = 100.0
 offset_bottom = 18.0
 
 [node name="ManaBar" parent="." instance=ExtResource("7_c7k87")]
-visible = false
 offset_left = -23.0
 offset_top = -9.0
 offset_right = 115.0
@@ -217,6 +216,7 @@ scale = Vector2(0.861921, 0.906004)
 shape = SubResource("CircleShape2D_vvg2q")
 
 [node name="HurtBox" type="Area2D" parent="."]
+position = Vector2(0, -1)
 disable_mode = 2
 collision_layer = 0
 collision_mask = 4
@@ -228,7 +228,7 @@ scale = Vector2(1.11592, 1.30496)
 shape = SubResource("RectangleShape2D_y26jl")
 
 [node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(-3, -11)
+position = Vector2(-2, -11)
 scale = Vector2(1.8677, 0.540691)
 collision_layer = 8
 collision_mask = 0
@@ -248,7 +248,7 @@ autostart = true
 [node name="DamageCooldown" type="Timer" parent="."]
 
 [node name="HurtBoxShell" type="Area2D" parent="."]
-visible = false
+position = Vector2(-2, 0)
 disable_mode = 2
 collision_layer = 0
 collision_mask = 0
@@ -261,7 +261,7 @@ scale = Vector2(2.12, 1.32)
 shape = SubResource("CircleShape2D_fa2pg")
 
 [node name="DetectionAreaBash" type="Area2D" parent="."]
-position = Vector2(0, 9.53674e-07)
+position = Vector2(10, -2)
 scale = Vector2(0.861921, 0.906004)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaBash"]
@@ -270,7 +270,7 @@ scale = Vector2(2.17522, 0.355373)
 shape = SubResource("CircleShape2D_c7k87")
 
 [node name="HitBoxBash" type="Area2D" parent="."]
-position = Vector2(-14, -9)
+position = Vector2(-4, -11)
 scale = Vector2(1, 0.52)
 collision_layer = 8
 collision_mask = 0
@@ -285,7 +285,7 @@ shape = SubResource("CapsuleShape2D_vvg2q")
 
 [node name="DetectionAreaNoRoll" type="Area2D" parent="."]
 position = Vector2(0, 9.53674e-07)
-scale = Vector2(0.861921, 0.906004)
+scale = Vector2(0.861921, 0.426005)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaNoRoll"]
 position = Vector2(-1.1602, 13.245)
@@ -293,11 +293,13 @@ scale = Vector2(2.25302, 1)
 shape = SubResource("CircleShape2D_8r77m")
 
 [node name="Rolling" type="Timer" parent="."]
-wait_time = 3.5
+wait_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 10)
+position = Vector2(1, 13)
 shape = SubResource("CircleShape2D_805c8")
+
+[node name="JumpTimer" type="Timer" parent="."]
 
 [connection signal="health_changed" from="." to="HealthBar" method="_on_frozen_turtle_boss_health_changed"]
 [connection signal="mana_changed" from="." to="ManaBar" method="_on_frozen_turtle_boss_mana_changed"]
@@ -313,3 +315,4 @@ shape = SubResource("CircleShape2D_805c8")
 [connection signal="body_entered" from="DetectionAreaNoRoll" to="." method="_on_detection_area_no_roll_body_entered"]
 [connection signal="body_exited" from="DetectionAreaNoRoll" to="." method="_on_detection_area_no_roll_body_exited"]
 [connection signal="timeout" from="Rolling" to="." method="_on_rolling_timeout"]
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 var GRAVITY = 2055
 #const speed = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -500.0
 var current_health: int
 var target: Node2D = null
 var attack_cooldown := true
@@ -40,12 +40,14 @@ func _ready():
 	
 	$FTWIdle.visible = true
 	$AnimationPlayer.play("Idle")
-
+	
 	$DetectionArea.body_entered.connect(_on_detection_area_body_entered)
 	$DetectionArea.body_exited.connect(_on_detection_area_body_exited)
 
 	if has_node("AttackCooldown"):
 		$AttackCooldown.timeout.connect(_on_attack_cooldown_timeout)
+	if has_node("JumpTimer"):
+		$JumpTimer.timeout.connect(_on_jump_timer_timeout)
 
 	emit_signal("health_changed", health, min_health, max_health)
 	emit_signal("mana_changed", mana,min_mana, max_mana)
@@ -55,8 +57,9 @@ func _physics_process(delta):
 	emit_signal("health_changed", health, min_health, max_health)
 	emit_signal("mana_changed", mana,min_mana, max_mana)
 	if ROLLIN:
+#		velocity.y += GRAVITY * delta
 		speed=rollspeed
-		GRAVITY=0
+#		GRAVITY=0
 		$Hitbox.set_collision_layer_value(4,true)
 		$HitBoxBash.set_collision_layer_value(4,false)
 		$FTWBash.set_visible(false)
@@ -94,14 +97,25 @@ func _physics_process(delta):
 	velocity.y += GRAVITY * delta
 	move_and_slide()
 	# Move horizontally only when in the air and player is detected
-	if target:
+	if target and not is_on_floor():
 		var direction = (target.global_position - global_position).normalized()
-		velocity.x = direction.x * speed
-		velocity.y = direction.y * speed
+		velocity.x = direction.x * rollspeed * 3
 		$FTWIdle.flip_h = target.global_position.x > global_position.x
 		$FTWRotate.flip_h = target.global_position.x > global_position.x
 		$FTWBash.flip_h = target.global_position.x > global_position.x
 		$FTWWalk.flip_h = target.global_position.x > global_position.x
+#		print("test ???")
+		if(target.global_position.x > global_position.x):
+			pass #todo lol+
+	elif target:
+		var direction = (target.global_position - global_position).normalized()
+		velocity.x = direction.x * speed
+		#velocity.y = direction.y * speed
+		$FTWIdle.flip_h = target.global_position.x > global_position.x
+		$FTWRotate.flip_h = target.global_position.x > global_position.x
+		$FTWBash.flip_h = target.global_position.x > global_position.x
+		$FTWWalk.flip_h = target.global_position.x > global_position.x
+#		print("nottest ???")
 		if(target.global_position.x > global_position.x):
 			pass #todo lol
 
@@ -159,6 +173,7 @@ func _on_detection_area_body_entered(body):
 		$HealthBar.set_visible(true)
 		speed=speed*2
 		$Rolling.start()
+		$JumpTimer.start()
 #		$DamageCooldown.start()
 
 
@@ -243,6 +258,7 @@ func _on_detection_area_no_roll_body_entered(body: Node2D) -> void:
 		$FTWIdle.set_visible(false)
 		$FTWWalk.set_visible(true)
 		$FTWRotate.set_visible(false)
+		$JumpTimer.stop()
 	#	$DFBAttack.set_visible(false)
 #		$AnimationPlayer.s
 #		speed=speed/2
@@ -262,6 +278,7 @@ func _on_detection_area_no_roll_body_exited(body: Node2D) -> void:
 #		$AnimationPlayer.stop
 #		speed=speed*2
 		$Rolling.start()
+		$JumpTimer.start()
 #	$DamageCooldown.stop()
 
 
@@ -270,3 +287,9 @@ func _on_rolling_timeout() -> void:
 		ROLLIN=false
 	print("lol")
 	
+
+
+func _on_jump_timer_timeout() -> void:
+	if target and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		print("pipmalas")

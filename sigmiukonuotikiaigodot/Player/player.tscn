@@ -925,6 +925,8 @@ metadata/_custom_type_script = "uid://dd7t7gd5cbl81"
 position = Vector2(0.5, 14)
 shape = SubResource("RectangleShape2D_b1ygp")
 
+[node name="ImOnEnemy" type="Timer" parent="."]
+
 [connection signal="health_changed" from="." to="." method="_on_health_changed"]
 [connection signal="health_changed" from="." to="HealthBar" method="_on_character_body_2d_2_health_changed"]
 [connection signal="health_changed" from="." to="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer/HealthBar" method="_on_character_body_2d_2_health_changed"]
@@ -946,5 +948,6 @@ shape = SubResource("RectangleShape2D_b1ygp")
 [connection signal="timeout" from="SpikeKnockback" to="." method="_on_spike_knockback_timeout"]
 [connection signal="body_entered" from="Jumpyblocks" to="." method="_on_jumpyblocks_body_entered"]
 [connection signal="body_exited" from="Jumpyblocks" to="." method="_on_jumpyblocks_body_exited"]
+[connection signal="timeout" from="ImOnEnemy" to="." method="_on_im_on_enemy_timeout"]
 
 [editable path="Ui"]

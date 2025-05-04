@@ -56,7 +56,7 @@ var is_sliding_on_slippery = false
 var slippytime=false
 
 var imonspike=true
-
+var imonenemy=false
 
 func _ready():
 	load_player_data()
@@ -522,25 +522,8 @@ func knockbackSpike():
 #	print_debug("    ")
 	
 
-func knockbackDamage():
-	velocity.y = -50 # simulate bounce up
-	velocity.x = -50  
-#	var knockbackDirection= (-velocity)
-#	velocity = knockbackDirection
-#	print_debug(velocity)
-#	print_debug(position)
-	move_and_slide()
-	
-#	print_debug(position)
-#	print_debug("    ")
-	print("DamageKnockback!")
+func knockbackDamage(hitbox: Hitbox):
 
-#func _on_hurt_box_itake_damage(damage: int) -> void:
-#	pass # Replace with function body.
-
-#need test in battle
-func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
-#	knockback()
 	print("a skaud ?")
 	if is_alive:
 		if !is_nottakingdamage:
@@ -552,13 +535,31 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 			hide_other_sprites("Hurt")
 			animation.play("Hurt")
 			health=health-hitbox.get("Damage")
+			velocity.y = -50 # simulate bounce up
+			velocity.x = -50  
+			print("Itook this amount of damage "+ str(hitbox.get("Damage")))
 			emit_signal("health_changed",health,min_health,max_health)
 		print("blet")
-		knockbackDamage()
-		if health <= min_health:
-			die()
+		move_and_slide()
+	if health <= min_health:
+		die()
 		pass # Replace with function body.
 	pass # Replace with function body.
+#	print_debug(position)
+#	print_debug("    ")
+	print("DamageKnockback!")
+
+
+#func _on_hurt_box_itake_damage(damage: int) -> void:
+#	pass # Replace with function body.
+
+#need test in battle
+func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
+#	knockback()
+
+		knockbackDamage(hitbox)
+		emit_signal("health_changed",health,min_health,max_health)
+		
 
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
@@ -656,4 +657,11 @@ func _on_jumpyblocks_body_entered(body: Node2D) -> void:
 
 
 func _on_jumpyblocks_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_im_on_enemy_timeout() -> void:
+	if(imonenemy==true):
+#		knockbackDamage()
+		print("imhere")
 	pass # Replace with function body.
