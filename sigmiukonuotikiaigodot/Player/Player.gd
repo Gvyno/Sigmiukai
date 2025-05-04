@@ -383,6 +383,7 @@ func fire_projectile():
 	
 	projectile.global_position = global_position + (direction_vector * 30)
 	projectile.direction = direction_vector
+	projectile.damage = damage*2.5*10000
 
 func flip_toward_facing():
 	flip_sprites($SpriteIdle.flip_h)  # Just use current facing direction

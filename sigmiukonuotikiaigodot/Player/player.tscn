@@ -927,6 +927,11 @@ shape = SubResource("RectangleShape2D_b1ygp")
 
 [node name="ImOnEnemy" type="Timer" parent="."]
 
+[node name="SecondaryAnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sg6sq")
+}
+
 [connection signal="health_changed" from="." to="." method="_on_health_changed"]
 [connection signal="health_changed" from="." to="HealthBar" method="_on_character_body_2d_2_health_changed"]
 [connection signal="health_changed" from="." to="Ui/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer/HealthBar" method="_on_character_body_2d_2_health_changed"]

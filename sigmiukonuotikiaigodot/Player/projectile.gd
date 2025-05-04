@@ -2,14 +2,16 @@ extends CharacterBody2D
 
 @export var speed: float = 500.0
 var direction: Vector2 = Vector2.ZERO  
-
+var damage = 10
 @onready var animation_player: AnimationPlayer = $AnimationPlayer  
 @onready var sprite: Sprite2D = $Sprite2D  
 
 func _ready() -> void:
 	animation_player.play("Fired")  
 
+
 func _physics_process(delta: float) -> void:
+	$Hitbox.Damage=damage
 	velocity = direction * speed  
 
 	# Flip sprite based on direction

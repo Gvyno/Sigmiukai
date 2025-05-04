@@ -172,6 +172,7 @@ radius = 14.0357
 script = ExtResource("1_vvg2q")
 
 [node name="FTWBash" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_amunc")
 hframes = 4
 
@@ -243,6 +244,7 @@ scale = Vector2(2.85355, 1.05604)
 shape = SubResource("CapsuleShape2D_m2v7y")
 
 [node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.1
 autostart = true
 
 [node name="DamageCooldown" type="Timer" parent="."]
@@ -284,7 +286,7 @@ scale = Vector2(-2.44, 1)
 shape = SubResource("CapsuleShape2D_vvg2q")
 
 [node name="DetectionAreaNoRoll" type="Area2D" parent="."]
-position = Vector2(0, 9.53674e-07)
+position = Vector2(1, -1)
 scale = Vector2(0.861921, 0.426005)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAreaNoRoll"]
@@ -296,7 +298,7 @@ shape = SubResource("CircleShape2D_8r77m")
 wait_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 13)
+position = Vector2(1, 11)
 shape = SubResource("CircleShape2D_805c8")
 
 [node name="JumpTimer" type="Timer" parent="."]

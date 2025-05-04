@@ -66,16 +66,19 @@ func _physics_process(delta):
 		$FTWIdle.set_visible(false)
 		$FTWWalk.set_visible(false)
 		$FTWRotate.set_visible(true)
+		$AnimationPlayer.play("Rotate")
 	else:
 		speed=walkspeed
 		GRAVITY=2055
 		$FTWRotate.set_visible(false)
+		$FTWIdle.set_visible(false)
 		$Hitbox.set_collision_layer_value(4,false)
 		if CHOMPING && not ROLLIN:
 			$HitBoxBash.set_collision_layer_value(4,true)
 			$FTWBash.set_visible(true)
 		else:
 			$FTWWalk.set_visible(true)
+			$AnimationPlayer.play("Walk")
 		$Rolling.start()
 	
 	if not is_alive:
@@ -146,6 +149,7 @@ func die():
 	queue_free()
 
 func _on_attack_cooldown_timeout() -> void:
+	'''
 	if ((mana+1)>=max_mana):
 		mana=max_mana
 	else:
@@ -153,6 +157,9 @@ func _on_attack_cooldown_timeout() -> void:
 	emit_signal("mana_changed", mana,min_mana,max_mana)
 #	print("hp="+str(health))
 #	print("mana="+str(mana))
+	'''
+	$HitBoxBash/CollisionShape2D.disabled =true
+	$HitBoxBash/CollisionShape2D.disabled =false
 	attack_cooldown=true
 	pass # Replace with function body.
 
@@ -215,6 +222,8 @@ func _on_detection_area_bash_body_entered(body: Node2D) -> void:
 			$FTWWalk.set_visible(false)
 			$FTWRotate.set_visible(false)
 			$FTWBash.set_visible(true)
+			$AnimationPlayer.stop()
+			$AnimationPlayer.play("Bash")
 		#	$DFBAttack.set_visible(false)
 	#		$AnimationPlayer.s
 
@@ -226,6 +235,7 @@ func _on_detection_area_bash_body_exited(body: Node2D) -> void:
 			$FTWWalk.set_visible(true)
 			$FTWRotate.set_visible(false)
 			$FTWBash.set_visible(false)
+			$AnimationPlayer.play("Walk")
 			#get_node("Hitbox/CollisionShape2D").disabled=true
 			#get_node("HitBoxBash/CollisionShape2D").disabled=true
 
@@ -258,6 +268,8 @@ func _on_detection_area_no_roll_body_entered(body: Node2D) -> void:
 		$FTWIdle.set_visible(false)
 		$FTWWalk.set_visible(true)
 		$FTWRotate.set_visible(false)
+		$FTWBash.set_visible(false)
+		$AnimationPlayer.play("Walk")
 		$JumpTimer.stop()
 	#	$DFBAttack.set_visible(false)
 #		$AnimationPlayer.s
@@ -274,6 +286,7 @@ func _on_detection_area_no_roll_body_exited(body: Node2D) -> void:
 		$FTWIdle.set_visible(false)
 		$FTWWalk.set_visible(false)
 		$FTWRotate.set_visible(true)
+		$FTWBash.set_visible(false)
 	#	$DFBAttack.set_visible(false)
 #		$AnimationPlayer.stop
 #		speed=speed*2
