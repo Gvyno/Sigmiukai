@@ -6,6 +6,7 @@ signal update_mana()
 signal update_health()
 
 
+
 var player_in_range := false
 var consumed = false
 

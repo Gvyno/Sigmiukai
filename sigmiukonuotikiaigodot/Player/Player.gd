@@ -15,7 +15,7 @@ var health =1000
 var max_mana=50
 var min_mana=0
 var mana =50
-
+var damage= 13
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
@@ -99,6 +99,9 @@ func _on_timer_timeout():
 		#print("mana="+str(mana))
 
 func _physics_process(delta: float) -> void:
+#	print(str(damage))
+	$SpriteSlash/Hitbox.Damage=damage;
+	$SpriteSlashUD/Hitbox.Damage=damage;
 	emit_signal("mana_changed", mana,min_mana,max_mana)
 	emit_signal("health_changed",health,min_health,max_health)
 	if is_hurt:
@@ -664,4 +667,14 @@ func _on_im_on_enemy_timeout() -> void:
 	if(imonenemy==true):
 #		knockbackDamage()
 		print("imhere")
+	pass # Replace with function body.
+
+func _on_update_damage() -> void:
+	print("butu nice")
+	pass # Replace with function body.
+
+
+func _on_mana_health_hart_update_mana() -> void:
+	$SpriteSlash/Hitbox.Damage=damage;
+	$SpriteSlashUD/Hitbox.Damage=damage;
 	pass # Replace with function body.

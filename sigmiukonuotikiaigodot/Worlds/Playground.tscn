@@ -276,3 +276,4 @@ scale = Vector2(0.594414, 0.594414)
 [node name="ManaHealthHart" parent="." instance=ExtResource("19_cvvy8")]
 position = Vector2(159, 876)
 scale = Vector2(0.624019, 0.624019)
+AddDamageAmount = 10

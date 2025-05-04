@@ -4,8 +4,8 @@ extends Area2D
 #@onready var animation = $AnimationPlayer
 signal update_health()
 signal update_mana()
-
-
+signal update_damage()
+@export var AddDamageAmount=10
 var player_in_range := false
 var consumed = false
 
@@ -16,7 +16,7 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.is_in_group("player") and not consumed:
-		consumed = true
+		'''
 		if body.health + 20 >= body.max_health+20:
 			body.max_health=body.max_health+20
 			body.health = body.max_health
@@ -29,9 +29,13 @@ func _on_body_entered(body):
 		else:
 			body.max_mana=body.max_mana+20
 			body.mana += 20
+		'''
+		body.damage=body.damage+AddDamageAmount;
+		consumed = true
 		food_img.visible=false
 		collision_shape_2d.disabled=true
 		collision_shape_2d.visible=false
+	emit_signal("update_damage")
 	emit_signal("update_health")
 
 func _on_body_exited(body):
