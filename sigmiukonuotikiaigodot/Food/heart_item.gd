@@ -17,12 +17,18 @@ func _ready():
 func _on_body_entered(body):
 	if body.is_in_group("player") and not consumed:
 		consumed = true
+		#uncomment if you want to revert
+		'''
 		if body.health + 20 >= body.max_health+20:
 			body.max_health=body.max_health+20
 			body.health = body.max_health
 		else:
 			body.max_health=body.max_health+20
 			body.health += 20
+		'''#delete two lines below if you want to revert
+		body.max_health=body.max_health+20
+		body.health = body.max_health
+		
 		food_img.visible=false
 		collision_shape_2d.disabled=true
 		collision_shape_2d.visible=false

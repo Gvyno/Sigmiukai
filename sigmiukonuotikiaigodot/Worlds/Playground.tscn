@@ -266,13 +266,10 @@ position = Vector2(89, 963)
 position = Vector2(871, 857)
 
 [node name="HeartItem" parent="." instance=ExtResource("17_dbb7e")]
-position = Vector2(47, 877)
-scale = Vector2(0.634995, 0.634995)
-
-[node name="Manaitem" parent="." instance=ExtResource("18_aogcw")]
-position = Vector2(108, 876)
-scale = Vector2(0.594414, 0.594414)
+position = Vector2(47, 871)
 
 [node name="ManaHealthHart" parent="." instance=ExtResource("19_cvvy8")]
-position = Vector2(159, 876)
-scale = Vector2(0.624019, 0.624019)
+position = Vector2(233, 871)
+
+[node name="Manaitem" parent="." instance=ExtResource("18_aogcw")]
+position = Vector2(147, 876)

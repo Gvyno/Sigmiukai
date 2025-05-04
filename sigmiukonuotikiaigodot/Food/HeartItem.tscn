@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dpm20gg6jf7tg"]
 
 [ext_resource type="Script" uid="uid://vjnd5g5h6g3j" path="res://Food/heart_item.gd" id="1_krk1r"]
-[ext_resource type="Texture2D" uid="uid://s8mldm42mng5" path="res://Food/Placeholderhart.png" id="2_krk1r"]
+[ext_resource type="Texture2D" uid="uid://bh5nlsq1nqn4" path="res://Food/Max Health Increase.png" id="2_krk1r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xa7fn"]
 radius = 36.2215

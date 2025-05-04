@@ -18,12 +18,19 @@ func _ready():
 func _on_body_entered(body):
 	if body.is_in_group("player") and not consumed:
 		consumed = true
+		#uncomment if you want to revert
+		'''
 		if body.mana + 20 >= body.max_mana+20:
 			body.max_mana=body.max_mana+20
 			body.mana = body.max_mana
 		else:
 			body.max_mana=body.max_mana+20
 			body.mana += 20
+		'''
+		#delete two lines below if you want to revert
+		body.max_mana=body.max_mana+20
+		body.mana = body.max_mana
+		
 		food_img.visible=false
 		collision_shape_2d.disabled=true
 		collision_shape_2d.visible=false

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5oxp8u6l5y1b"]
 
 [ext_resource type="Script" uid="uid://il5nus78q0jg" path="res://Food/manaitem.gd" id="1_lwc34"]
-[ext_resource type="Texture2D" uid="uid://db2pc8culhl8s" path="res://Food/Placeholdermana.png" id="2_lwc34"]
+[ext_resource type="Texture2D" uid="uid://r6k02c71gu2k" path="res://Food/Max Mana Increase.png" id="2_lwc34"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4mn30"]
 radius = 36.0555

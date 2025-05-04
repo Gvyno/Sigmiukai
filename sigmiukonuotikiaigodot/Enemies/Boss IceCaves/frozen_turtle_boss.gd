@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 50
 @export var damage: int = 10
-@export var max_health: int = 250
+@export var max_health: int = 1000
 
 
 var GRAVITY = 2055
@@ -197,8 +197,8 @@ func _on_detection_area_body_exited(body):
 #		$DamageCooldown.stop()
 
 func knockbackAttackPlayer(Force:int):
-	velocity.y = -100*Force*4  # simulate bounce up
-	velocity.x = -100*Force*4
+#	velocity.y = -100*Force*4  # simulate bounce up
+	velocity.x = +   100*Force*4
 #	var knockbackDirection= (-velocity)
 #	velocity = knockbackDirection
 #	print_debug(velocity)

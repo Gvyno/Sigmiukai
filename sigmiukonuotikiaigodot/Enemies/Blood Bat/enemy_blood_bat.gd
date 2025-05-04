@@ -81,7 +81,7 @@ func _on_hurt_box_area_entered(hitbox: Hitbox) -> void:
 		if(enemy_DamageCooldown==true):
 			health=health-hitbox.get("Damage")
 			emit_signal("health_changed",health,min_health,max_health)
-			knockbackTakeDamage()
+			knockbackAttackPlayer()
 			if health <= min_health:
 				die()
 			enemy_DamageCooldown==false
@@ -111,8 +111,8 @@ func knockbackTakeDamage():
 	print("OWKNOCKEDBYPLAYER!")
 	
 func knockbackAttackPlayer():
-	velocity.y = 0 # simulate bounce up
-	velocity.x = 0  
+	velocity.y = -100*2  # simulate bounce up
+	velocity.x = -100*2 
 #	var knockbackDirection= (-velocity)
 #	velocity = knockbackDirection
 #	print_debug(velocity)
