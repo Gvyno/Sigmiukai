@@ -1,24 +1,22 @@
-[gd_scene load_steps=24 format=4 uid="uid://d0irwc6bw3gyf"]
+[gd_scene load_steps=22 format=4 uid="uid://d0irwc6bw3gyf"]
 
 [ext_resource type="Texture2D" uid="uid://dqbqdu2vwcxd" path="res://Tile Sets/Playground/Platform TS.png" id="1_y15p8"]
 [ext_resource type="Texture2D" uid="uid://brmnwva7oqbeq" path="res://Tile Sets/Sigmiukas Residence/Tile Set 1.png" id="2_guqxm"]
 [ext_resource type="Texture2D" uid="uid://dsb62d6malgeh" path="res://Tile Sets/Sigmiukas Residence/Tile Set 1.1.png" id="3_tarky"]
 [ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="4_8hufw"]
-[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://Food/BredItem.tscn" id="5_kyt7g"]
-[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://Food/ChemsItem.tscn" id="6_0qfdb"]
-[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://Food/DogFoodItem.tscn" id="7_guqxm"]
+[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="5_kyt7g"]
+[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="6_0qfdb"]
+[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="7_guqxm"]
 [ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="8_8hufw"]
-[ext_resource type="PackedScene" uid="uid://ccx0vtxdg5xhq" path="res://Enemies/Frozen Skull/Frozen Skull.tscn" id="9_8hufw"]
 [ext_resource type="PackedScene" uid="uid://b721vwgu8pcs1" path="res://Backgrounds/Ice_backgrounds/Scenes/ice_cave_to_outside_change_area.tscn" id="10_kyt7g"]
 [ext_resource type="PackedScene" uid="uid://c1wa1r6do15j2" path="res://Backgrounds/Ice_backgrounds/Scenes/ice_background.tscn" id="11_0qfdb"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="12_fc48a"]
-[ext_resource type="PackedScene" uid="uid://cm1ij7pkkp6wp" path="res://Enemies/Slimer/enemy_slimer.tscn" id="13_jq6rf"]
-[ext_resource type="PackedScene" uid="uid://df3186n7hcpy4" path="res://Enemies/Ice Mimic/Ice Mimic.tscn" id="14_w1dwn"]
-[ext_resource type="PackedScene" uid="uid://bl5p5mo3b5owo" path="res://Enemies/Boss DarkForest/Boss_darkforest.tscn" id="15_w22sm"]
+[ext_resource type="PackedScene" uid="uid://bl5p5mo3b5owo" path="res://Enemies/Boss DarkForest/boss_darkforest.tscn" id="15_w22sm"]
 [ext_resource type="PackedScene" uid="uid://dmswxvd6ed7s4" path="res://Enemies/Boss IceCaves/FrozenTurtleBoss.tscn" id="16_ecwe7"]
-[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://Food/HeartItem.tscn" id="17_dbb7e"]
-[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://Food/Manaitem.tscn" id="18_aogcw"]
-[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://Food/ManaHealthHart.tscn" id="19_cvvy8"]
+[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://food/HeartItem.tscn" id="17_dbb7e"]
+[ext_resource type="PackedScene" uid="uid://6r7ih02j0ss8" path="res://Enemies/Boss Dragon'sLair/Dragon.tscn" id="17_vcofr"]
+[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://food/Manaitem.tscn" id="18_aogcw"]
+[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://food/ManaHealthHart.tscn" id="19_cvvy8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fc48a"]
 texture = ExtResource("1_y15p8")
@@ -242,9 +240,6 @@ position = Vector2(405, 389)
 [node name="enemy_dummy2" parent="." instance=ExtResource("8_8hufw")]
 position = Vector2(584, 389)
 
-[node name="Frozen Skull" parent="." instance=ExtResource("9_8hufw")]
-position = Vector2(1342, 277)
-
 [node name="Background_change_area" parent="." instance=ExtResource("10_kyt7g")]
 position = Vector2(482, 305)
 
@@ -252,12 +247,6 @@ position = Vector2(482, 305)
 
 [node name="rat_enemy" parent="." instance=ExtResource("12_fc48a")]
 position = Vector2(-81, 723)
-
-[node name="Slimer" parent="." instance=ExtResource("13_jq6rf")]
-position = Vector2(1345, 378)
-
-[node name="Ice Mimic" parent="." instance=ExtResource("14_w1dwn")]
-position = Vector2(1345, 423)
 
 [node name="BossDarkforest" parent="." instance=ExtResource("15_w22sm")]
 position = Vector2(89, 963)
@@ -273,3 +262,6 @@ position = Vector2(233, 871)
 
 [node name="Manaitem" parent="." instance=ExtResource("18_aogcw")]
 position = Vector2(147, 876)
+
+[node name="Dragon" parent="." instance=ExtResource("17_vcofr")]
+position = Vector2(1200, 336)

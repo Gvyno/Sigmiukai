@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db2pc8culhl8s"
-path="res://.godot/imported/Placeholdermana.png-011a748212eed47de47a588b3bb610f6.ctex"
+uid="uid://bi7kni0sprtre"
+path="res://.godot/imported/Pixy Idle.png-3df5f03d1e2e623b1d451209dba347ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://food/Placeholdermana.png"
-dest_files=["res://.godot/imported/Placeholdermana.png-011a748212eed47de47a588b3bb610f6.ctex"]
+source_file="res://Enemies/Pixy/Pixy Idle.png"
+dest_files=["res://.godot/imported/Pixy Idle.png-3df5f03d1e2e623b1d451209dba347ec.ctex"]
 
 [params]
 

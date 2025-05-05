@@ -166,7 +166,7 @@ height = 36.0656
 radius = 42.2838
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_805c8"]
-radius = 14.0357
+radius = 13.0
 
 [node name="FrozenTurtleBoss" type="CharacterBody2D"]
 script = ExtResource("1_vvg2q")

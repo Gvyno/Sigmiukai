@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 @export var speed: float = 175.0
 @export var damage: int = 10
-@export var max_health: int = 30
+@export var max_health: int = 80
 
-@export var dash_speed: float = 300.0
+@export var dash_speed: float = 400.0
 @export var glide_speed: float = 75.0
-@export var dash_interval: float = 0.5
+@export var dash_interval: float = 1
 @export var dash_duration: float = 0.1
 @export var momentum_blend_speed: float = 5.0
 

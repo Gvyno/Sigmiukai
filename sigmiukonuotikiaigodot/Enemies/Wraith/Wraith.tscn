@@ -1,0 +1,121 @@
+[gd_scene load_steps=13 format=3 uid="uid://b0nfrd83ahou5"]
+
+[ext_resource type="Script" uid="uid://dh412wulaxd0s" path="res://Enemies/Wraith/wraith.gd" id="1_yofrb"]
+[ext_resource type="Texture2D" uid="uid://eavvi41kghbh" path="res://Enemies/Wraith/Wraith Idle.png" id="2_d7dk5"]
+[ext_resource type="PackedScene" uid="uid://ddoxp44fjesk0" path="res://Bars/Health_bar.tscn" id="2_yofrb"]
+[ext_resource type="PackedScene" uid="uid://dh5638o8nsc3t" path="res://Bars/Mana_bar.tscn" id="3_d7dk5"]
+[ext_resource type="Script" uid="uid://m2rhk5o07s62" path="res://Enemies/Rat/hitbox.gd" id="4_2ch2b"]
+
+[sub_resource type="Animation" id="Animation_xa8r4"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ufn3d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1xm15"]
+_data = {
+&"Idle": SubResource("Animation_xa8r4"),
+&"RESET": SubResource("Animation_ufn3d")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_076e3"]
+radius = 10.0499
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ubdmf"]
+radius = 241.033
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddxu5"]
+radius = 19.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0q8ta"]
+radius = 3.15397
+height = 30.3019
+
+[node name="Wraith" type="CharacterBody2D"]
+script = ExtResource("1_yofrb")
+
+[node name="SpriteIdle" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_d7dk5")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1xm15")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_076e3")
+disabled = true
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_ubdmf")
+
+[node name="HurtBox" type="Area2D" parent="."]
+disable_mode = 2
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_ddxu5")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_yofrb")]
+offset_left = -23.0
+offset_top = -32.0
+offset_right = 100.0
+offset_bottom = 0.0
+
+[node name="ManaBar" parent="." instance=ExtResource("3_d7dk5")]
+visible = false
+offset_left = -65.0
+offset_top = 42.0
+offset_right = 73.0
+offset_bottom = 69.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("4_2ch2b")
+metadata/_custom_type_script = "uid://pjr6b0dw2pam"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+scale = Vector2(2.85355, 1.05604)
+shape = SubResource("CapsuleShape2D_0q8ta")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.231
+
+[node name="DashTimer" type="Timer" parent="."]
+
+[connection signal="health_changed" from="." to="HealthBar" method="_on_wraith_health_changed"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

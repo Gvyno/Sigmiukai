@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db2pc8culhl8s"
-path="res://.godot/imported/Placeholdermana.png-011a748212eed47de47a588b3bb610f6.ctex"
+uid="uid://d1j3cbn8j8nij"
+path="res://.godot/imported/mnInc.png-b7b426e5cae2065162d65fe75f3cbbc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://food/Placeholdermana.png"
-dest_files=["res://.godot/imported/Placeholdermana.png-011a748212eed47de47a588b3bb610f6.ctex"]
+source_file="res://food/mnInc.png"
+dest_files=["res://.godot/imported/mnInc.png-b7b426e5cae2065162d65fe75f3cbbc6.ctex"]
 
 [params]
 

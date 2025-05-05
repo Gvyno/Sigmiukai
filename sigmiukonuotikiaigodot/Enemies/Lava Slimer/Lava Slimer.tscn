@@ -1,0 +1,135 @@
+[gd_scene load_steps=13 format=3 uid="uid://br2whc6brmsha"]
+
+[ext_resource type="Script" uid="uid://cdfvi2xl7ccay" path="res://Enemies/Lava Slimer/lava_slimer.gd" id="1_0t8wl"]
+[ext_resource type="Texture2D" uid="uid://bcwaqmkiay3ct" path="res://Enemies/Lava Slimer/Lava Slimer Idle.png" id="2_0agtq"]
+[ext_resource type="PackedScene" uid="uid://ddoxp44fjesk0" path="res://Bars/Health_bar.tscn" id="2_0t8wl"]
+[ext_resource type="PackedScene" uid="uid://dh5638o8nsc3t" path="res://Bars/Mana_bar.tscn" id="3_0agtq"]
+[ext_resource type="Script" uid="uid://m2rhk5o07s62" path="res://Enemies/Rat/hitbox.gd" id="4_ndyib"]
+
+[sub_resource type="Animation" id="Animation_d8k3u"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_uuvru"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kf8nv"]
+_data = {
+&"Idle": SubResource("Animation_d8k3u"),
+&"RESET": SubResource("Animation_uuvru")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_85f6h"]
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wfck5"]
+radius = 272.066
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i74gc"]
+radius = 25.0799
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4ypk"]
+radius = 5.60705
+height = 20.8325
+
+[node name="Lava Slimer" type="CharacterBody2D"]
+script = ExtResource("1_0t8wl")
+
+[node name="SpriteIdle" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_0agtq")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kf8nv")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_85f6h")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_wfck5")
+
+[node name="HurtBox" type="Area2D" parent="."]
+disable_mode = 2
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 17)
+shape = SubResource("CircleShape2D_i74gc")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_0t8wl")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -24.0
+offset_top = -13.0
+offset_right = 99.0
+offset_bottom = 19.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ManaBar" parent="." instance=ExtResource("3_0agtq")]
+visible = false
+offset_left = -65.0
+offset_top = 42.0
+offset_right = 73.0
+offset_bottom = 69.0
+
+[node name="Hitbox" type="Area2D" parent="."]
+visible = false
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("4_ndyib")
+metadata/_custom_type_script = "uid://pjr6b0dw2pam"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 17)
+scale = Vector2(2.85355, 1.05604)
+shape = SubResource("CapsuleShape2D_f4ypk")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 0.757
+
+[connection signal="health_changed" from="." to="HealthBar" method="_on_lava_slimer_health_changed"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

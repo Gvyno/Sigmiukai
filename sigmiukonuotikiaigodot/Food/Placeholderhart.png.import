@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://s8mldm42mng5"
-path="res://.godot/imported/Placeholderhart.png-67970ea9c10138ee8ae0652aa119562f.ctex"
+path="res://.godot/imported/Placeholderhart.png-1e9b95d627f78f0e7d5e5944edaeb274.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Food/Placeholderhart.png"
-dest_files=["res://.godot/imported/Placeholderhart.png-67970ea9c10138ee8ae0652aa119562f.ctex"]
+source_file="res://food/Placeholderhart.png"
+dest_files=["res://.godot/imported/Placeholderhart.png-1e9b95d627f78f0e7d5e5944edaeb274.ctex"]
 
 [params]
 

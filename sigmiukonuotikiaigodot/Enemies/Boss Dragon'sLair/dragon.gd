@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-@export var speed: float = 175.0
+@export var speed: float = 200.0
 @export var damage: int = 10
-@export var max_health: int = 30
+@export var max_health: int = 500
 
-@export var dash_speed: float = 300.0
-@export var glide_speed: float = 75.0
-@export var dash_interval: float = 0.5
-@export var dash_duration: float = 0.1
+@export var dash_speed: float = 500.0
+@export var glide_speed: float = 225.0
+@export var dash_interval: float = 3
+@export var dash_duration: float = 0.2
 @export var momentum_blend_speed: float = 5.0
 
 var current_health: int
@@ -60,12 +60,15 @@ func _physics_process(delta):
 		if is_dashing:
 			velocity = dash_direction * dash_speed
 		else:
-			# Blend current velocity toward glide direction smoothly
 			var target_velocity = to_target * glide_speed
 			velocity = velocity.lerp(target_velocity, delta * momentum_blend_speed)
 
 		move_and_slide()
-		$SpriteIdle.flip_h = target.global_position.x < global_position.x
+		
+		var should_flip = target.global_position.x > global_position.x
+		$SpriteIdle.flip_h = should_flip
+		$SpriteAttack.flip_h = should_flip
+
 	else:
 		velocity = velocity.lerp(Vector2.ZERO, delta * momentum_blend_speed)
 
@@ -76,9 +79,24 @@ func _on_dash_timer_timeout():
 	is_dashing = true
 	dash_direction = (target.global_position - global_position).normalized()
 	velocity = dash_direction * dash_speed
+
+	# Switch to attack sprite and play attack animation
+	$SpriteIdle.visible = false
+	$SpriteAttack.visible = true
+	$AnimationPlayer.play("Attack")
+
 	knockbackAttackPlayer()
-	await get_tree().create_timer(dash_duration).timeout
+
+	# Wait for duration of attack (0.4s) then return to idle
+	await get_tree().create_timer(0.4).timeout
+	$SpriteAttack.visible = false
+	$SpriteIdle.visible = true
+	$AnimationPlayer.play("Idle")
+
+	# End dash after dash duration
+	await get_tree().create_timer(dash_duration - 0.4).timeout
 	is_dashing = false
+
 
 func _on_detection_body_entered(body):
 	if body.is_in_group("player"):
@@ -113,8 +131,8 @@ func die():
 
 
 func knockbackTakeDamage():
-	velocity.y = -150 # simulate bounce up
-	velocity.x = -150  
+	velocity.y = -50 # simulate bounce up
+	velocity.x = -50  
 #	var knockbackDirection= (-velocity)
 #	velocity = knockbackDirection
 #	print_debug(velocity)
