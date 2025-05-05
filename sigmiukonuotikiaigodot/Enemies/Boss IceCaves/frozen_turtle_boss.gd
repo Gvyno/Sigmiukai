@@ -197,8 +197,10 @@ func _on_detection_area_body_exited(body):
 #		$DamageCooldown.stop()
 
 func knockbackAttackPlayer(Force:int):
-#	velocity.y = -100*Force*4  # simulate bounce up
-	velocity.x = +   100*Force*4
+#	velocity.y = -5  # simulate bounce up
+#	velocity.x = -100*4
+	print("test")
+
 #	var knockbackDirection= (-velocity)
 #	velocity = knockbackDirection
 #	print_debug(velocity)
