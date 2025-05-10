@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cq3g4nwev8kfw"]
+[gd_scene load_steps=23 format=4 uid="uid://cq3g4nwev8kfw"]
 
 [ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="2_ebum2"]
 [ext_resource type="Texture2D" uid="uid://jmpr3axm2vtn" path="res://Tile Sets/Dark Forest/Dark Forest TS1.png" id="2_gbln1"]
@@ -11,9 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://bbtyeqywg8mrx" path="res://Backgrounds/Dark_Forest_backgrounds/Scenes/forest_to_tree.tscn" id="11_uli8w"]
 [ext_resource type="PackedScene" uid="uid://cm1ij7pkkp6wp" path="res://Enemies/Slimer/enemy_slimer.tscn" id="13_8o00h"]
 [ext_resource type="PackedScene" uid="uid://ykcx5uycsmh" path="res://Enemies/Blood Bat/enemy_blood_bat.tscn" id="14_hkw02"]
-[ext_resource type="PackedScene" uid="uid://bl5p5mo3b5owo" path="res://Enemies/Boss DarkForest/Boss_darkforest.tscn" id="14_x8ksv"]
+[ext_resource type="PackedScene" uid="uid://bl5p5mo3b5owo" path="res://Enemies/Boss DarkForest/boss_darkforest.tscn" id="14_x8ksv"]
+[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://Food/ManaHealthHart.tscn" id="15_l8h44"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="15_x8ksv"]
+[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://Food/HeartItem.tscn" id="16_ay140"]
 [ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://Food/DogFoodItem.tscn" id="16_swywh"]
+[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://Food/Manaitem.tscn" id="17_66t1f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbln1"]
 size = Vector2(20, 457.32)
@@ -285,7 +288,7 @@ position = Vector2(-2118, 1384)
 position = Vector2(-1485, 1416)
 
 [node name="BredItem5" parent="." instance=ExtResource("4_xr5go")]
-position = Vector2(565, 1175)
+position = Vector2(566, 1153)
 
 [node name="BredItem6" parent="." instance=ExtResource("4_xr5go")]
 position = Vector2(535, 1175)
@@ -478,6 +481,15 @@ position = Vector2(6162, -1292)
 
 [node name="BossDarkforest" parent="." instance=ExtResource("14_x8ksv")]
 position = Vector2(7627, -1343)
+
+[node name="ManaHealthHart" parent="." instance=ExtResource("15_l8h44")]
+position = Vector2(5074, 338)
+
+[node name="HeartItem" parent="." instance=ExtResource("16_ay140")]
+position = Vector2(566, 1168)
+
+[node name="Manaitem" parent="." instance=ExtResource("17_66t1f")]
+position = Vector2(6817, -398)
 
 [connection signal="update_health" from="BredItem" to="Sigmiukas" method="_on_bred_item_update_health"]
 [connection signal="update_mana" from="BredItem" to="Sigmiukas" method="_on_bred_item_update_mana"]
