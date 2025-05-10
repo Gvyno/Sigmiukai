@@ -17,10 +17,10 @@ func _ready():
 func _on_body_entered(body):
 	if body.is_in_group("player") and not consumed:
 		consumed = true
-		if body.health + 10 >= body.max_health:
+		if body.health + 20 >= body.max_health:
 			body.health = body.max_health
 		else:
-			body.health += 10
+			body.health += 20
 		food_img.visible=false
 		collision_shape_2d.disabled=true
 	emit_signal("update_health")

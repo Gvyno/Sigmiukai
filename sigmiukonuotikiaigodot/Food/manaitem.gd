@@ -28,7 +28,7 @@ func _on_body_entered(body):
 			body.mana += 20
 		'''
 		#delete two lines below if you want to revert
-		body.max_mana=body.max_mana+20
+		body.max_mana=body.max_mana+25
 		body.mana = body.max_mana
 		
 		food_img.visible=false

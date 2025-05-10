@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b5u1kd2lfq014"]
 
-[ext_resource type="Script" uid="uid://m51m04t0h3b" path="res://food/mana_health_hart.gd" id="1_apblj"]
-[ext_resource type="Texture2D" uid="uid://cb0ah1faagt46" path="res://food/dmgInc.png" id="2_62t7r"]
+[ext_resource type="Script" uid="uid://m51m04t0h3b" path="res://Food/mana_health_hart.gd" id="1_apblj"]
+[ext_resource type="Texture2D" uid="uid://cb0ah1faagt46" path="res://Food/dmgInc.png" id="2_62t7r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w1he6"]
 radius = 37.054

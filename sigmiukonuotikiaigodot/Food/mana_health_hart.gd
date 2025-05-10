@@ -5,7 +5,7 @@ extends Area2D
 signal update_health()
 signal update_mana()
 signal update_damage()
-@export var AddDamageAmount=10
+@export var AddDamageAmount=5
 var player_in_range := false
 var consumed = false
 

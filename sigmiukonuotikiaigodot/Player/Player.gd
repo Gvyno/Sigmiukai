@@ -15,7 +15,7 @@ var health =200
 var max_mana=50
 var min_mana=0
 var mana =50
-var damage= 13
+var damage= 10
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
@@ -90,10 +90,10 @@ func load_player_data():
 
 #regen timer
 func _on_timer_timeout():
-		if ((mana+10)>=max_mana):
+		if ((mana+5)>=max_mana):
 			mana=max_mana
 		else:
-			mana=mana+10
+			mana=mana+5
 		emit_signal("mana_changed", mana,min_mana,max_mana)
 		#print("hp="+str(health))
 		#print("mana="+str(mana))
