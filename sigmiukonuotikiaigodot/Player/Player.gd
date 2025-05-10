@@ -219,11 +219,8 @@ func _physics_process(delta: float) -> void:
 	# Handle casting input
 	# Handle casting input (right mouse button)
 	if Input.is_action_just_pressed("ui_right_mouse"):
-		if mana - 20 >= min_mana:
-			mana -= 20
-			if((health-5)<=min_health):
-				die()
-			health -= 5
+		if mana - 25 >= min_mana:
+			mana -= 25
 			emit_signal("health_changed", health, min_health, max_health)
 			emit_signal("mana_changed", mana, min_mana, max_mana)
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5oxp8u6l5y1b"]
 
-[ext_resource type="Script" uid="uid://il5nus78q0jg" path="res://food/manaitem.gd" id="1_lwc34"]
-[ext_resource type="Texture2D" uid="uid://d1j3cbn8j8nij" path="res://food/mnInc.png" id="2_xert4"]
+[ext_resource type="Script" uid="uid://il5nus78q0jg" path="res://Food/manaitem.gd" id="1_lwc34"]
+[ext_resource type="Texture2D" uid="uid://d1j3cbn8j8nij" path="res://Food/mnInc.png" id="2_xert4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4mn30"]
 radius = 36.0555
