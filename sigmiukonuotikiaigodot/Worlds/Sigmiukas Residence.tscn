@@ -251,7 +251,7 @@ tile_map_data = PackedByteArray("AAAiAA4AAgABAAAAAAAhAA4AAgABAAAAAAAgAA4AAgABAAA
 tile_set = SubResource("TileSet_h2yiy")
 
 [node name="Sigmiukas" parent="." instance=ExtResource("4_fv4w7")]
-position = Vector2(-1447, 397)
+position = Vector2(-1438, 421)
 
 [node name="Sign 1" type="StaticBody2D" parent="."]
 position = Vector2(-1214, 392)

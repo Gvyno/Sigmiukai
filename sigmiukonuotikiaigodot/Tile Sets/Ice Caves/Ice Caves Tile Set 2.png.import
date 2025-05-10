@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0w4pxpf812w7"
-path="res://.godot/imported/Max Damage Increase.png-c8e385606ae4f710c94a6f6686a7b0d2.ctex"
+uid="uid://t2rae27ufsxs"
+path="res://.godot/imported/Ice Caves Tile Set 2.png-c358eeba1e6f72906b5ef61d9e70b00e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Food/Max Damage Increase.png"
-dest_files=["res://.godot/imported/Max Damage Increase.png-c8e385606ae4f710c94a6f6686a7b0d2.ctex"]
+source_file="res://Tile Sets/Ice Caves/Ice Caves Tile Set 2.png"
+dest_files=["res://.godot/imported/Ice Caves Tile Set 2.png-c358eeba1e6f72906b5ef61d9e70b00e.ctex"]
 
 [params]
 
