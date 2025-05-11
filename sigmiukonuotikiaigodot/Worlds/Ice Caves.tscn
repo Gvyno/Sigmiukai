@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bxcgfcg6bpl84"]
+[gd_scene load_steps=28 format=4 uid="uid://bxcgfcg6bpl84"]
 
 [ext_resource type="Texture2D" uid="uid://mlngwrm4nyrf" path="res://Tile Sets/Ice Caves/Ice Caves Tile Set.png" id="1_gsn1b"]
 [ext_resource type="Texture2D" uid="uid://t2rae27ufsxs" path="res://Tile Sets/Ice Caves/Ice Caves Tile Set 2.png" id="2_e11kh"]
@@ -11,14 +11,15 @@
 [ext_resource type="PackedScene" uid="uid://c1wa1r6do15j2" path="res://Backgrounds/Ice_backgrounds/Scenes/ice_background.tscn" id="7_pkfkj"]
 [ext_resource type="PackedScene" uid="uid://dwn8m6jkdc0l1" path="res://World Transitions/World Change.tscn" id="8_g8qms"]
 [ext_resource type="Script" uid="uid://dpiutuv2n5qtx" path="res://Worlds/Ice Caves Scripts/area_2d.gd" id="11_6ddda"]
-[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://Food/HeartItem.tscn" id="12_04xrq"]
+[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://food/HeartItem.tscn" id="12_04xrq"]
 [ext_resource type="Script" uid="uid://dxxofugdrhdgy" path="res://Worlds/Ice Caves Scripts/sign_2_area.gd" id="13_eobhx"]
-[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://Food/DogFoodItem.tscn" id="14_g0731"]
+[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="14_g0731"]
 [ext_resource type="Script" uid="uid://bfsmj6jo0skcv" path="res://Worlds/Ice Caves Scripts/sign_3_area.gd" id="15_dogoo"]
-[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://Food/ChemsItem.tscn" id="16_12kg1"]
-[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://Food/BredItem.tscn" id="17_wx4sb"]
-[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://Food/Manaitem.tscn" id="18_ao1pf"]
-[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://Food/ManaHealthHart.tscn" id="19_41dgv"]
+[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="16_12kg1"]
+[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="17_wx4sb"]
+[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://food/Manaitem.tscn" id="18_ao1pf"]
+[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://food/ManaHealthHart.tscn" id="19_41dgv"]
+[ext_resource type="PackedScene" uid="uid://b721vwgu8pcs1" path="res://Backgrounds/Ice_backgrounds/Scenes/ice_cave_to_outside_change_area.tscn" id="20_bnewi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fq11b"]
 texture = ExtResource("1_gsn1b")
@@ -235,7 +236,7 @@ tile_map_data = PackedByteArray("AAAcABEAAAAEAAEAAAAiABYAAAAEAAEAAAAiABUAAAAEAAE
 tile_set = SubResource("TileSet_tvb42")
 
 [node name="Sigmiukas" parent="." instance=ExtResource("2_ol6od")]
-position = Vector2(-45, 424)
+position = Vector2(-61, 408)
 
 [node name="Ice Mimic" parent="." instance=ExtResource("3_tvb42")]
 position = Vector2(2167, 1062)
@@ -256,12 +257,12 @@ position = Vector2(5061, 1442)
 position = Vector2(3363, 1136)
 
 [node name="FrozenTurtleBoss" parent="." instance=ExtResource("6_2s4qw")]
-position = Vector2(7997, 1288)
+position = Vector2(8127, 1343)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("7_pkfkj")]
 
 [node name="World Change" parent="." instance=ExtResource("8_g8qms")]
-position = Vector2(8685, 1415)
+position = Vector2(9115, 1419)
 
 [node name="Sign 1" type="StaticBody2D" parent="."]
 position = Vector2(78, 428)
@@ -360,7 +361,7 @@ position = Vector2(2539, 1076)
 position = Vector2(3152, 838)
 
 [node name="Frozen Skull11" parent="." instance=ExtResource("4_2s4qw")]
-position = Vector2(2390, 363)
+position = Vector2(2688, 272)
 
 [node name="Frozen Skull12" parent="." instance=ExtResource("4_2s4qw")]
 position = Vector2(2873, 560)
@@ -489,7 +490,7 @@ position = Vector2(4332, 1337)
 position = Vector2(5428, 1456)
 
 [node name="Ice Wisp11" parent="." instance=ExtResource("5_pkfkj")]
-position = Vector2(6186, 1111)
+position = Vector2(7600, 1068)
 
 [node name="Ice Mimic14" parent="." instance=ExtResource("3_tvb42")]
 position = Vector2(5998, 1256)
@@ -532,6 +533,15 @@ position = Vector2(7985, 1137)
 
 [node name="ChemsItem13" parent="." instance=ExtResource("16_12kg1")]
 position = Vector2(6989, 1134)
+
+[node name="Background_change_area" parent="." instance=ExtResource("20_bnewi")]
+position = Vector2(2137, 10)
+scale = Vector2(0.6, 0.01)
+skew = -0.279253
+
+[node name="Background_change_area2" parent="." instance=ExtResource("20_bnewi")]
+position = Vector2(3928, 425)
+scale = Vector2(0.2, 1)
 
 [connection signal="body_entered" from="Sign 1/Area2D" to="Sign 1/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Sign 1/Area2D" to="Sign 1/Area2D" method="_on_body_exited"]

@@ -11,11 +11,11 @@ func _ready():
 	# Get the nodes directly from the scene tree (hardcoding paths)
 	outside_group = get_tree().get_nodes_in_group("ice")[0]
 	cave_group = get_tree().get_nodes_in_group("ice")[1]
-	cave_group.visible = false;
-	outside_group.visible = true;
+	cave_group.visible = true;
+	outside_group.visible = false;
 	
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Sigmiukas" and cave_group.visible == true :
 		BackgroundFade.transition()
 		await BackgroundFade.on_trasition_finished
