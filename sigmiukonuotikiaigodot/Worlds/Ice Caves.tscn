@@ -235,7 +235,7 @@ tile_map_data = PackedByteArray("AAAcABEAAAAEAAEAAAAiABYAAAAEAAEAAAAiABUAAAAEAAE
 tile_set = SubResource("TileSet_tvb42")
 
 [node name="Sigmiukas" parent="." instance=ExtResource("2_ol6od")]
-position = Vector2(6740, 1351)
+position = Vector2(-45, 424)
 
 [node name="Ice Mimic" parent="." instance=ExtResource("3_tvb42")]
 position = Vector2(2167, 1062)
