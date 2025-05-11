@@ -15,11 +15,7 @@ func _on_start_pressed() -> void:
 	animation_player.play("Intro")  
 
 	$VBoxContainer/Button.hide()
-	$VBoxContainer/Button2.hide()
 	$VBoxContainer/Button3.hide()
-
-func _on_bsettings_2_pressed() -> void:
-	pass
 
 func _on_exit_3_pressed() -> void:
 	get_tree().quit()
