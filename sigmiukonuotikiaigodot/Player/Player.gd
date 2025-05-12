@@ -543,7 +543,7 @@ func knockbackSpike():
 		#	print_debug(position)
 			move_and_slide()
 	#		health=health-hitbox.get("Damage")
-		if health-20 <= min_health:
+		if health-20 < min_health:
 			die()
 		$SpikeKnockback.start()
 		imonspike=true
@@ -573,7 +573,7 @@ func knockbackDamage(hitbox: Hitbox):
 			emit_signal("health_changed",health,min_health,max_health)
 		print("blet")
 		move_and_slide()
-	if health <= min_health:
+	if health < min_health:
 		die()
 		pass # Replace with function body.
 	pass # Replace with function body.
