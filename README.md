@@ -2,7 +2,7 @@
 
 
 | Action        | Desired outcome    | Actual outcome     |
-| ------------- |:------------------:|:------------------:|
+| ------------- | ------------------ | ------------------ |
 | "Start Game" button press | Intro plays | Intro plays |
 | "Skip" button press | Intro skips | Intro skips |
 | "A" key press | Player moves left | Player moves left |
