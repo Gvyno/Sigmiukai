@@ -1,14 +1,16 @@
 extends Area2D
 
 const lines: Array[String] = [
-	"If you get damaged",
+	"If you get damaged (you will get damaged)",
 	"And you want to restore your health",
 	"You can consume dropped items",
 	"Different items restore...",
 	" ...different ammounts of health",
 	"I am giving you some of them for free",
 	"But in the future...",
-	"you'll need to explore to find them"
+	"you'll need to explore to find them",
+	"By the way... just so you know",
+	"Bread restores 10 health, chems - 20, dog food - 30"
 ]
 
 func _ready():

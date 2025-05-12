@@ -1,11 +1,13 @@
 extends Area2D
 
 const lines: Array[String] = [
-	"Almost forgot to mention",
-	"You can also DOUBLE JUMP!",
-	"Just press SPACE while midair",
-	"Btw, beware of spikes",
-	"They'll deal damage if stepped on."
+	"You will learn many more different moves later on...",
+	"Each new move will be awarded to you...",
+	"once you enter a new world...",
+	"Those new moves will help you traverse the land...",
+	"and fight...",
+	"But right now, you will have make do with what you've got...",
+	"Go forward and reach another sign!"
 ]
 
 func _ready():

@@ -5,10 +5,7 @@ const lines: Array[String] = [
 	"Let's learn how to defend and attack",
 	"Press MOUSE1 to do a MELEE ATTACK",
 	"The slash indicates your hit range",
-	"If you don't want to get up close and personal",
-	"You can use RANGED ATTACKS!",
-	"Press MOUSE2 to cast a ranged projectile",
-	"Go practice your new moves",
+	"Go practice your new movee",
 	"Next to you there is DUMMY",
 	"Show him what you've learned!"
 ]

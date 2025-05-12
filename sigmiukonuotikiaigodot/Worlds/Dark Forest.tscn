@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bbtyeqywg8mrx" path="res://Backgrounds/Dark_Forest_backgrounds/Scenes/forest_to_tree.tscn" id="11_uli8w"]
 [ext_resource type="PackedScene" uid="uid://cm1ij7pkkp6wp" path="res://Enemies/Slimer/enemy_slimer.tscn" id="13_8o00h"]
 [ext_resource type="PackedScene" uid="uid://ykcx5uycsmh" path="res://Enemies/Blood Bat/enemy_blood_bat.tscn" id="14_hkw02"]
-[ext_resource type="PackedScene" uid="uid://bl5p5mo3b5owo" path="res://Enemies/Boss DarkForest/Boss_darkforest.tscn" id="14_x8ksv"]
+[ext_resource type="PackedScene" uid="uid://bl5p5mo3b5owo" path="res://Enemies/Boss DarkForest/boss_darkforest.tscn" id="14_x8ksv"]
 [ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://Food/MaxDamageIncrease.tscn" id="15_l8h44"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="15_x8ksv"]
 [ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://Food/MaxHealthIncrease.tscn" id="16_ay140"]
