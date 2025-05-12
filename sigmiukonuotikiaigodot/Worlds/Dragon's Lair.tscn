@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dpo5i6q0yn8ad"]
+[gd_scene load_steps=22 format=4 uid="uid://dpo5i6q0yn8ad"]
 
 [ext_resource type="Texture2D" uid="uid://b85qv7bukg8qq" path="res://Tile Sets/Dragon's Lair/Dragon's Lair Tile Set.png" id="1_dvnag"]
 [ext_resource type="Texture2D" uid="uid://bx4m0puqhpdnb" path="res://Tile Sets/Dragon's Lair/Dragon Lair Animated Tiles.png" id="2_6m11a"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dyt4apw2l8pds" path="res://Enemies/Pixy/Pixy.tscn" id="13_tk1c3"]
 [ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://Food/MaxManaIncrease.tscn" id="14_tk1c3"]
 [ext_resource type="PackedScene" uid="uid://6r7ih02j0ss8" path="res://Enemies/Boss Dragon'sLair/Dragon.tscn" id="15_ron7b"]
+[ext_resource type="PackedScene" uid="uid://b2lwlpwessutr" path="res://Food/lemon.tscn" id="16_uv76u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbni2"]
 texture = ExtResource("1_dvnag")
@@ -151,7 +152,7 @@ tile_map_data = PackedByteArray("AAAEAAsAAAAAAAEAAAAFAAsAAAAAAAEAAAAGAAsAAAAAAAA
 tile_set = SubResource("TileSet_x70ba")
 
 [node name="Sigmiukas" parent="." instance=ExtResource("3_vkxtl")]
-position = Vector2(239, -381)
+position = Vector2(239, -417)
 
 [node name="DogFoodItem" parent="." instance=ExtResource("4_6m11a")]
 position = Vector2(-466, 204)
@@ -483,6 +484,9 @@ position = Vector2(8301, -815)
 
 [node name="ChemsItem15" parent="." instance=ExtResource("8_3j1mh")]
 position = Vector2(7923, -817)
+
+[node name="Lemon" parent="." instance=ExtResource("16_uv76u")]
+position = Vector2(9091, -272)
 
 [connection signal="body_entered" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_entered"]
 [connection signal="body_exited" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_exited"]

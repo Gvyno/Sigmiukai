@@ -1,12 +1,35 @@
-extends RigidBody2D
-@onready var interactable: Area2D = $Interactable
-@onready var sprite_2d: Sprite2D = $CollisionShape2D/Sprite2D
+extends Area2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var food_img: Sprite2D = $food_img
+@onready var animation = $AnimationPlayer
+signal update_health()
+signal update_mana()
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	interactable.interact = _on_interact # Replace with function body.
-	
-func _on_interact():
-	queue_free()
-	print("Player interacted with the object")
-   
+
+var player_in_range := false
+var consumed = false
+
+func _ready():
+	connect("body_entered", _on_body_entered)
+	connect("body_exited", _on_body_exited)
+	animation.play("Bread")
+
+func _on_body_entered(body):
+	emit_signal("update_health")
+	if body.is_in_group("player") and not consumed:
+		consumed = true
+		if body.health + 10 >= body.max_health:
+			body.health = body.max_health
+		else:
+			body.health += 10
+		food_img.visible=false
+		collision_shape_2d.disabled=true
+	emit_signal("update_health")
+
+func _on_body_exited(body):
+	emit_signal("update_health")
+	if body.is_in_group("player"):  
+		player_in_range = false
+		if DialogueManager.is_dialogue_active:
+			DialogueManager.end_dialogue()
+	emit_signal("update_health")
