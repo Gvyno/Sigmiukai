@@ -27,3 +27,18 @@
 | "Shift" key pressed | Player dashes | Player dashes |
 | "RMB" key press | Player casts | Player player casts |
 | Player casts | Player's mana is reduced | Player's mana is reduced |
+
+
+![intror](https://github.com/user-attachments/assets/4aec50bb-397a-4f12-a657-8cf3cfdf6d03)
+![movement](https://github.com/user-attachments/assets/f08faf10-88b5-4249-aef9-5ecd11a79684)
+![sign](https://github.com/user-attachments/assets/491f6601-364f-4ffa-82fc-d4dcefa591e4)
+![options](https://github.com/user-attachments/assets/65cfea88-f77c-48d1-858d-2f814cdf88dd)
+![attack](https://github.com/user-attachments/assets/ed33ac1c-2d5e-4687-8dc8-5ed4c12c6533)
+![takedmg](https://github.com/user-attachments/assets/56c69fa4-7500-4c00-9c86-f5bbf918af5b)
+![foods](https://github.com/user-attachments/assets/c5bab85c-918a-443c-a1b4-a831f3870739)
+![enemy_mouser](https://github.com/user-attachments/assets/46993264-15f3-4010-8b2d-f71d6155bf58)
+![dj](https://github.com/user-attachments/assets/ce5a52dd-840a-4b15-ac1e-f485c06a67a9)
+![dash](https://github.com/user-attachments/assets/32e72df5-1792-4ea8-9657-e003df7d2c37)
+![cast](https://github.com/user-attachments/assets/769dea84-1985-4b81-9268-b542b9913720)
+
+
