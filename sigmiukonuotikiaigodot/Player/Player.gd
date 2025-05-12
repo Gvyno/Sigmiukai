@@ -28,9 +28,11 @@ var has_fired_projectile = false
 var is_attacking = false
 var is_dashing = false
 var can_dash = true
+
 var has_dash =false
-var has_cast =false 
+var has_cast =false
 var has_doublejump =false
+
 var cast_timer = 0.0
 var attack_timer = 0.0
 var slash_timer = 0.0  
@@ -85,13 +87,30 @@ func save_player_data():
 			"mana": mana,
 			"has_dash":has_dash,
 			"has_doublejump":has_doublejump,
-			"has_cast":has_cast
+			"has_cast":has_cast,
+			"damage":$SpriteSlash/Hitbox.Damage,
+			"max_health":max_health,
+			"max_mana":max_mana
  		}
 		file.store_var(data)  # Store the player's data (health, mana)
 		print("data is stored")
 		file.close()
 		PlayerState.state = true
-
+func save_player_data_death():
+	var file = FileAccess.open("user://player_data.save", FileAccess.WRITE)
+	if file:
+		var data = {
+			"has_dash":has_dash,
+			"has_doublejump":has_doublejump,
+			"has_cast":has_cast,
+			"damage":$SpriteSlash/Hitbox.Damage,
+			"max_health":max_health,
+			"max_mana":max_mana
+ 		}
+		file.store_var(data)  # Store the player's data (health, mana)
+		print("data is stored")
+		file.close()
+		PlayerState.state = true
 # Function to load the player's data
 func load_player_data():
 	var file_path = "user://player_data.save"
@@ -104,7 +123,9 @@ func load_player_data():
 		has_dash=data.get("has_dash",has_dash)
 		has_doublejump=data.get("has_doublejump",has_doublejump)
 		has_cast=data.get("has_cast",has_cast)
-		
+		$SpriteSlash/Hitbox.Damage=data.get("damage",$SpriteSlash/Hitbox.Damage)
+		max_health=data.get("max_health",max_health)
+		max_mana=data.get("max_mana",max_mana)
 		PlayerState.state = false
 
 	
@@ -601,6 +622,7 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 		
 
 func die():
+	save_player_data_death()
 	hide_effect_sprites()
 	is_alive = false
 	hurt_timer = 1
@@ -610,7 +632,7 @@ func die():
 #	print("Enemy died!")
 	await get_tree().create_timer(1).timeout  
 	get_tree().reload_current_scene()
-	queue_free()  
+	queue_free()
 #WIP might be useful later rn now it's here for more computer resource consumption :3
 func _on_health_changed(new_health: Variant, new_min_health: Variant, new_max_health: Variant) -> void:
 	if(health>new_health):
