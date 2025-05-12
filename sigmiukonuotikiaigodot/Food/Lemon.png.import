@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnocs1uditej4"
-path="res://.godot/imported/Lemon.png-e2aee2a97582d7a6c7fc5192ed827f33.ctex"
+path="res://.godot/imported/Lemon.png-0966b757a201a422ab86ff5359f6e90d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://food/Lemon.png"
-dest_files=["res://.godot/imported/Lemon.png-e2aee2a97582d7a6c7fc5192ed827f33.ctex"]
+source_file="res://Food/Lemon.png"
+dest_files=["res://.godot/imported/Lemon.png-0966b757a201a422ab86ff5359f6e90d.ctex"]
 
 [params]
 
