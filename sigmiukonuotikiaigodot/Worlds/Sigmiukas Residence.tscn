@@ -17,12 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://dwn8m6jkdc0l1" path="res://World Transitions/World Change.tscn" id="20_6aqo0"]
 [ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="21_mtjgx"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="21_st1e4"]
-[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://Food/MaxHealthIncrease.tscn" id="21_w3dpc"]
-[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://Food/MaxDamageIncrease.tscn" id="22_xyse1"]
-[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://Food/MaxManaIncrease.tscn" id="23_ftg0w"]
-[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://Food/BredItem.tscn" id="23_xyse1"]
-[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://Food/ChemsItem.tscn" id="26_qw5ue"]
-[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://Food/DogFoodItem.tscn" id="27_lhemu"]
+[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://food/MaxHealthIncrease.tscn" id="21_w3dpc"]
+[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://food/MaxDamageIncrease.tscn" id="22_xyse1"]
+[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://food/MaxManaIncrease.tscn" id="23_ftg0w"]
+[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="23_xyse1"]
+[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="26_qw5ue"]
+[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="27_lhemu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trxdx"]
 size = Vector2(28.3125, 457.32)

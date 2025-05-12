@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://r6k02c71gu2k"
-path="res://.godot/imported/Max Mana Increase.png-dedc5726e31896da962ea612c3dd5a2f.ctex"
+path="res://.godot/imported/Max Mana Increase.png-e431b590228625aada26918398965275.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Food/Max Mana Increase.png"
-dest_files=["res://.godot/imported/Max Mana Increase.png-dedc5726e31896da962ea612c3dd5a2f.ctex"]
+source_file="res://food/Max Mana Increase.png"
+dest_files=["res://.godot/imported/Max Mana Increase.png-e431b590228625aada26918398965275.ctex"]
 
 [params]
 

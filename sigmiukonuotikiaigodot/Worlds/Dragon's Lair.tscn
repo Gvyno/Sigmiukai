@@ -1,21 +1,22 @@
-[gd_scene load_steps=22 format=4 uid="uid://dpo5i6q0yn8ad"]
+[gd_scene load_steps=23 format=4 uid="uid://dpo5i6q0yn8ad"]
 
 [ext_resource type="Texture2D" uid="uid://b85qv7bukg8qq" path="res://Tile Sets/Dragon's Lair/Dragon's Lair Tile Set.png" id="1_dvnag"]
 [ext_resource type="Texture2D" uid="uid://bx4m0puqhpdnb" path="res://Tile Sets/Dragon's Lair/Dragon Lair Animated Tiles.png" id="2_6m11a"]
 [ext_resource type="PackedScene" uid="uid://cmwclbobv1o3h" path="res://Player/player.tscn" id="3_vkxtl"]
-[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://Food/DogFoodItem.tscn" id="4_6m11a"]
+[ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://food/DogFoodItem.tscn" id="4_6m11a"]
 [ext_resource type="Script" uid="uid://dy5e1bajave8c" path="res://Worlds/Dragon's Lair Scripts/sign_1_area.gd" id="5_vkxtl"]
 [ext_resource type="Script" uid="uid://b2pya8i01fve5" path="res://Worlds/Dragon's Lair Scripts/sign_2_area.gd" id="6_pbni2"]
 [ext_resource type="PackedScene" uid="uid://br2whc6brmsha" path="res://Enemies/Lava Slimer/Lava Slimer.tscn" id="7_k5yqh"]
-[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://Food/ChemsItem.tscn" id="8_3j1mh"]
+[ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://food/ChemsItem.tscn" id="8_3j1mh"]
 [ext_resource type="PackedScene" uid="uid://b0nfrd83ahou5" path="res://Enemies/Wraith/Wraith.tscn" id="9_7m44y"]
-[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://Food/MaxHealthIncrease.tscn" id="10_n70s6"]
-[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://Food/BredItem.tscn" id="11_n70s6"]
-[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://Food/MaxDamageIncrease.tscn" id="12_vi56b"]
+[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://food/MaxHealthIncrease.tscn" id="10_n70s6"]
+[ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://food/BredItem.tscn" id="11_n70s6"]
+[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://food/MaxDamageIncrease.tscn" id="12_vi56b"]
 [ext_resource type="PackedScene" uid="uid://dyt4apw2l8pds" path="res://Enemies/Pixy/Pixy.tscn" id="13_tk1c3"]
-[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://Food/MaxManaIncrease.tscn" id="14_tk1c3"]
+[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://food/MaxManaIncrease.tscn" id="14_tk1c3"]
 [ext_resource type="PackedScene" uid="uid://6r7ih02j0ss8" path="res://Enemies/Boss Dragon'sLair/Dragon.tscn" id="15_ron7b"]
-[ext_resource type="PackedScene" uid="uid://b2lwlpwessutr" path="res://Food/lemon.tscn" id="16_uv76u"]
+[ext_resource type="PackedScene" uid="uid://b2lwlpwessutr" path="res://food/lemon.tscn" id="16_uv76u"]
+[ext_resource type="PackedScene" uid="uid://cvatguiw2jp1l" path="res://Backgrounds/Dragon_layer_background/dragon_background.tscn" id="17_aaeff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbni2"]
 texture = ExtResource("1_dvnag")
@@ -487,6 +488,8 @@ position = Vector2(7923, -817)
 
 [node name="Lemon" parent="." instance=ExtResource("16_uv76u")]
 position = Vector2(9091, -272)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("17_aaeff")]
 
 [connection signal="body_entered" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_entered"]
 [connection signal="body_exited" from="Sign 1/Sign 1 Area" to="Sign 1/Sign 1 Area" method="_on_body_exited"]

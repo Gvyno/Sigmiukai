@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnocs1uditej4"
-path="res://.godot/imported/Lemon.png-e2aee2a97582d7a6c7fc5192ed827f33.ctex"
+uid="uid://c5wpqpipjvtxi"
+path="res://.godot/imported/l0_sprite_1.png-77e19dcc92c3f3a6994db4460094f327.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://food/Lemon.png"
-dest_files=["res://.godot/imported/Lemon.png-e2aee2a97582d7a6c7fc5192ed827f33.ctex"]
+source_file="res://Backgrounds/Dragon_layer_background/dragon/l0_sprite_1.png"
+dest_files=["res://.godot/imported/l0_sprite_1.png-77e19dcc92c3f3a6994db4460094f327.ctex"]
 
 [params]
 
