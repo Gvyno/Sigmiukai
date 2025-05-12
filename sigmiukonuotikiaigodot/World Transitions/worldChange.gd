@@ -1,5 +1,5 @@
 extends Area2D
-
+var Collision=true
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Sigmiukas" and body.has_method("save_player_data"):
 		var current_scene_file = get_tree().current_scene.scene_file_path
@@ -37,3 +37,13 @@ func _on_body_entered(body: Node2D) -> void:
 				print("No matching scene found or already at the last level.")
 	else:
 		print("world change u no player wthhhhhh")
+
+
+func _on_timer_timeout() -> void:
+	if Collision:
+		$CollisionShape2D.disabled=true
+		Collision=false
+	else:
+		$CollisionShape2D.disabled=false
+		Collision=true
+	pass # Replace with function body.
