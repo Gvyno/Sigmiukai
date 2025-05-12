@@ -1,12 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpm20gg6jf7tg"]
+[gd_scene load_steps=7 format=3 uid="uid://c5oxp8u6l5y1b"]
 
-[ext_resource type="Script" uid="uid://vjnd5g5h6g3j" path="res://Food/heart_item.gd" id="1_krk1r"]
-[ext_resource type="Texture2D" uid="uid://bxww6n18m70tb" path="res://Food/hpInc.png" id="2_tqs4v"]
+[ext_resource type="Script" uid="uid://il5nus78q0jg" path="res://Food/manaitem.gd" id="1_lwc34"]
+[ext_resource type="Texture2D" uid="uid://d1j3cbn8j8nij" path="res://Food/mnInc.png" id="2_xert4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xa7fn"]
-radius = 36.2215
+[sub_resource type="CircleShape2D" id="CircleShape2D_4mn30"]
+radius = 36.0555
 
-[sub_resource type="Animation" id="Animation_tqs4v"]
+[sub_resource type="Animation" id="Animation_xert4"]
 resource_name = "Idle"
 length = 0.8
 loop_mode = 1
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_hxbrj"]
+[sub_resource type="Animation" id="Animation_0ry1n"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -39,23 +39,23 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hxbrj"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ry1n"]
 _data = {
-&"Idle": SubResource("Animation_tqs4v"),
-&"RESET": SubResource("Animation_hxbrj")
+&"Idle": SubResource("Animation_xert4"),
+&"RESET": SubResource("Animation_0ry1n")
 }
 
-[node name="HeartItem" type="Area2D"]
-script = ExtResource("1_krk1r")
+[node name="MaxManaIncrease" type="Area2D"]
+script = ExtResource("1_lwc34")
 
 [node name="food_img" type="Sprite2D" parent="."]
-texture = ExtResource("2_tqs4v")
+texture = ExtResource("2_xert4")
 hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xa7fn")
+shape = SubResource("CircleShape2D_4mn30")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_hxbrj")
+&"": SubResource("AnimationLibrary_0ry1n")
 }

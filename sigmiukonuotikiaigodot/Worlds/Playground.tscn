@@ -13,10 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="12_fc48a"]
 [ext_resource type="PackedScene" uid="uid://bl5p5mo3b5owo" path="res://Enemies/Boss DarkForest/Boss_darkforest.tscn" id="15_w22sm"]
 [ext_resource type="PackedScene" uid="uid://dmswxvd6ed7s4" path="res://Enemies/Boss IceCaves/FrozenTurtleBoss.tscn" id="16_ecwe7"]
-[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://Food/HeartItem.tscn" id="17_dbb7e"]
+[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://Food/MaxHealthIncrease.tscn" id="17_dbb7e"]
 [ext_resource type="PackedScene" uid="uid://6r7ih02j0ss8" path="res://Enemies/Boss Dragon'sLair/Dragon.tscn" id="17_vcofr"]
-[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://Food/Manaitem.tscn" id="18_aogcw"]
-[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://Food/ManaHealthHart.tscn" id="19_cvvy8"]
+[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://Food/MaxManaIncrease.tscn" id="18_aogcw"]
+[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://Food/MaxDamageIncrease.tscn" id="19_cvvy8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fc48a"]
 texture = ExtResource("1_y15p8")

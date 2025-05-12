@@ -45,7 +45,7 @@ _data = {
 &"RESET": SubResource("Animation_wns01")
 }
 
-[node name="ManaHealthHart" type="Area2D"]
+[node name="MaxDamageIncrease" type="Area2D"]
 script = ExtResource("1_apblj")
 
 [node name="food_img" type="Sprite2D" parent="."]

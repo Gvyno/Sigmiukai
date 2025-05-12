@@ -29,6 +29,8 @@ var dash_direction := Vector2.ZERO
 
 func _ready():
 	current_health = max_health
+	health=max_health
+	emit_signal("health_changed", health, min_health, max_health)
 	print(is_alive)
 	$SpriteIdle.visible = true
 	$AnimationPlayer.play("Idle")

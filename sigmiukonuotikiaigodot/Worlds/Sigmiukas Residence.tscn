@@ -17,9 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://dwn8m6jkdc0l1" path="res://World Transitions/World Change.tscn" id="20_6aqo0"]
 [ext_resource type="PackedScene" uid="uid://k5tj51wpc761" path="res://Enemies/Dummy/enemy_dummy.tscn" id="21_mtjgx"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="21_st1e4"]
-[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://Food/HeartItem.tscn" id="21_w3dpc"]
-[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://Food/ManaHealthHart.tscn" id="22_xyse1"]
-[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://Food/Manaitem.tscn" id="23_ftg0w"]
+[ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://Food/MaxHealthIncrease.tscn" id="21_w3dpc"]
+[ext_resource type="PackedScene" uid="uid://b5u1kd2lfq014" path="res://Food/MaxDamageIncrease.tscn" id="22_xyse1"]
+[ext_resource type="PackedScene" uid="uid://c5oxp8u6l5y1b" path="res://Food/MaxManaIncrease.tscn" id="23_ftg0w"]
 [ext_resource type="PackedScene" uid="uid://ftp7o00y5orr" path="res://Food/BredItem.tscn" id="23_xyse1"]
 [ext_resource type="PackedScene" uid="uid://c5l2adja7scq0" path="res://Food/ChemsItem.tscn" id="26_qw5ue"]
 [ext_resource type="PackedScene" uid="uid://dd51h103kb6i3" path="res://Food/DogFoodItem.tscn" id="27_lhemu"]
@@ -254,7 +254,7 @@ tile_map_data = PackedByteArray("AAAiAA4AAgABAAAAAAAhAA4AAgABAAAAAAAgAA4AAgABAAA
 tile_set = SubResource("TileSet_h2yiy")
 
 [node name="Sigmiukas" parent="." instance=ExtResource("4_fv4w7")]
-position = Vector2(-1438, 421)
+position = Vector2(13364, 612)
 
 [node name="Sign 1" type="StaticBody2D" parent="."]
 position = Vector2(-1214, 392)

@@ -28,6 +28,9 @@ var has_fired_projectile = false
 var is_attacking = false
 var is_dashing = false
 var can_dash = true
+var has_dash =false
+var has_cast =true
+var has_doublejump =false
 var cast_timer = 0.0
 var attack_timer = 0.0
 var slash_timer = 0.0  
@@ -58,6 +61,18 @@ var slippytime=false
 var imonspike=true
 var imonenemy=false
 
+func getabilitydash():
+	has_dash=true
+	print("DAAAAAAAAAAAAASH")
+	pass
+func getabilitycast():
+	has_cast=true
+	print("CAAAAAAAAAAAAAAAAAST")
+	pass
+func getabilitydoublejump():
+	has_doublejump=true
+	print("DOUBLEJUMPPPPPPPPPP")
+	pass
 func _ready():
 	load_player_data()
 
@@ -67,7 +82,10 @@ func save_player_data():
 	if file:
 		var data = {
 			"health": health,
-			"mana": mana
+			"mana": mana,
+			"has_dash":has_dash,
+			"has_doublejump":has_doublejump,
+			"has_cast":has_cast
  		}
 		file.store_var(data)  # Store the player's data (health, mana)
 		print("data is stored")
@@ -83,6 +101,10 @@ func load_player_data():
 		var data = file.get_var()
 		health = clamp(data.get("health", max_health), 0, max_health)
 		mana = clamp(data.get("mana", max_mana), 0, max_mana)
+		has_dash=data.get("has_dash",has_dash)
+		has_doublejump=data.get("has_doublejump",has_doublejump)
+		has_cast=data.get("has_cast",has_cast)
+		
 		PlayerState.state = false
 
 	
@@ -121,24 +143,24 @@ func _physics_process(delta: float) -> void:
 		else:
 			move_and_slide()
 			return
+	if has_cast:
+		# **Freeze movement while casting**
+		if is_casting:
+			velocity = Vector2.ZERO  # Completely stop movement
+			cast_timer -= delta
 
-	# **Freeze movement while casting**
-	if is_casting:
-		velocity = Vector2.ZERO  # Completely stop movement
-		cast_timer -= delta
+			# Fire projectile only once at 0.1s remaining
+			if cast_timer <= 0.1 and not has_fired_projectile:
+				has_fired_projectile = true
+				fire_projectile()
 
-		# Fire projectile only once at 0.1s remaining
-		if cast_timer <= 0.1 and not has_fired_projectile:
-			has_fired_projectile = true
-			fire_projectile()
-
-		# End casting state
-		if cast_timer <= 0:
-			is_casting = false
-			$SpriteCast.visible = false
-			velocity.y = 0  # Start falling at **0 velocity**
-		else:
-			return  # Don't process movement while casting
+			# End casting state
+			if cast_timer <= 0:
+				is_casting = false
+				$SpriteCast.visible = false
+				velocity.y = 0  # Start falling at **0 velocity**
+			else:
+				return  # Don't process movement while casting
 
 	# Apply gravity normally when not on the ground
 	if not is_on_floor() and not is_dashing:
@@ -157,20 +179,21 @@ func _physics_process(delta: float) -> void:
 		dash_cooldown_timer -= delta
 		if dash_cooldown_timer <= 0:
 			can_dash = true
-
-	# Handle dash movement
-	if is_dashing:
-		dash_timer -= delta
-		if dash_timer <= 0:
-			is_dashing = false
-			$SpriteDash.visible = false  
-			velocity.x = 0  
-			can_dash = false
-			dash_cooldown_timer = DASH_COOLDOWN  
-		else:
-			velocity.x = dash_direction * DASH_SPEED
-			move_and_slide()
-			return
+	if can_dash:
+		if(has_dash):
+			# Handle dash movement
+			if is_dashing:
+				dash_timer -= delta
+				if dash_timer <= 0:
+					is_dashing = false
+					$SpriteDash.visible = false  
+					velocity.x = 0  
+					can_dash = false
+					dash_cooldown_timer = DASH_COOLDOWN  
+				else:
+					velocity.x = dash_direction * DASH_SPEED
+					move_and_slide()
+					return
 
 	# Handle attack cooldown
 	if is_attacking:
@@ -200,47 +223,50 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		elif can_double_jump:
-			velocity.y = JUMP_VELOCITY
-			can_double_jump = false  
-			$SpriteDoubleJump.visible = true
-			hide_other_sprites("DoubleJump")
-			animation.play("DoubleJump")
-			flip_toward_facing()
-			double_jump_timer = 0.2  
+			if(has_doublejump):
+				velocity.y = JUMP_VELOCITY
+				can_double_jump = false  
+				$SpriteDoubleJump.visible = true
+				hide_other_sprites("DoubleJump")
+				animation.play("DoubleJump")
+				flip_toward_facing()
+				double_jump_timer = 0.2  
 
 	# Handle dashing
 	if DashEnabled and can_dash and Input.is_action_just_pressed("ui_shift") and not is_dashing:
-		if(mana-10>=min_mana):
-			mana=mana-10
-			emit_signal("mana_changed", mana,min_mana,max_mana)
-			start_dash()
-		return
+		if(has_dash):
+			if(mana-10>=min_mana):
+				mana=mana-10
+				emit_signal("mana_changed", mana,min_mana,max_mana)
+				start_dash()
+			return
 
 	# Handle casting input
 	# Handle casting input (right mouse button)
 	if Input.is_action_just_pressed("ui_right_mouse"):
-		if mana - 25 >= min_mana:
-			mana -= 25
-			emit_signal("health_changed", health, min_health, max_health)
-			emit_signal("mana_changed", mana, min_mana, max_mana)
+		if has_cast:
+			if mana - 25 >= min_mana:
+				mana -= 25
+				emit_signal("health_changed", health, min_health, max_health)
+				emit_signal("mana_changed", mana, min_mana, max_mana)
 
-			is_casting = true
-			cast_timer = 0.9  
-			has_fired_projectile = false
-			$SpriteCast.visible = true
-			hide_other_sprites("Cast")
-			animation.play("Cast")
-			
-			# Get the direction to the mouse
-			var mouse_pos = get_global_mouse_position()
-			var direction_to_mouse = (mouse_pos - global_position).normalized()
+				is_casting = true
+				cast_timer = 0.9  
+				has_fired_projectile = false
+				$SpriteCast.visible = true
+				hide_other_sprites("Cast")
+				animation.play("Cast")
+				
+				# Get the direction to the mouse
+				var mouse_pos = get_global_mouse_position()
+				var direction_to_mouse = (mouse_pos - global_position).normalized()
 
-			# Flip the sprite based on the mouse position
-			flip_sprites(direction_to_mouse.x < 0)
+				# Flip the sprite based on the mouse position
+				flip_sprites(direction_to_mouse.x < 0)
 
-			# Update the facing direction of the attack
-			flip_toward_facing()  # Update the attack to face the mouse direction
-			return
+				# Update the facing direction of the attack
+				flip_toward_facing()  # Update the attack to face the mouse direction
+				return
 
 
 	# Handle attacking
@@ -327,13 +353,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func start_dash():
-	is_dashing = true
-	dash_timer = DASH_DURATION
-	dash_direction = -1 if $SpriteIdle.flip_h else 1  
-	velocity.x = dash_direction * DASH_SPEED
-	hide_other_sprites("Dash")
-	$SpriteDash.visible = true  
-	animation.play("Dash")
+	if(has_dash):
+		is_dashing = true
+		dash_timer = DASH_DURATION
+		dash_direction = -1 if $SpriteIdle.flip_h else 1  
+		velocity.x = dash_direction * DASH_SPEED
+		hide_other_sprites("Dash")
+		$SpriteDash.visible = true  
+		animation.play("Dash")
 
 func trigger_slash():
 	hide_effect_sprites()
