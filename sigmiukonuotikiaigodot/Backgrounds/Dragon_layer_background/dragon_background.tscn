@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvatguiw2jp1l"]
+
+[ext_resource type="Texture2D" uid="uid://c5wpqpipjvtxi" path="res://Backgrounds/Dragon_layer_background/dragon/l0_sprite_1.png" id="1_4obie"]
+[ext_resource type="Texture2D" uid="uid://bkojsduj5s4a3" path="res://Backgrounds/Dragon_layer_background/dragon/l1_sprite_1.png" id="2_ihq2g"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_offset = Vector2(7531, 1250)
+
+[node name="ice_outside_group" type="ParallaxBackground" parent="." groups=["ice"]]
+
+[node name="1" type="ParallaxLayer" parent="ice_outside_group"]
+position = Vector2(43, -698)
+motion_mirroring = Vector2(2000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ice_outside_group/1"]
+scale = Vector2(2, 1.5)
+texture = ExtResource("1_4obie")
+
+[node name="2" type="ParallaxLayer" parent="ice_outside_group"]
+position = Vector2(43, -698)
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(2000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ice_outside_group/2"]
+scale = Vector2(2, 1.5)
+texture = ExtResource("2_ihq2g")
