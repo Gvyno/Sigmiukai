@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b721vwgu8pcs1" path="res://Backgrounds/Ice_backgrounds/Scenes/ice_cave_to_outside_change_area.tscn" id="10_kyt7g"]
 [ext_resource type="PackedScene" uid="uid://c1wa1r6do15j2" path="res://Backgrounds/Ice_backgrounds/Scenes/ice_background.tscn" id="11_0qfdb"]
 [ext_resource type="PackedScene" uid="uid://txwnm02pbwt6" path="res://Enemies/Rat/emeny_rat.tscn" id="12_fc48a"]
-[ext_resource type="PackedScene" uid="uid://bl5p5mo3b5owo" path="res://Enemies/Boss DarkForest/Boss_darkforest.tscn" id="15_w22sm"]
+[ext_resource type="PackedScene" uid="uid://bl5p5mo3b5owo" path="res://Enemies/Boss DarkForest/boss_darkforest.tscn" id="15_w22sm"]
 [ext_resource type="PackedScene" uid="uid://dmswxvd6ed7s4" path="res://Enemies/Boss IceCaves/FrozenTurtleBoss.tscn" id="16_ecwe7"]
 [ext_resource type="PackedScene" uid="uid://dpm20gg6jf7tg" path="res://Food/HeartItem.tscn" id="17_dbb7e"]
 [ext_resource type="PackedScene" uid="uid://6r7ih02j0ss8" path="res://Enemies/Boss Dragon'sLair/Dragon.tscn" id="17_vcofr"]
