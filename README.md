@@ -1,4 +1,41 @@
+# Project - Game „Tea Tale“
 
+## Group - Sigmiukai
+
+## Group Members - IFD-3/2 group students:
+
+* Gvidas Kulikauskas
+* Emilis Rimutis
+* Osvaldas Daukšys
+* Viktorija Nenartovičiūtė
+
+# Technical Task
+
+The goal of this project is to develop “Tea Tale”, a 2D platformer game built using the Godot Engine. The game features a pixel-art visual style and is set in a dark fantasy world composed of multiple interconnected regions, each with its own enemies, mechanics, and environmental challenges.
+
+## Key Technical Requirements
+
+* Game Engine: Godot (GDScript)
+* Game Genre: 2D pixel-art platformer
+#### Gameplay Mechanics:
+* Player movement: walking, jumping, double-jumping, dashing
+* Enemy AI: chasing player and damage interaction
+* Interactive objects: signs and UI panels
+* Resource systems: health and mana
+#### UI Features:
+* Main menu with Start and Quit buttons
+* Pause menu with functioning buttons Resume, Respawn and Exit buttons
+* Intro sequence with the option to skip
+#### Level Design:
+* Four distinct worlds, each with unique art, enemies and tiles:
+1. Sigmiukas Residence
+2. Dark Forest
+3. Ice Caves
+4. Dragon’s Lair
+#### Game Assets:
+* Custom-made pixel art sprites and tilesets
+* Custom-made font
+  
 Tests
 -
 | Gif | Action        | Desired outcome    | Actual outcome     |
