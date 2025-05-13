@@ -100,3 +100,98 @@ Gifs
 ![cast](https://github.com/user-attachments/assets/769dea84-1985-4b81-9268-b542b9913720)
 -
 
+# User Documentation
+
+## Controls
+
+| Action        | Key / Mouse Input   | 
+| ------------- | ------------------ | 
+| Move Left | A
+| Move Right | D
+| Jump | Space
+| Double Jump | Space (press twice)
+| Dash | Shift
+| Melee Attack | Left Mouse Button
+| Cast Projectile | Right Mouse Button
+| Interact | E
+| Open Menu | Menu Button (top right)
+| Resume Game | Menu -> Resume
+| Respawn | Menu -> Respawn
+| Quit | Menu -> Quit Game
+
+## Worlds Overview
+
+
+### 1. Sigmiukas Residence
+* Starting zone with small hills, caves and green forests.
+
+#### Enemies:
+* Dummy
+* Rat
+
+#### After completing the world, unlocks ability - Projectile Cast
+
+* Projectile Cast: costs 25 mana, shoots a big skull which damages and goes through enemies if the enemy dies. Disappears over time.
+
+
+### 2. Dark Forest
+
+* A dark forest filled with tall trees and small caves, in the middle stands a massive climbable tree with vines.
+#### Enemies:
+* Slimer
+* Blood Bat
+* Dummy
+* Rat
+#### Boss - Giant Living Wood
+#### After completing the world, unlocks ability - Double Jump
+* Double Jump - allows the player to jump again mid air
+
+
+### 3. Ice Caves
+* Cold and slippery ice caves filled with icicles, propellers which can launch you up and many different pathways to different areas.
+
+#### Enemies:
+* Frozen Skull
+* Ice Mimic
+* Ice Wisp
+#### Boss - Enormous Frozen Tortoise
+#### After completing the world, unlocks ability - Dash
+* Dash - costs 10 mana, pushes the player forward.
+
+
+### 4. Dragon's Lair
+* Hot and burning Dragon's Lair situated in hellish terrain with burning flames and lava everywhere.
+#### Enemies:
+* Lava Slimer
+* Pixy
+* Wraith
+
+#### Boss - Flaming Red Dragon Guardian
+#### After completing the world, awards the player with the LEMON
+
+
+## Pickable Items
+
+### Health Items
+These items are scattered within all of the worlds, they are pretty common and are easy to find. Collecting these items give you health points. 
+* Bread - Heals by 10 health points
+* Chems - Heals by 20 health points
+* Doggy Food - Heals by 30 health points
+
+### Stat Increase Items
+These items are rare and are hard to find. The player has to venture side track to find these items.  Only 1 of each items are available in each world. The stat increases can stack.
+* Health Hearth - Increases the maximum player's health by 20 and heals the player fully.
+* Mana Bottle - Increases the maximum player's mana by 25
+* Bloody Sword - Increases the maximum player's damage by 5
+
+## Tips
+
+* Complete The game by finding the precious lemon for your tea 
+* Mana regenerates over time
+* Unlock new abilities by completing each world
+* Acquire stat increases by exploring each world carefully
+* Avoid touching spikes and icicles
+* Dodge enemies if you are to weak to fight them
+* Use propellers to reach high destinations
+* Combine all of your movement abilities to dodge boss attacks
+* Never give up!
